@@ -10,7 +10,7 @@ from .analysis.report import analyze
 from .baselines.rules import run_baselines
 from .config import data_root, load_config
 from .defender.runner import run_mock_defenders
-from .doctor import global_doctor, toy_target_doctor
+from .doctor import global_doctor, lunary_target_doctor, toy_target_doctor
 from .freeze import create_lock
 from .scenarios import generate_scenarios
 from .status import experiment_status
@@ -90,10 +90,18 @@ def main(argv: list[str] | None = None) -> int:
                 if args.target == "toy_idor":
                     _print({"target": args.target, "status": "in_process_target_requires_no_build"})
                     return 0
-                raise RuntimeError("real target build is Phase 1 and is not implemented yet")
-            if args.target != "toy_idor":
-                raise RuntimeError("only toy_idor is available in Phase 0")
-            result = toy_target_doctor()
+                if args.target == "lunary_idor":
+                    from .environment.targets.lunary import build_target
+
+                    _print(build_target(root))
+                    return 0
+                raise RuntimeError(f"unknown target: {args.target}")
+            if args.target == "toy_idor":
+                result = toy_target_doctor()
+            elif args.target == "lunary_idor":
+                result = lunary_target_doctor(root)
+            else:
+                raise RuntimeError(f"unknown target: {args.target}")
             _print(result)
             return 0 if result["overall"] == "pass" else 1
 
@@ -190,4 +198,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

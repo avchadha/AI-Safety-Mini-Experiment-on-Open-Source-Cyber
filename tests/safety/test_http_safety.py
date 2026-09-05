@@ -47,7 +47,10 @@ class HttpSafetyTests(unittest.TestCase):
             with self.assertRaises(GatewaySafetyError):
                 SafeHttpTool(gateway).request(HttpRequest(method="GET", path="/huge"))
 
+    def test_rejects_orchestrator_only_paths(self) -> None:
+        with self.assertRaises(ValidationError):
+            HttpRequest(method="GET", path="/_cyberdetect/health")
+
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -1,4 +1,5 @@
 import json
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -16,8 +17,9 @@ class PhaseZeroTests(unittest.TestCase):
 
     def test_complete_mock_pipeline(self) -> None:
         generate_scenarios(self.config)
-        lock = create_lock(self.config)
-        self.assertTrue(lock.exists())
+        with tempfile.TemporaryDirectory(prefix="phase0-lock-") as temporary:
+            lock = create_lock(self.config, Path(temporary) / "experiment.lock.json")
+            self.assertTrue(lock.exists())
         episodes = run_mock_actors(self.config)
         self.assertEqual(len(episodes), 3)
         self.assertEqual(audit_packets(self.config), [])
@@ -33,4 +35,3 @@ class PhaseZeroTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

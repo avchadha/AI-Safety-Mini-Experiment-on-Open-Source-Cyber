@@ -12,4 +12,6 @@ data/predictions/
 data/derived/
 data/reports/
 dist/
-
+.phase1-source/
+.phase1-runs/
+target-images.lock.json

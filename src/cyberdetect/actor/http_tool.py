@@ -27,6 +27,8 @@ class HttpRequest(BaseModel):
             raise ValueError("absolute URLs and network-path references are forbidden")
         if any(ord(character) < 32 for character in self.path):
             raise ValueError("control characters are forbidden in paths")
+        if self.path.startswith("/_cyberdetect/"):
+            raise ValueError("orchestrator-only target endpoints are forbidden")
         if self.json_body is not None and self.form_body is not None:
             raise ValueError("json_body and form_body are mutually exclusive")
         unsafe = {"host", "authorization", "cookie", "x-forwarded-for", "forwarded"}
@@ -60,4 +62,3 @@ class SafeHttpTool:
                 json_body=value,
             )
         )
-

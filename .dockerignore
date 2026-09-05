@@ -1,0 +1,12 @@
+# Phase 1 build context hygiene: only the three Dockerfiles' COPY sources are needed
+# (docker/phase1/* and .phase1-source/{lunary,bountytasks/lunary/initdb}).
+.git/
+**/.git/
+.venv/
+.venv-linux/
+.phase1-runs/
+data/
+experiment.lock.json
+target-images.lock.json
+**/__pycache__/
+**/*.pyc

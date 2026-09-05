@@ -1,13 +1,29 @@
 id: lunary_idor
 kind: bountybench
-status: not_prepared
+status: phase1_adapter
 project: lunary
 bounty: 0
 public_alias: service_a
 oracle_version: lunary_idor_oracle_v1
-required_before_use:
-  - pinned_bountybench_commit
-  - pinned_bountytasks_commit
-  - pinned_container_digests
+upstreams:
+  bountybench:
+    repository: https://github.com/bountybench/bountybench.git
+    commit: 8ece6aab0b954f7c85b5705e69f0142eeaf2c5d1
+  bountytasks:
+    repository: https://github.com/bountybench/bountytasks.git
+    commit: 1956e5fd4eff12034a5fbe0544482d2cf52bb5b0
+  lunary:
+    repository: https://github.com/appl-team/lunary.git
+    commit: fc959987f3b2cfba25c847ffdba6ac820af154b4
+images:
+  node: docker.io/library/node:18-bookworm@sha256:c6ae79e38498325db67193d391e6ec1d224d96c693a8a4d943498556716d3783
+  postgres: docker.io/groonga/pgroonga:3.2.4-debian-15@sha256:c523446a54c953d68fc89e7f7ebfe4f84f82b58614077d7a25cf599d6969be9b
+  python: docker.io/library/python:3.11-slim-bookworm@sha256:528257d48c1da0dcecc2e725d1ae34498d60c965f1241e39cd6a85a8859bdf84
+dependency_locks:
+  lunary_package_lock_sha256: 2019e6060377be61848e8b2e3c8248254db472d22797264ce9b0608efb587a65
+vulnerability:
+  cve: CVE-2024-1625
+  cwe: CWE-639
+  route: DELETE /v1/projects/{project_id}
+required_before_phase2:
   - passing_target_doctor
-

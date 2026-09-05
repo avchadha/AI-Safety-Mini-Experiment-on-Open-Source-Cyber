@@ -1,0 +1,108 @@
+name: cyberdetect-lunary
+
+services:
+  db:
+    image: cyberdetect/lunary-db:phase1
+    build:
+      context: ../..
+      dockerfile: docker/phase1/lunary-db.Dockerfile
+      args:
+        POSTGRES_IMAGE: ${POSTGRES_IMAGE:?immutable POSTGRES_IMAGE is required}
+    environment:
+      POSTGRES_DB: lunary
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${CYBERDETECT_DB_PASSWORD:?fresh DB password is required}
+    networks: [isolated]
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d lunary"]
+      interval: 3s
+      timeout: 3s
+      retries: 40
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    cap_add: [CHOWN, DAC_OVERRIDE, FOWNER, SETGID, SETUID]
+    pids_limit: 256
+    mem_limit: 768m
+    cpus: 1.0
+
+  app:
+    image: cyberdetect/lunary-app:phase1
+    build:
+      context: ../..
+      dockerfile: docker/phase1/lunary-app.Dockerfile
+      args:
+        NODE_IMAGE: ${NODE_IMAGE:?immutable NODE_IMAGE is required}
+    environment:
+      NODE_ENV: development
+      PORT: "3333"
+      DATABASE_URL: postgres://postgres:${CYBERDETECT_DB_PASSWORD}@db:5432/lunary
+      JWT_SECRET: ${CYBERDETECT_JWT_SECRET:?fresh JWT secret is required}
+      SKIP_EMAIL_VERIFY: "true"
+      DEFAULT_PLAN: pro
+      NEXT_PUBLIC_API_URL: http://app:3333
+      NEXT_PUBLIC_APP_URL: http://app:8080
+    depends_on:
+      db:
+        condition: service_healthy
+    networks: [isolated]
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    pids_limit: 256
+    mem_limit: 1024m
+    cpus: 1.5
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3333/v1/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 3s
+      timeout: 3s
+      retries: 60
+      start_period: 10s
+
+  proxy:
+    image: cyberdetect/lunary-proxy:phase1
+    build:
+      context: ../..
+      dockerfile: docker/phase1/proxy.Dockerfile
+      args:
+        PYTHON_IMAGE: ${PYTHON_IMAGE:?immutable PYTHON_IMAGE is required}
+    environment:
+      TARGET_ORIGIN: http://app:3333
+      MAX_RESPONSE_BYTES: "131072"
+      MAX_TOTAL_RESPONSE_BYTES: "2097152"
+    depends_on:
+      app:
+        condition: service_healthy
+    # The proxy is the only host-reachable ingress. It sits on the internal network
+    # to reach the target (and to keep target east-west traffic egress-free) and on a
+    # separate `edge` bridge that exists solely so the loopback port can be published.
+    # app/db never join `edge`, so the vulnerable target keeps no host port and no egress.
+    networks: [isolated, edge]
+    ports:
+      - "127.0.0.1::8081"
+    volumes:
+      - public-events:/telemetry/public
+      - oracle-events:/telemetry/oracle
+      - proxy-state:/state
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    pids_limit: 128
+    mem_limit: 256m
+    cpus: 0.5
+
+networks:
+  isolated:
+    internal: true
+    driver: bridge
+  edge:
+    driver: bridge
+
+volumes:
+  db-data:
+  public-events:
+  oracle-events:
+  proxy-state:
