@@ -70,9 +70,11 @@ def build_parser() -> argparse.ArgumentParser:
     audit_sub = audit.add_subparsers(dest="audit_command", required=True)
     leakage = audit_sub.add_parser("leakage")
     leakage.add_argument("--lock", default="experiment.lock.json")
+    leakage.add_argument("--config", default=None)
 
     analysis = subparsers.add_parser("analyze")
     analysis.add_argument("--lock", default="experiment.lock.json")
+    analysis.add_argument("--config", default=None)
 
     visual = subparsers.add_parser("visualize")
     visual.add_argument("--episode", required=True)
@@ -150,13 +152,13 @@ def main(argv: list[str] | None = None) -> int:
             return 0
 
         if args.command == "audit":
-            config_path = _config_from_lock(args.lock)
+            config_path = args.config if getattr(args, "config", None) else _config_from_lock(args.lock)
             findings = audit_packets(config_path)
             _print({"passed": not findings, "findings": [finding.__dict__ for finding in findings]})
             return 0 if not findings else 1
 
         if args.command == "analyze":
-            config_path = _config_from_lock(args.lock)
+            config_path = args.config if getattr(args, "config", None) else _config_from_lock(args.lock)
             metrics, report = analyze(config_path)
             _print({"metrics": str(metrics.relative_to(root)), "report": str(report.relative_to(root))})
             return 0

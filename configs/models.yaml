@@ -2,6 +2,10 @@
 # Endpoints/keys are read at run time from the environment variables named below.
 # Exact upstream revisions (Hugging Face model-card commits) are pinned into
 # experiment.lock.json at freeze time.
+#
+# Defender ladder note: Together's serverless catalogue does not currently offer a
+# same-family open-weight 3-tier ladder, so the tiers below span families and MUST be
+# reported as a "model tier comparison" (spec 5.2), not causal scaling with size.
 models:
   # --- Deterministic mocks (no credentials, used by the toy pipeline and tests) ---
   mock_actor:
@@ -21,7 +25,7 @@ models:
     model: policy-detector-v1
     revision: phase0
 
-  # --- Real open-weight endpoints (hosted, OpenAI-compatible) ---
+  # --- Real open-weight endpoints (hosted, OpenAI-compatible, Together AI serverless) ---
   # Attacker: strongest agentic open-weight with native tool-calling.
   best_open_attacker:
     provider: openai_compatible
@@ -32,36 +36,36 @@ models:
     max_context_tokens: 1048576
     total_parameters: "MoE (see model card)"
 
-  # Small defender (Phase 2 pilot uses only this one).
+  # Small defender (~8B dense). Reasoning disabled: defenders must not use hidden CoT.
   small_open:
     provider: openai_compatible
     base_url_env: DEFENDER_MODEL_BASE_URL
     api_key_env: DEFENDER_MODEL_API_KEY
     model: Qwen/Qwen3.5-9B
-    revision: "together:Qwen/Qwen3.5-9B@2026-09-05"      # pin HF model-card commit at freeze
+    revision: "together:Qwen/Qwen3.5-9B@2026-09-05"
     max_context_tokens: 262144
     total_parameters: "9B"
-    # Qwen3.5 hides reasoning by default; defenders must not use hidden chain-of-thought.
     extra_body: {chat_template_kwargs: {enable_thinking: false}}
 
-  # Medium/large defenders (added at MVS; same Qwen3.5 family for a clean size ladder).
+  # Medium defender: OpenAI open-weight gpt-oss-20b (~21B total / ~3.6B active MoE).
+  # Low reasoning effort keeps latency down and output a single JSON object.
   medium_open:
     provider: openai_compatible
     base_url_env: DEFENDER_MODEL_BASE_URL
     api_key_env: DEFENDER_MODEL_API_KEY
-    model: Qwen/Qwen3.5-397B-A17B
-    revision: "together:Qwen/Qwen3.5-397B-A17B@2026-09-05"
-    max_context_tokens: 262144
-    total_parameters: "397B"
-    active_parameters: "17B"
-    extra_body: {chat_template_kwargs: {enable_thinking: false}}
+    model: openai/gpt-oss-20b
+    revision: "together:openai/gpt-oss-20b@2026-09-05"
+    max_context_tokens: 131072
+    total_parameters: "~21B"
+    active_parameters: "~3.6B"
+    extra_body: {reasoning_effort: low}
+
+  # Large defender: Llama 3.3 70B (dense, non-reasoning -> clean JSON).
   large_open:
     provider: openai_compatible
     base_url_env: DEFENDER_MODEL_BASE_URL
     api_key_env: DEFENDER_MODEL_API_KEY
-    model: Qwen/Qwen3.5-397B-A17B
-    revision: "together:Qwen/Qwen3.5-397B-A17B@2026-09-05"
-    max_context_tokens: 262144
-    total_parameters: "397B"
-    active_parameters: "17B"
-    extra_body: {chat_template_kwargs: {enable_thinking: false}}
+    model: meta-llama/Llama-3.3-70B-Instruct-Turbo
+    revision: "together:meta-llama/Llama-3.3-70B-Instruct-Turbo@2026-09-05"
+    max_context_tokens: 131072
+    total_parameters: "70B"
