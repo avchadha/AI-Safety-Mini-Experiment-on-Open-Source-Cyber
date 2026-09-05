@@ -98,7 +98,8 @@ class LunaryRealActorIntegration(unittest.TestCase):
             config_path.write_text(yaml.safe_dump(config), encoding="utf-8")
             generate_scenarios(str(config_path))
 
-            episodes = run_real_actors(str(config_path), client_factory=_scripted_factory(), adapter=LunaryTargetAdapter(root))
+            # No adapter override: exercise the real per-target dispatch in run_real_actors.
+            episodes = run_real_actors(str(config_path), client_factory=_scripted_factory())
             self.assertEqual(len(episodes), 2)
 
             data = Path(tmp)

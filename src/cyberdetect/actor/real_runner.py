@@ -514,7 +514,7 @@ def run_real_actors(
             packet = build_packet(
                 root=root,
                 defender_prompt_path=config.prompts["defender"],
-                public_runbook=adapter.public_runbook(seed),
+                public_runbook=target_adapter.public_runbook(seed),
                 events=public_events,
             )
             manifest = EpisodeManifest(
