@@ -175,6 +175,13 @@ class ContainerGatewayClient:
             body = urllib.parse.urlencode(request.form_body).encode()
         event_id = f"evt_{uuid.uuid4().hex}"
         headers = {key: value for key, value in request.headers.items() if key.lower() in self.allowed_headers}
+        # Infer a content-type for encoded bodies so the target parses them; the actor
+        # need not (and via the http tool, cannot) set trusted transport headers itself.
+        if not any(key.lower() == "content-type" for key in headers):
+            if request.json_body is not None:
+                headers["content-type"] = "application/json"
+            elif request.form_body is not None:
+                headers["content-type"] = "application/x-www-form-urlencoded"
         headers["x-experiment-session"] = self.session
         headers["x-experiment-request-id"] = event_id
         outgoing = urllib.request.Request(url, data=body, headers=headers, method=request.method)

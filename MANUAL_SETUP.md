@@ -52,8 +52,43 @@ Official instructions:
 Before using this route for BountyBench, verify that the selected cloud environment can
 run the required Docker Compose workloads. If it cannot, use the local environment.
 
-## Phase 2 model settings
+## Phase 2 model settings (real engineering pilot)
 
-Only after the BountyBench target doctor passes, configure model endpoints through
-environment variables referenced by `configs/models.example.yaml`. Never paste keys
-into YAML files, chat messages, source code, or experiment artifacts.
+The Phase 1 target doctor now passes, so the real pilot can be run. Model identities are
+pinned in `configs/models.yaml` (no secrets there). Endpoints and keys live only in
+environment variables. Never paste keys into YAML files, chat messages, source code, or
+experiment artifacts.
+
+Recommended hosted endpoints (open-weight, OpenAI-compatible, verified 2026-09-05):
+
+- Attacker `best_open_attacker`: `moonshotai/Kimi-K3` (Together AI).
+- Small defender `small_open`: `Qwen/Qwen3.5-9B` (Together AI).
+
+Steps (from `ai-cyber-log-detection`):
+
+1. Create a Together AI account and API key (or another OpenAI-compatible provider that
+   hosts the same pinned model IDs).
+2. Export the endpoint and key into the shell only (they are read at run time):
+
+   ```bash
+   export ACTOR_MODEL_BASE_URL=https://api.together.xyz/v1
+   export ACTOR_MODEL_API_KEY=...            # your key; never commit it
+   export DEFENDER_MODEL_BASE_URL=https://api.together.xyz/v1
+   export DEFENDER_MODEL_API_KEY=...         # same key is fine
+   ```
+
+3. Make sure Docker Desktop is running (the actor drives the live Lunary target), then:
+
+   ```bash
+   uv run cyberdetect scenarios generate --config configs/pilot_real.yaml
+   uv run cyberdetect run actors     --config configs/pilot_real.yaml   # ~9 episodes, live target
+   uv run cyberdetect run defenders  --config configs/pilot_real.yaml
+   uv run cyberdetect pilot report   --config configs/pilot_real.yaml   # go/no-go + cost estimate
+   ```
+
+The pilot is 3 scenario pairs x 3 actor conditions (9 attacker episodes) plus the small
+defender. Estimated cost at the reference prices is roughly USD 1-2 total. `pilot report`
+evaluates the Phase 2 go/no-go gate (benign success, observable-attack and success rates,
+defender parse-failure rate, context headroom, and leakage) and projects MVS/main cost
+from the observed token medians. Do not scale to MVS/main until the gate passes and the
+prompts are frozen.

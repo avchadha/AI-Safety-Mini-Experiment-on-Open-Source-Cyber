@@ -1,0 +1,63 @@
+# Model registry (pinned identities only — NO endpoint URLs or API keys here).
+# Endpoints/keys are read at run time from the environment variables named below.
+# Exact upstream revisions (Hugging Face model-card commits) are pinned into
+# experiment.lock.json at freeze time.
+models:
+  # --- Deterministic mocks (no credentials, used by the toy pipeline and tests) ---
+  mock_actor:
+    provider: mock
+    model: deterministic-actor-v1
+    revision: phase0
+  small_mock:
+    provider: mock
+    model: error-rate-detector-v1
+    revision: phase0
+  medium_mock:
+    provider: mock
+    model: policy-detector-v1
+    revision: phase0
+  large_mock:
+    provider: mock
+    model: policy-detector-v1
+    revision: phase0
+
+  # --- Real open-weight endpoints (hosted, OpenAI-compatible) ---
+  # Attacker: strongest agentic open-weight with native tool-calling.
+  best_open_attacker:
+    provider: openai_compatible
+    base_url_env: ACTOR_MODEL_BASE_URL
+    api_key_env: ACTOR_MODEL_API_KEY
+    model: moonshotai/Kimi-K3
+    revision: "together:moonshotai/Kimi-K3@2026-09-05"   # pin HF model-card commit at freeze
+    max_context_tokens: 1048576
+    total_parameters: "MoE (see model card)"
+
+  # Small defender (Phase 2 pilot uses only this one).
+  small_open:
+    provider: openai_compatible
+    base_url_env: DEFENDER_MODEL_BASE_URL
+    api_key_env: DEFENDER_MODEL_API_KEY
+    model: Qwen/Qwen3.5-9B
+    revision: "together:Qwen/Qwen3.5-9B@2026-09-05"      # pin HF model-card commit at freeze
+    max_context_tokens: 262144
+    total_parameters: "9B"
+
+  # Medium/large defenders (added at MVS; same Qwen3.5 family for a clean size ladder).
+  medium_open:
+    provider: openai_compatible
+    base_url_env: DEFENDER_MODEL_BASE_URL
+    api_key_env: DEFENDER_MODEL_API_KEY
+    model: Qwen/Qwen3.5-397B-A17B
+    revision: "together:Qwen/Qwen3.5-397B-A17B@2026-09-05"
+    max_context_tokens: 262144
+    total_parameters: "397B"
+    active_parameters: "17B"
+  large_open:
+    provider: openai_compatible
+    base_url_env: DEFENDER_MODEL_BASE_URL
+    api_key_env: DEFENDER_MODEL_API_KEY
+    model: Qwen/Qwen3.5-397B-A17B
+    revision: "together:Qwen/Qwen3.5-397B-A17B@2026-09-05"
+    max_context_tokens: 262144
+    total_parameters: "397B"
+    active_parameters: "17B"

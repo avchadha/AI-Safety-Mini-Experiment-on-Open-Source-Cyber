@@ -6,10 +6,14 @@ import sys
 from pathlib import Path
 
 from .actor.runner import run_mock_actors
+from .actor.real_runner import run_real_actors
 from .analysis.report import analyze
+from .analysis.pilot import pilot_gate
 from .baselines.rules import run_baselines
+from .models import get_model
 from .config import data_root, load_config
 from .defender.runner import run_mock_defenders
+from .defender.real_runner import run_real_defenders
 from .doctor import global_doctor, lunary_target_doctor, toy_target_doctor
 from .freeze import create_lock
 from .scenarios import generate_scenarios
@@ -55,6 +59,12 @@ def build_parser() -> argparse.ArgumentParser:
     for name in ("actors", "defenders", "baselines"):
         command = run_sub.add_parser(name)
         command.add_argument("--lock", default="experiment.lock.json")
+        command.add_argument("--config", default=None, help="Run directly from a config instead of a freeze lock (pilot use).")
+
+    pilot = subparsers.add_parser("pilot")
+    pilot_sub = pilot.add_subparsers(dest="pilot_command", required=True)
+    pilot_report = pilot_sub.add_parser("report")
+    pilot_report.add_argument("--config", default="configs/pilot_real.yaml")
 
     audit = subparsers.add_parser("audit")
     audit_sub = audit.add_subparsers(dest="audit_command", required=True)
@@ -116,13 +126,27 @@ def main(argv: list[str] | None = None) -> int:
             return 0
 
         if args.command == "run":
-            config_path = _config_from_lock(args.lock)
+            config_path = args.config if getattr(args, "config", None) else _config_from_lock(args.lock)
+            config, _, _ = load_config(config_path)
             if args.run_command == "actors":
-                _print({"episodes": run_mock_actors(config_path)})
+                actor_is_mock = get_model(config.actor_model).provider == "mock"
+                episodes = run_mock_actors(config_path) if actor_is_mock else run_real_actors(config_path)
+                _print({"mode": "mock" if actor_is_mock else "real", "episodes": episodes})
             elif args.run_command == "defenders":
-                _print({"predictions": [str(path.relative_to(root)) for path in run_mock_defenders(config_path)]})
+                defenders_mock = all(get_model(d).provider == "mock" for d in config.defender_models)
+                runner = run_mock_defenders if defenders_mock else run_real_defenders
+                _print(
+                    {
+                        "mode": "mock" if defenders_mock else "real",
+                        "predictions": [str(path.relative_to(root)) for path in runner(config_path)],
+                    }
+                )
             else:
                 _print({"predictions": [str(path.relative_to(root)) for path in run_baselines(config_path)]})
+            return 0
+
+        if args.command == "pilot":
+            _print(pilot_gate(args.config))
             return 0
 
         if args.command == "audit":
