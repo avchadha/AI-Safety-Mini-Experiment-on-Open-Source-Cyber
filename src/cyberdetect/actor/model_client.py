@@ -9,6 +9,7 @@ tested without credentials.
 
 from __future__ import annotations
 
+import http.client
 import json
 import time
 import urllib.error
@@ -154,7 +155,13 @@ class OpenAICompatibleClient:
                 # Retry only transient faults; fail fast on client errors like 400/401/403.
                 if error.code not in {408, 409, 429, 500, 502, 503, 504}:
                     break
-            except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as error:
+            except (
+                urllib.error.URLError,
+                TimeoutError,
+                ConnectionError,          # incl. ConnectionResetError / RemoteDisconnected
+                http.client.HTTPException,  # incl. BadStatusLine / IncompleteRead
+                json.JSONDecodeError,
+            ) as error:
                 last_error = f"{type(error).__name__}: {error}"
             time.sleep(min(2**attempt, 8))
         raise ModelCallError(f"model call to {self.model} failed: {last_error}")
