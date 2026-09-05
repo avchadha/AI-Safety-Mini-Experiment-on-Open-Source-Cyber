@@ -362,6 +362,8 @@ def _default_client_factory(config: Any) -> Callable[[Scenario], ChatClient]:
             max_output_tokens=int(limits["max_output_tokens_per_turn"]),
             seed=scenario.scenario_seed,
             extra_body=spec.extra_body,
+            # Large agentic models on serverless endpoints can take minutes per turn.
+            timeout=int(config.experiment.get("actor_request_timeout_seconds", 300)),
         )
 
     return factory
