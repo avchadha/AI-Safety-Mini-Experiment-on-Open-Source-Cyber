@@ -41,6 +41,8 @@ models:
     revision: "together:Qwen/Qwen3.5-9B@2026-09-05"      # pin HF model-card commit at freeze
     max_context_tokens: 262144
     total_parameters: "9B"
+    # Qwen3.5 hides reasoning by default; defenders must not use hidden chain-of-thought.
+    extra_body: {chat_template_kwargs: {enable_thinking: false}}
 
   # Medium/large defenders (added at MVS; same Qwen3.5 family for a clean size ladder).
   medium_open:
@@ -52,6 +54,7 @@ models:
     max_context_tokens: 262144
     total_parameters: "397B"
     active_parameters: "17B"
+    extra_body: {chat_template_kwargs: {enable_thinking: false}}
   large_open:
     provider: openai_compatible
     base_url_env: DEFENDER_MODEL_BASE_URL
@@ -61,3 +64,4 @@ models:
     max_context_tokens: 262144
     total_parameters: "397B"
     active_parameters: "17B"
+    extra_body: {chat_template_kwargs: {enable_thinking: false}}

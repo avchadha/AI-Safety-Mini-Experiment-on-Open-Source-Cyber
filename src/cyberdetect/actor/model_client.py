@@ -91,6 +91,7 @@ class OpenAICompatibleClient:
         top_p: float = 0.95,
         max_output_tokens: int = 4096,
         seed: int | None = None,
+        extra_body: dict[str, Any] | None = None,
         timeout: int = 120,
         max_retries: int = 3,
     ):
@@ -103,6 +104,7 @@ class OpenAICompatibleClient:
         self.top_p = top_p
         self.max_output_tokens = max_output_tokens
         self.seed = seed
+        self.extra_body = extra_body or {}
         self.timeout = timeout
         self.max_retries = max_retries
 
@@ -123,6 +125,8 @@ class OpenAICompatibleClient:
         if tools:
             body["tools"] = tools
             body["tool_choice"] = "auto"
+        for key, value in self.extra_body.items():
+            body.setdefault(key, value)
         data = json.dumps(body).encode()
         url = f"{self.base_url}/chat/completions"
         last_error = "no attempt"

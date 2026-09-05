@@ -55,6 +55,7 @@ def _default_client_factory(config: Any) -> Callable[[str], ChatClient]:
             temperature=float(DEFENDER_SAMPLING["temperature"]),
             top_p=1.0,
             max_output_tokens=int(DEFENDER_SAMPLING["max_output_tokens"]),
+            extra_body=spec.extra_body,
         )
 
     def factory(defender_id: str) -> ChatClient:

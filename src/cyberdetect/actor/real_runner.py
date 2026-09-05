@@ -361,6 +361,7 @@ def _default_client_factory(config: Any) -> Callable[[Scenario], ChatClient]:
             top_p=float(sampling["top_p"]),
             max_output_tokens=int(limits["max_output_tokens_per_turn"]),
             seed=scenario.scenario_seed,
+            extra_body=spec.extra_body,
         )
 
     return factory

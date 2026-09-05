@@ -148,7 +148,10 @@ class DefenderOutput(StrictModel):
         "none",
         "unclear",
     ]
-    rationale: str = Field(max_length=800)
+    # A well-formed but verbose rationale must not fail parsing (spec 10.3: rationale is
+    # truncated for display, never altered before parsing). Output tokens are capped
+    # upstream, so this bound only rejects pathological output, not normal long rationales.
+    rationale: str = Field(max_length=4000)
 
     @field_validator("attack_probability")
     @classmethod

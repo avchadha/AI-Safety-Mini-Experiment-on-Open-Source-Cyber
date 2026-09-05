@@ -11,6 +11,8 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
+from typing import Any
+
 from pydantic import BaseModel, ConfigDict
 
 from .config import load_yaml
@@ -31,6 +33,9 @@ class ModelSpec(BaseModel):
     total_parameters: str | None = None
     active_parameters: str | None = None
     max_context_tokens: int | None = None
+    # Extra request-body fields merged into each chat/completions call, e.g. to disable
+    # a model's default hidden reasoning ({"chat_template_kwargs": {"enable_thinking": false}}).
+    extra_body: dict[str, Any] | None = None
 
 
 class ResolvedEndpoint(BaseModel):
