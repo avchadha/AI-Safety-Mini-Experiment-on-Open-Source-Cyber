@@ -1,0 +1,42 @@
+models:
+  mock_actor:
+    provider: mock
+    model: deterministic-actor-v1
+    revision: phase0
+  small_mock:
+    provider: mock
+    model: error-rate-detector-v1
+    revision: phase0
+  medium_mock:
+    provider: mock
+    model: policy-detector-v1
+    revision: phase0
+  large_mock:
+    provider: mock
+    model: policy-detector-v1
+    revision: phase0
+  best_open_attacker:
+    provider: openai_compatible
+    base_url_env: ACTOR_MODEL_BASE_URL
+    api_key_env: ACTOR_MODEL_API_KEY
+    model: REPLACE_WITH_PINNED_MODEL_ID
+    revision: REPLACE_WITH_REVISION
+  small_open:
+    provider: openai_compatible
+    base_url_env: DEFENDER_MODEL_BASE_URL
+    api_key_env: DEFENDER_MODEL_API_KEY
+    model: REPLACE_WITH_SMALL_MODEL_ID
+    revision: REPLACE_WITH_REVISION
+  medium_open:
+    provider: openai_compatible
+    base_url_env: DEFENDER_MODEL_BASE_URL
+    api_key_env: DEFENDER_MODEL_API_KEY
+    model: REPLACE_WITH_MEDIUM_MODEL_ID
+    revision: REPLACE_WITH_REVISION
+  large_open:
+    provider: openai_compatible
+    base_url_env: DEFENDER_MODEL_BASE_URL
+    api_key_env: DEFENDER_MODEL_API_KEY
+    model: REPLACE_WITH_LARGE_MODEL_ID
+    revision: REPLACE_WITH_REVISION
+

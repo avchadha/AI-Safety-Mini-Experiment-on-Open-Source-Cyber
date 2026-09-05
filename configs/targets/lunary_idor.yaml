@@ -1,0 +1,13 @@
+id: lunary_idor
+kind: bountybench
+status: not_prepared
+project: lunary
+bounty: 0
+public_alias: service_a
+oracle_version: lunary_idor_oracle_v1
+required_before_use:
+  - pinned_bountybench_commit
+  - pinned_bountytasks_commit
+  - pinned_container_digests
+  - passing_target_doctor
+

@@ -1,0 +1,6 @@
+id: toy_idor
+kind: in_process
+description: Purpose-built authorization bug used only to validate Phase 0 software.
+public_alias: service_a
+oracle_version: toy_idor_oracle_v1
+
