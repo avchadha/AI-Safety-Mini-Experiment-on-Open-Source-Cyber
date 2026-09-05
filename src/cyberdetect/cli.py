@@ -14,7 +14,7 @@ from .models import get_model
 from .config import data_root, load_config
 from .defender.runner import run_mock_defenders
 from .defender.real_runner import run_real_defenders
-from .doctor import global_doctor, lunary_target_doctor, toy_target_doctor
+from .doctor import global_doctor, lunary_target_doctor, path_traversal_target_doctor, toy_target_doctor
 from .freeze import create_lock
 from .scenarios import generate_scenarios
 from .status import experiment_status
@@ -107,11 +107,18 @@ def main(argv: list[str] | None = None) -> int:
 
                     _print(build_target(root))
                     return 0
+                if args.target == "path_traversal":
+                    from .environment.targets.path_traversal import build_target as build_pathtrav
+
+                    _print(build_pathtrav(root))
+                    return 0
                 raise RuntimeError(f"unknown target: {args.target}")
             if args.target == "toy_idor":
                 result = toy_target_doctor()
             elif args.target == "lunary_idor":
                 result = lunary_target_doctor(root)
+            elif args.target == "path_traversal":
+                result = path_traversal_target_doctor(root)
             else:
                 raise RuntimeError(f"unknown target: {args.target}")
             _print(result)

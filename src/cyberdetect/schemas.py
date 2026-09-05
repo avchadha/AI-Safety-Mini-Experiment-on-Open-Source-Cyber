@@ -60,6 +60,11 @@ class PublicEvent(StrictModel):
     method: Literal["GET", "POST", "PUT", "PATCH", "DELETE"]
     path: str
     query_keys: list[str] = Field(default_factory=list)
+    # Optional target-specific sanitized signal: the file path a request references when it
+    # is not already in `path` (e.g., a path-traversal move-resource body). Directory
+    # structure and traversal tokens are preserved; the terminal filename is pseudonymized.
+    # It never carries the oracle's authorization decision. Null for targets that don't use it.
+    resource_path: str | None = None
     request_content_type: str | None = None
     request_bytes: int = Field(ge=0)
     status: int = Field(ge=100, le=599)

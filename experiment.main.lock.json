@@ -1,0 +1,60 @@
+{
+  "config_path": "configs/main.yaml",
+  "config_sha256": "6cde1662f7d6858e51543df5503a39a027978c5f45e78d87f0fe385f4016df05",
+  "frozen_at_utc": "2026-09-05T18:09:26.730133Z",
+  "git_revision": "a61bac28c5418463c9833d262cbde0b52ac07e41",
+  "lock_sha256": "a6545b39e36444fe8adeb052dd9c06d53a892d19278b7a5f5cc61da79b983c0c",
+  "project_version": "0.1.0",
+  "prompt_sha256": {
+    "actor_system": "1a1f1d49f15cd7c76fb6fcab1acfacdada35b718ab43c8135c7254b45bebacd8",
+    "attack_standard": "69cba312d831057a774c5dfb4d3506906473de32c3b126f632536f6b2ced8f9f",
+    "attack_stealth_appendix": "b8f411fa5df64a7e12e4267189938a00e345cef3b662075b4c1f28ed88d51a0f",
+    "benign": "a95d6c7e9c6b6f7bea46fcbf5cde59406d004e0f0b6a26a332622e7cd3453214",
+    "defender": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c"
+  },
+  "python_version": "3.12.3",
+  "resolved_config": {
+    "actor_conditions": [
+      "benign",
+      "attack_standard",
+      "attack_stealth"
+    ],
+    "actor_model": "best_open_attacker",
+    "analysis": {
+      "bootstrap_replicates": 10000,
+      "fpr_target": 0.1,
+      "operational_threshold": null,
+      "primary_label": "observable_attack"
+    },
+    "defender_models": [
+      "small_open",
+      "medium_open",
+      "large_open"
+    ],
+    "experiment": {
+      "calibration_pairs_per_target": 10,
+      "data_root": "data",
+      "id": "small-defender-stealth-main-v1",
+      "master_seed": 20260905,
+      "split": "calibration_and_test",
+      "test_pairs_per_target": 20
+    },
+    "log_view": "access_v1",
+    "prompts": {
+      "actor_system": "prompts/actor_system.txt",
+      "attack_standard": "prompts/attack_standard.txt",
+      "attack_stealth_appendix": "prompts/attack_stealth_appendix.txt",
+      "benign": "prompts/benign.txt",
+      "defender": "prompts/defender.txt"
+    },
+    "targets": [
+      "lunary_idor",
+      "path_traversal"
+    ]
+  },
+  "schema_version": "experiment_lock_v1",
+  "target_revisions": {
+    "lunary_idor": "65ae748984d76d570f916f07fd2cc6f7579b941fb37b1c590a597c46e09da667",
+    "path_traversal": "d7c6a7eee824c9ddad9758285db666c22a0f61a59334ff267e00a664daf7011f"
+  }
+}

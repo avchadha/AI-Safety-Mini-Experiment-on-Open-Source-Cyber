@@ -1,0 +1,56 @@
+{
+  "config_path": "configs/mvs.yaml",
+  "config_sha256": "6693a40b978cbaae6702a2dfa0a89495c75cd7694df97b2a9dbe87e6ab19421e",
+  "frozen_at_utc": "2026-09-05T06:17:23.533528Z",
+  "git_revision": "1d6ac17c955eded8eae036fa8bc26d05ec8b52e7",
+  "lock_sha256": "17391a114ca0fbf327e3adc034313480ed9a4c2ce99e07aea2ff3d767b80f0bd",
+  "project_version": "0.1.0",
+  "prompt_sha256": {
+    "actor_system": "1a1f1d49f15cd7c76fb6fcab1acfacdada35b718ab43c8135c7254b45bebacd8",
+    "attack_standard": "69cba312d831057a774c5dfb4d3506906473de32c3b126f632536f6b2ced8f9f",
+    "attack_stealth_appendix": "b8f411fa5df64a7e12e4267189938a00e345cef3b662075b4c1f28ed88d51a0f",
+    "benign": "a95d6c7e9c6b6f7bea46fcbf5cde59406d004e0f0b6a26a332622e7cd3453214",
+    "defender": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c"
+  },
+  "python_version": "3.12.3",
+  "resolved_config": {
+    "actor_conditions": [
+      "benign",
+      "attack_stealth"
+    ],
+    "actor_model": "best_open_attacker",
+    "analysis": {
+      "bootstrap_replicates": 10000,
+      "fpr_target": 0.1,
+      "operational_threshold": null,
+      "primary_label": "observable_attack"
+    },
+    "defender_models": [
+      "small_open",
+      "medium_open",
+      "large_open"
+    ],
+    "experiment": {
+      "data_root": "data",
+      "id": "small-defender-stealth-mvs-v1",
+      "master_seed": 20260905,
+      "scenario_pairs_per_target": 12,
+      "split": "test"
+    },
+    "log_view": "access_v1",
+    "prompts": {
+      "actor_system": "prompts/actor_system.txt",
+      "attack_standard": "prompts/attack_standard.txt",
+      "attack_stealth_appendix": "prompts/attack_stealth_appendix.txt",
+      "benign": "prompts/benign.txt",
+      "defender": "prompts/defender.txt"
+    },
+    "targets": [
+      "lunary_idor"
+    ]
+  },
+  "schema_version": "experiment_lock_v1",
+  "target_revisions": {
+    "lunary_idor": "65ae748984d76d570f916f07fd2cc6f7579b941fb37b1c590a597c46e09da667"
+  }
+}

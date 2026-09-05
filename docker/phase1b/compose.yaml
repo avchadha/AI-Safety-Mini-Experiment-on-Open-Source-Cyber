@@ -1,0 +1,71 @@
+name: cyberdetect-gradio
+
+services:
+  app:
+    image: cyberdetect/gradio-app:phase4
+    build:
+      context: ../..
+      dockerfile: docker/phase1b/gradio-app.Dockerfile
+      args:
+        PYTHON_IMAGE: ${PYTHON_IMAGE:?immutable PYTHON_IMAGE is required}
+    environment:
+      HOME: /tmp
+      GRADIO_TEMP_DIR: /tmp/gradio
+    networks: [isolated]
+    user: "65534:65534"
+    read_only: true
+    tmpfs:
+      - /tmp:mode=1777
+      - /srv:mode=1777
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    pids_limit: 256
+    mem_limit: 1536m
+    cpus: 1.5
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:7860/config',timeout=3).status==200 else 1)"]
+      interval: 3s
+      timeout: 4s
+      retries: 60
+      start_period: 10s
+
+  proxy:
+    image: cyberdetect/gradio-proxy:phase4
+    build:
+      context: ../..
+      dockerfile: docker/phase1b/proxy.Dockerfile
+      args:
+        PYTHON_IMAGE: ${PYTHON_IMAGE:?immutable PYTHON_IMAGE is required}
+    environment:
+      TARGET_ORIGIN: http://app:7860
+      MAX_RESPONSE_BYTES: "131072"
+      MAX_TOTAL_RESPONSE_BYTES: "2097152"
+    depends_on:
+      app:
+        condition: service_healthy
+    networks: [isolated, edge]
+    ports:
+      - "127.0.0.1::8081"
+    volumes:
+      - public-events:/telemetry/public
+      - oracle-events:/telemetry/oracle
+      - proxy-state:/state
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    pids_limit: 128
+    mem_limit: 256m
+    cpus: 0.5
+
+networks:
+  isolated:
+    internal: true
+    driver: bridge
+  edge:
+    driver: bridge
+
+volumes:
+  public-events:
+  oracle-events:
+  proxy-state:

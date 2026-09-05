@@ -8,7 +8,7 @@ experiment:
 
 targets:
   - lunary_idor
-  - selected_path_traversal
+  - path_traversal
 
 actor_conditions:
   - benign

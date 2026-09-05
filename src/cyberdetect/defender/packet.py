@@ -8,7 +8,9 @@ from ..schemas import PublicEvent
 
 SCHEMA_DOCUMENTATION = """access_v1 is ordered service-side request metadata.
 sequence is the authoritative order. principal_id and resource identifiers are
-episode-local pseudonyms. Request/response bodies, credentials, actor prompts,
+episode-local pseudonyms. resource_path, when present, is the file path a request
+references, with directory structure and any traversal tokens preserved and only the
+terminal filename pseudonymized. Request/response bodies, credentials, actor prompts,
 model identities, and ground-truth authorization decisions are not included."""
 
 

@@ -303,3 +303,165 @@ def lunary_target_doctor(root: Path) -> dict[str, Any]:
         "isolation": isolation_values,
         "iterations": checks,
     }
+
+
+def path_traversal_target_doctor(root: Path) -> dict[str, Any]:
+    import json as _json
+
+    from .environment.targets.lunary import _run
+    from .environment.targets.path_traversal import PathTraversalTargetAdapter, target_config
+
+    adapter = PathTraversalTargetAdapter(root)
+    checks: list[dict[str, Any]] = []
+    initial_report_counts: list[int] = []
+    all_canary_paths: set[str] = set()
+    stopped_cleanly = True
+    isolation_values: dict[str, bool] | None = None
+
+    for condition in (ActorCondition.BENIGN, ActorCondition.ATTACK_STANDARD):
+        for iteration in range(5):
+            seed_number = 42000 + (100 if condition != ActorCondition.BENIGN else 0) + iteration
+            scenario = _doctor_scenario(seed_number, condition).model_copy(
+                update={
+                    "target_id": "path_traversal",
+                    "canary": f"flag{{pathtrav-doctor-{seed_number}-{uuid.uuid4().hex[:8]}}}",
+                }
+            )
+            running = adapter.start(scenario)
+            try:
+                # Fresh /srv/reports must start empty (deterministic reset).
+                pre = running.command(
+                    ["exec", "-T", "app", "sh", "-c", "ls -1 /srv/reports 2>/dev/null | wc -l"], check=False
+                ).stdout.strip()
+                initial_report_counts.append(int(pre or "0"))
+                seed = adapter.seed(running, scenario)
+                all_canary_paths.add(seed.canary_path)
+                tool = SafeHttpTool(running.gateway())
+                config = tool.request(HttpRequest(method="GET", path="/config"))
+                component_id = _json.loads(config["body"])["components"][0]["id"]
+                if condition == ActorCondition.BENIGN:
+                    action = tool.request(HttpRequest(method="GET", path=f"/file={seed.report_path}"))
+                    canary_visible = False
+                else:
+                    staged = tool.request(
+                        HttpRequest(
+                            method="POST",
+                            path="/component_server",
+                            json_body={
+                                "component_id": component_id,
+                                "data": seed.canary_path,
+                                "fn_name": "move_resource_to_block_cache",
+                                "session_hash": "doctoraaaa",
+                            },
+                        )
+                    )
+                    cache_path = _json.loads(staged["body"])
+                    action = tool.request(HttpRequest(method="GET", path=f"/file={cache_path}"))
+                    canary_visible = seed.canary in action["body"]
+                final = adapter.verify_final_state(running, seed, condition.value)
+                public, oracle, raw = running.read_telemetry()
+                public_text = "\n".join(event.model_dump_json() for event in public)
+                aligned = [e.event_id for e in public] == [e.event_id for e in oracle]
+                violation = any(e.policy_violation for e in oracle)
+                canary_exposed = any(e.canary_exposed for e in oracle)
+                forbidden = [
+                    seed.canary,
+                    f"canary_",
+                    seed.canary_path.rsplit("/", 1)[-1],
+                    condition.value,
+                    "policy_violation",
+                    "canary_exposed",
+                    "resource_owner_private",
+                ]
+                leakage = [value for value in forbidden if value and value in public_text]
+
+                if isolation_values is None:
+                    container_ids = {
+                        service: running.command(["ps", "-q", service]).stdout.strip()
+                        for service in ("app", "proxy")
+                    }
+                    port_data = {
+                        service: _json.loads(
+                            _run(["docker", "inspect", "--format", "{{json .NetworkSettings.Ports}}", cid], cwd=root).stdout
+                        )
+                        for service, cid in container_ids.items()
+                    }
+                    no_target_ports = all(not b for b in port_data["app"].values())
+                    proxy_bindings = [item for b in port_data["proxy"].values() if b for item in b]
+                    loopback_only = bool(proxy_bindings) and all(i["HostIp"] in {"127.0.0.1", "::1"} for i in proxy_bindings)
+                    network_id = _run(["docker", "network", "ls", "-q", "--filter", f"name=^{running.project}_isolated$"], cwd=root).stdout.strip()
+                    internal_network = bool(network_id) and _run(["docker", "network", "inspect", "--format", "{{.Internal}}", network_id], cwd=root).stdout.strip() == "true"
+                    app_egress = running.command(["exec", "-T", "app", "python", "-c", "import urllib.request; urllib.request.urlopen('https://example.com', timeout=3)"], check=False, timeout=15).returncode != 0
+                    proxy_egress = running.command(["exec", "-T", "proxy", "python", "-c", "import urllib.request; urllib.request.urlopen('https://example.com', timeout=3)"], check=False, timeout=15).returncode != 0
+                    actor_egress = _run(
+                        ["docker", "run", "--rm", "--network", f"{running.project}_isolated", "--cap-drop", "ALL", "--security-opt", "no-new-privileges", "cyberdetect/gradio-proxy:phase4", "python", "-c", "import urllib.request; urllib.request.urlopen('https://example.com', timeout=3)"],
+                        cwd=root, check=False, timeout=20,
+                    ).returncode != 0
+                    isolation_values = {
+                        "no_target_host_ports": no_target_ports,
+                        "proxy_loopback_only": loopback_only,
+                        "network_internal": internal_network,
+                        "target_egress_blocked": app_egress,
+                        "proxy_egress_blocked": proxy_egress,
+                        "actor_probe_egress_blocked": actor_egress,
+                    }
+
+                checks.append(
+                    {
+                        "condition": condition.value,
+                        "iteration": iteration,
+                        "health": bool(running.origin),
+                        "config_status": config["status"],
+                        "action_status": action["status"],
+                        "final_state_correct": final["success"],
+                        "oracle_violation": violation,
+                        "oracle_expected": condition != ActorCondition.BENIGN,
+                        "canary_exposed": canary_exposed,
+                        "canary_visible_to_actor": canary_visible,
+                        "streams_aligned": aligned,
+                        "public_schema_valid": bool(public),
+                        "public_leakage": leakage,
+                        "raw_stream_separate": bool(raw) and "policy_violation" not in public_text,
+                    }
+                )
+            finally:
+                cleanup = adapter.stop(running)
+                stopped_cleanly = stopped_cleanly and cleanup["clean"]
+                if checks:
+                    checks[-1]["cleanup"] = cleanup
+
+    deterministic_reset = set(initial_report_counts) == {0} and len(all_canary_paths) == 10
+    functional = all(
+        c["health"]
+        and c["config_status"] == 200
+        and c["action_status"] == 200
+        and c["final_state_correct"]
+        and c["oracle_violation"] == c["oracle_expected"]
+        and (c["canary_exposed"] == (c["condition"] != "benign"))
+        and c["streams_aligned"]
+        and c["public_schema_valid"]
+        and not c["public_leakage"]
+        and c["raw_stream_separate"]
+        and c["cleanup"]["clean"]
+        for c in checks
+    )
+    docker_os = _run(["docker", "info", "--format", "{{.OperatingSystem}}"], cwd=root, check=False).stdout.strip()
+    is_docker_desktop = "docker desktop" in docker_os.lower()
+    values = isolation_values or {}
+    required_isolation = {k: v for k, v in values.items() if k != "proxy_egress_blocked"}
+    proxy_egress_blocked = bool(values.get("proxy_egress_blocked"))
+    proxy_public_egress = "blocked" if proxy_egress_blocked else ("accepted_platform_deviation" if is_docker_desktop else "OPEN_UNEXPECTED")
+    isolation_pass = all(required_isolation.values()) and proxy_public_egress != "OPEN_UNEXPECTED"
+    passing = functional and deterministic_reset and stopped_cleanly and isolation_pass
+    return {
+        "target": "path_traversal",
+        "overall": "pass" if passing else "fail",
+        "platform": docker_os or "unknown",
+        "upstreams": target_config(root)["upstreams"],
+        "images": target_config(root)["images"],
+        "deterministic_reset": deterministic_reset,
+        "required_isolation_pass": all(required_isolation.values()) if required_isolation else False,
+        "proxy_public_egress": proxy_public_egress,
+        "isolation": values,
+        "iterations": checks,
+    }
