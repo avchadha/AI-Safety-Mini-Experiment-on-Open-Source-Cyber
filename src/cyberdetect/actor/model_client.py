@@ -135,6 +135,9 @@ class OpenAICompatibleClient:
                     "content-type": "application/json",
                     "authorization": f"Bearer {self._api_key}",
                     "accept": "application/json",
+                    # A descriptive User-Agent is required: some providers front their API
+                    # with a WAF that blocks the stdlib default (Cloudflare error 1010).
+                    "user-agent": "cyberdetect/0.1",
                 },
             )
             try:
