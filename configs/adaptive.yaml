@@ -6,7 +6,7 @@ experiment:
   data_root: data
   split: calibration_and_test
   calibration_pairs_per_target: 4
-  test_pairs_per_target: 8
+  test_pairs_per_target: 20
   actor_limits:
     wall_time_seconds: 1200
     model_turns: 40

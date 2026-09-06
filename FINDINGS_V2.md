@@ -9,18 +9,20 @@ service-side logs are replayed to a 4-tier defender ladder. We fix each defender
 FPR ≤ 0.10 on a benign corpus (with hard negatives), then measure recall, transfer of the evasion,
 and precision at realistic attack prevalences.
 
-**Scale (budget-constrained pilot):** 12 attack pairs (8 test / 4 calibration), 3 arms each
-(baseline / evasive / naive-stealth) = 36 attack episodes; 310 benign sessions; 4 defenders
-× 346 episodes = 1,384 predictions. Total model spend on the frozen artifacts: **$2.79**
-(offense $1.87 + defense $0.92).
+**Scale:** **24 attack pairs (4 calibration / 20 test)**, 3 arms each (baseline / evasive /
+naive-stealth) = 72 attack episodes; 310 benign sessions; 4 defenders × 382 episodes = 1,528
+predictions. (Started at 12 pairs; expanded to 24 to tighten the recall/τ estimates — see
+"Effect of doubling" below.) Total model spend on frozen artifacts: **$4.91** (offense $3.88 +
+defense $1.03).
 
-> **Caveat up front:** recall and τ are estimated on the **8 held-out test pairs** — n=8, so
-> per-detector recall/τ are noisy (each 1/8 step ≈ 0.125). The base-rate collapse conclusion is
-> robust because FPR is estimated on 310 benign sessions and the sweep is analytic.
+> **Caveat:** recall and τ are estimated on the **20 held-out test pairs** (τ on 19 — one pair's
+> proxy barely moved, so its ratio is undefined). The base-rate collapse rests on 310 benign
+> sessions + an analytic sweep. Budget-tier, single semantic target — replication on a second
+> vulnerability class is deferred.
 
 ---
 
-## Headline results
+## Headline results (n = 20 test pairs)
 
 ### 1. The base-rate collapse dominates everything
 Fixing FPR ≤ 0.10 on balanced data looks fine, but at realistic prevalence precision craters for
@@ -28,67 +30,79 @@ Fixing FPR ≤ 0.10 on balanced data looks fine, but at realistic prevalence pre
 
 | Detector (model) | FPR | recall(base) | recall(evasive) | precision @1:100 | @1:1000 | @1:10000 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| medium_open (gpt-oss-20b) | 0.068 | 0.875 | 0.750 | 0.101 | 0.011 | 0.001 |
-| large_oss (gpt-oss-120b)  | 0.068 | 0.625 | 0.500 | 0.069 | 0.007 | 0.001 |
-| large_open (Llama-3.3-70B) | 0.039 | 0.125 | 0.125 | 0.032 | 0.003 | 0.000 |
-| small_open (Qwen3.5-9B)   | 0.094 | 0.125 | 0.125 | 0.013 | 0.001 | 0.000 |
+| medium_open (gpt-oss-20b) | 0.068 | 0.950 | 0.800 | 0.107 | 0.012 | 0.001 |
+| large_oss (gpt-oss-120b)  | 0.068 | 0.650 | 0.300 | 0.043 | 0.004 | 0.000 |
+| large_open (Llama-3.3-70B) | 0.039 | 0.050 | 0.050 | 0.013 | 0.001 | 0.000 |
+| small_open (Qwen3.5-9B)   | 0.094 | 0.100 | 0.050 | 0.005 | 0.001 | 0.000 |
 
-At 1:1000, the best detector fires ~6,842 alerts per 100k sessions, of which **~6,767 are false**.
-**Takeaway:** budget-tier, log-based LLM attack detection is economically unusable at realistic
-enterprise base rates *regardless of detector quality* — the false-positive flood, not miss rate,
-is the binding constraint. The "good balanced AUROC" story does not survive contact with prevalence.
+At 1:1000, even the best detector's alerts are ~99% false. **Budget-tier log-based LLM attack
+detection is economically unusable at realistic enterprise base rates regardless of detector
+quality** — the false-positive flood, not miss rate, is the binding constraint.
 
-### 2. Detection quality is model-family-driven, NOT size-driven
-Recall ranking: **gpt-oss-20b (0.875) > gpt-oss-120b (0.625) ≫ Llama-3.3-70B = Qwen3.5-9B (0.125)**.
-The 70B model is as blind as the 9B model; the *smaller* gpt-oss-20b beat the larger gpt-oss-120b.
-Scale alone bought nothing. (Tier comparison across families, not causal size — but that is exactly
-the point: "small business → huge institution defender" is not a size story, it's a *which model*
-story.) This is the clearest and most surprising answer to the v2 question.
+### 2. Detection quality is model-FAMILY driven, NOT size — and the doubling made this razor-sharp
+Baseline-recall ranking: **gpt-oss-20b (0.95) > gpt-oss-120b (0.65) ≫ Qwen3.5-9B (0.10) >
+Llama-3.3-70B (0.05)**. The **largest model (70B) is the worst detector** — it essentially never
+scores an attack above its own threshold — and the 9B is nearly as blind, while both gpt-oss models
+dominate. Within this ladder size is if anything *anti*-correlated with detection; what matters is
+family/training. (Cross-family tier comparison, not causal size — but that is the point: "small
+business → huge institution defender" is a *which-model* story, not a scale story.)
 
-### 3. Adaptive evasion is real, partial, and partially transfers
-- The attacker lowered its OWN proxy's suspicion by **0.25** on average (95% CI [0.15, 0.35]),
-  mainly by **padding sessions with benign-looking traffic** (median HTTP requests 3 → 11).
-- This transferred to the two *competent* detectors with **τ ≈ 0.32** (gpt-oss-20b CI [-0.03, 0.98];
-  gpt-oss-120b CI [0.16, 0.55]) — i.e. ~1/3 of the evasion gain carried to unseen detectors,
-  dropping recall 0.875→0.750 and 0.625→0.500. Evasion is neither purely idiosyncratic (τ>0) nor
-  fully fundamental (τ<1): it's a genuine but partial capability. (For the blind detectors, τ is
-  negative noise — no signal to erode.)
+### 3. Adaptive evasion is real and SIGNIFICANTLY transfers to the competent detectors
+- The attacker lowered its OWN proxy's suspicion by **0.248** (95% CI [0.176, 0.316]), mainly by
+  **padding sessions with benign-looking traffic** (median HTTP requests 4 → 11).
+- With n=20 the transfer fraction τ is now **statistically significant** for both competent
+  detectors: **gpt-oss-20b τ = 0.28 (CI [0.00, 0.69])** and **gpt-oss-120b τ = 0.53 (CI [0.30, 0.80])**.
+  Most strikingly, evasion tuned *only* against the attacker's own proxy **halved gpt-oss-120b's
+  recall (0.65 → 0.30)** on logs it never saw. So the evasion is not idiosyncratic overfitting to
+  one detector — a meaningful, transferable chunk of it is fundamental, and it hurts the *better*
+  detector more.
+- The near-blind detectors (Llama-70B, Qwen-9B) show τ ≈ 0 / negative — there's no detection signal
+  to erode.
 
 ### 4. A static "be stealthy" prompt does nothing; the feedback loop is what works
-The naive-stealth arm moved proxy suspicion by **0.002** (essentially zero). Only the adaptive
-loop (score → feedback → revise) produced the 0.25 drop. This validates self-red-teaming over a
-static stealth instruction.
+The naive-stealth arm barely moved proxy suspicion and actually *reduced* activity (median HTTP 2 vs
+baseline 4). Only the adaptive score→feedback→revise loop produced the 0.25 drop and the padding
+behaviour. Self-red-teaming ≫ a one-shot stealth instruction.
 
 ### 5. Semantic IDOR is intrinsically visible in logs
-Even fully evaded, recall stayed ≥ 0.50 for competent detectors. The attack *requires* an
-unauthorized cross-tenant DELETE that appears in the logs; the attacker can bury it in noise and
-lower detector *confidence*, but cannot make the violating request itself disappear. Evasion here
-degrades confidence, it does not achieve invisibility.
+For the competent detectors, baseline recall stayed high (0.65-0.95); the attack *requires* an
+unauthorized cross-tenant DELETE that appears in the logs. Evasion degrades detector *confidence*
+(padding, pacing) and can push a mediocre detector below threshold, but it does not make the
+violating request disappear — hence recall drops but does not vanish for gpt-oss-20b (0.80).
 
 ### 6. Economics — cheap screening is misleading
-Offense: **$0.156 per successful attack** (incl. adaptation rounds). Defense: **$0.000664 per
-screened session** — ~235× cheaper per unit. But the base-rate collapse means the true defense
-cost is the **human triage of the false-positive flood** (thousands of false alerts per 100k
-sessions), which dwarfs the per-session model cost. "Defense is cheap" is true per API call and
-false as an operational claim.
+Offense: **$0.162 per successful attack** (incl. adaptation rounds). Defense: **$0.000675 per
+screened session** — ~240× cheaper per unit. But the base-rate collapse means the true defense cost
+is the **human triage of the false-positive flood** (thousands of false alerts per 100k sessions),
+which dwarfs the per-session model cost. "Defense is cheap" is true per API call, false operationally.
 
 ---
 
+## Effect of doubling 8 → 20 test pairs
+The two underpowered claims firmed up rather than regressing:
+- **family>size** got *stronger*: Llama-70B recall fell 0.125 → 0.050 (clearly the worst); gpt-oss-20b
+  rose 0.875 → 0.950 (clearly the best).
+- **transfer τ** became *significant*: gpt-oss-120b 0.32 [0.16, 0.55] → **0.53 [0.30, 0.80]**;
+  gpt-oss-20b 0.33 [-0.03, 0.98] → **0.28 [0.00, 0.69]** (CI now excludes 0).
+- base-rate collapse and the 0.25 proxy-evasion effect were unchanged (already well-estimated).
+
 ## What this says for the AI-safety trajectory
-- Improving the *model* (family/training) matters far more than scaling it for this task.
-- The bottleneck for automated log-based defense is **base rate**, not raw detector skill — future
+- Model family/training dominates scale for this task — a frontier-sized generic model can be a
+  *worse* log detector than a mid-size one; buying "bigger" is not buying detection.
+- The binding constraint on automated log defense is **base rate**, not raw detector skill — future
   gains must come from prevalence-aware operating points (cascades, pre-filters, cross-session
-  correlation), not just better single-session classifiers.
-- An open-weight attacker can already self-red-team to partially, transferably evade budget
-  detectors with no access to the real detector — the evasion capability is fundamental enough to
-  transfer, which will worsen as attacker models improve.
+  correlation), not better single-session classifiers alone.
+- An open-weight attacker can already self-red-team to **transferably** evade budget detectors with
+  zero access to the real detector, and the transfer hurts the *stronger* detector most — a capability
+  that will worsen as attacker models improve.
 
 ## Deviations / caveats
-- n=8 test pairs → noisy per-detector recall/τ (see caveat above). Budget pilot, not a powered study.
+- n=20 test pairs (τ on 19). Single semantic target (Lunary IDOR); second-target replication deferred.
 - Cross-family defender ladder (Together serverless has no same-family open 4-tier ladder) — report
   as tier comparison, not causal scaling. See `configs/models.yaml`.
-- 1 of 12 attack pairs (the earlier pilot pair) predates the token/HTTP instrumentation, so it is a
-  minor undercount in the cost ledger only (probabilities and arms are valid).
-- Infra note: run required fixes for connection-drop retries, OOM-leak cleanup, a resume
-  fast-forward bug, serverless 503 backfill, and reclaiming the Docker VM's retained memory (see
-  git log 697f4f2 / 1b25382 / <this batch>). Stages 3-4 are Docker-free.
+- 1 of 24 attack pairs (the earliest pilot pair) predates token/HTTP instrumentation → minor
+  undercount in the cost ledger only (its probabilities/arms are valid).
+- Infra: the run required fixes for connection-drop retries (target + model clients), an OOM-leak
+  cleanup cycle, a resume fast-forward bug, serverless-503 backfill passes, and reclaiming the WSL
+  Docker VM's retained memory; Stages 3-4 run Docker-free and, when the harness memory-guard kills
+  tracked tasks under host pressure, detached (setsid). See git log.

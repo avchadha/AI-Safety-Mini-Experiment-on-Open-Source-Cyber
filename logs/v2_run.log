@@ -1,0 +1,428 @@
+
+======================================================================
+[22:57:31] START 1/4 adaptive actors (self-red-team, Kimi, ~slow)
+======================================================================
+[00:38:29] FAILED 1/4 adaptive actors (self-red-team, Kimi, ~slow) after 6058s
+Traceback (most recent call last):
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/run_v2_study.py", line 14, in stage
+    out = fn()
+          ^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/run_v2_study.py", line 29, in <lambda>
+    stage("1/4 adaptive actors (self-red-team, Kimi, ~slow)", lambda: run_adaptive_actors(CFG))
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/adaptive_runner.py", line 250, in run_adaptive_actors
+    result = run_self_red_team(run_and_score_round=run_and_score_round, max_rounds=K, stealth_target=stealth_target)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/adaptive_runner.py", line 91, in run_self_red_team
+    current = run_and_score_round(r, last.proxy)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/adaptive_runner.py", line 246, in run_and_score_round
+    outcome = run_attack(extra, ActorCondition.ATTACK_STANDARD)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/adaptive_runner.py", line 235, in run_attack
+    run = run_react_loop(client, tool, messages, limits)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/real_runner.py", line 335, in run_react_loop
+    response = tool.request(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/http_tool.py", line 48, in request
+    response = self.gateway.request(parsed)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/environment/targets/lunary.py", line 189, in request
+    response = self.opener.open(outgoing, timeout=30)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 1373, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 1348, in do_open
+    r = h.getresponse()
+        ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 305, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+Traceback (most recent call last):
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/run_v2_study.py", line 36, in <module>
+    main()
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/run_v2_study.py", line 29, in main
+    stage("1/4 adaptive actors (self-red-team, Kimi, ~slow)", lambda: run_adaptive_actors(CFG))
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/run_v2_study.py", line 14, in stage
+    out = fn()
+          ^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/run_v2_study.py", line 29, in <lambda>
+    stage("1/4 adaptive actors (self-red-team, Kimi, ~slow)", lambda: run_adaptive_actors(CFG))
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/adaptive_runner.py", line 250, in run_adaptive_actors
+    result = run_self_red_team(run_and_score_round=run_and_score_round, max_rounds=K, stealth_target=stealth_target)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/adaptive_runner.py", line 91, in run_self_red_team
+    current = run_and_score_round(r, last.proxy)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/adaptive_runner.py", line 246, in run_and_score_round
+    outcome = run_attack(extra, ActorCondition.ATTACK_STANDARD)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/adaptive_runner.py", line 235, in run_attack
+    run = run_react_loop(client, tool, messages, limits)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/real_runner.py", line 335, in run_react_loop
+    response = tool.request(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/http_tool.py", line 48, in request
+    response = self.gateway.request(parsed)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/environment/targets/lunary.py", line 189, in request
+    response = self.opener.open(outgoing, timeout=30)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 1373, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 1348, in do_open
+    r = h.getresponse()
+        ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 305, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+======================================================================
+[00:40:17] START 1/4 adaptive actors (self-red-team, Kimi, ~slow)
+======================================================================
+
+======================================================================
+[00:46:33] START 1/4 adaptive actors (self-red-team, Kimi, ~slow)
+======================================================================
+
+======================================================================
+[00:52:31] START 1/4 adaptive actors (self-red-team, Kimi, ~slow)
+======================================================================
+[01:59:18] FAILED 1/4 adaptive actors (self-red-team, Kimi, ~slow) after 4007s
+Traceback (most recent call last):
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/run_v2_study.py", line 14, in stage
+    out = fn()
+          ^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/run_v2_study.py", line 29, in <lambda>
+    sh = r'''
+              
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/adaptive_runner.py", line 250, in run_adaptive_actors
+    result = run_self_red_team(run_and_score_round=run_and_score_round, max_rounds=K, stealth_target=stealth_target)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/adaptive_runner.py", line 91, in run_self_red_team
+    current = run_and_score_round(r, last.proxy)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/adaptive_runner.py", line 246, in run_and_score_round
+    outcome = run_attack(extra, ActorCondition.ATTACK_STANDARD)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/adaptive_runner.py", line 235, in run_attack
+    run = run_react_loop(client, tool, messages, limits)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/real_runner.py", line 335, in run_react_loop
+    response = tool.request(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/http_tool.py", line 48, in request
+    response = self.gateway.request(parsed)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/environment/targets/lunary.py", line 199, in request
+    response = self.opener.open(outgoing, timeout=30)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 1373, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 1348, in do_open
+    r = h.getresponse()
+        ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 305, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+Traceback (most recent call last):
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/run_v2_study.py", line 36, in <module>
+    echo "leaked stacks remaining: $(docker ps -aq --filter name=cdlunary | wc -l)"'''
+  ^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/run_v2_study.py", line 29, in main
+    sh = r'''
+    ^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/run_v2_study.py", line 14, in stage
+    out = fn()
+          ^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/run_v2_study.py", line 29, in <lambda>
+    sh = r'''
+              
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/adaptive_runner.py", line 250, in run_adaptive_actors
+    result = run_self_red_team(run_and_score_round=run_and_score_round, max_rounds=K, stealth_target=stealth_target)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/adaptive_runner.py", line 91, in run_self_red_team
+    current = run_and_score_round(r, last.proxy)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/adaptive_runner.py", line 246, in run_and_score_round
+    outcome = run_attack(extra, ActorCondition.ATTACK_STANDARD)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/adaptive_runner.py", line 235, in run_attack
+    run = run_react_loop(client, tool, messages, limits)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/real_runner.py", line 335, in run_react_loop
+    response = tool.request(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/http_tool.py", line 48, in request
+    response = self.gateway.request(parsed)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/environment/targets/lunary.py", line 199, in request
+    response = self.opener.open(outgoing, timeout=30)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 1373, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/urllib/request.py", line 1348, in do_open
+    r = h.getresponse()
+        ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 305, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+======================================================================
+[02:03:37] cleanup leaked docker stacks
+======================================================================
+leaked stacks remaining: 0
+
+======================================================================
+[02:03:37] START 1/4 adaptive actors (self-red-team, Kimi, ~slow)
+======================================================================
+[03:04:03] DONE 1/4 adaptive actors (self-red-team, Kimi, ~slow) -> 36 (3626s)
+
+======================================================================
+[03:04:03] START 2/4 benign corpus (scripted, 250 sessions)
+======================================================================
+[03:09:52] DONE 2/4 benign corpus (scripted, 250 sessions) -> 250 (349s)
+
+======================================================================
+[03:09:52] START 3/4 defenders (4 tiers over all arms+benign)
+======================================================================
+[03:40:11] FAILED 3/4 defenders (4 tiers over all arms+benign) after 1819s
+Traceback (most recent call last):
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/defender/real_runner.py", line 101, in run_real_defenders
+    result = client.complete(
+             ^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/model_client.py", line 167, in complete
+    raise ModelCallError(f"model call to {self.model} failed: {last_error}")
+cyberdetect.actor.model_client.ModelCallError: model call to openai/gpt-oss-120b failed: HTTP 503: {
+  "id": "ozAZd2r-fdNmn-a36bd2d979f42996",
+  "error": {
+    "message": "Service unavailable",
+    "type": "service_unavailable",
+    "param": null,
+    "code": null
+  }
+}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/run_v2_study.py", line 14, in stage
+    out = fn()
+          ^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/run_v2_study.py", line 53, in <lambda>
+    stage("3/4 defenders (4 tiers over all arms+benign)",     lambda: run_real_defenders(CFG))
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/defender/real_runner.py", line 109, in run_real_defenders
+    raise RuntimeError(f"defender model call failed for {defender_id}/{episode_dir.name}: {error}") from error
+RuntimeError: defender model call failed for large_oss/ep_benign_0a0c22adf91d8b04f390: model call to openai/gpt-oss-120b failed: HTTP 503: {
+  "id": "ozAZd2r-fdNmn-a36bd2d979f42996",
+  "error": {
+    "message": "Service unavailable",
+    "type": "service_unavailable",
+    "param": null,
+    "code": null
+  }
+}
+Traceback (most recent call last):
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/defender/real_runner.py", line 101, in run_real_defenders
+    result = client.complete(
+             ^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/actor/model_client.py", line 167, in complete
+    raise ModelCallError(f"model call to {self.model} failed: {last_error}")
+cyberdetect.actor.model_client.ModelCallError: model call to openai/gpt-oss-120b failed: HTTP 503: {
+  "id": "ozAZd2r-fdNmn-a36bd2d979f42996",
+  "error": {
+    "message": "Service unavailable",
+    "type": "service_unavailable",
+    "param": null,
+    "code": null
+  }
+}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/run_v2_study.py", line 58, in <module>
+    main()
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/run_v2_study.py", line 53, in main
+    stage("3/4 defenders (4 tiers over all arms+benign)",     lambda: run_real_defenders(CFG))
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/run_v2_study.py", line 14, in stage
+    out = fn()
+          ^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/run_v2_study.py", line 53, in <lambda>
+    stage("3/4 defenders (4 tiers over all arms+benign)",     lambda: run_real_defenders(CFG))
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/src/cyberdetect/defender/real_runner.py", line 109, in run_real_defenders
+    raise RuntimeError(f"defender model call failed for {defender_id}/{episode_dir.name}: {error}") from error
+RuntimeError: defender model call failed for large_oss/ep_benign_0a0c22adf91d8b04f390: model call to openai/gpt-oss-120b failed: HTTP 503: {
+  "id": "ozAZd2r-fdNmn-a36bd2d979f42996",
+  "error": {
+    "message": "Service unavailable",
+    "type": "service_unavailable",
+    "param": null,
+    "code": null
+  }
+}
+
+======================================================================
+[03:43:13] cleanup leaked docker stacks
+======================================================================
+leaked stacks remaining: 0
+
+======================================================================
+[03:43:14] START 1/4 adaptive actors (self-red-team, Kimi, ~slow)
+======================================================================
+[03:43:14] DONE 1/4 adaptive actors (self-red-team, Kimi, ~slow) -> 36 (0s)
+
+======================================================================
+[03:43:14] START 2/4 benign corpus (scripted, 250 sessions)
+======================================================================
+
+=== [03:47:32] 3/4 defenders (4 tiers, backfill) ===
+[defenders] large_oss/ep_benign_615322ea9f299a5e65aa failed (pass 0): model call to openai/gpt-oss-120b failed: HTTP 503: {
+  "id": "ozB2GMY-z1gNr-a36c51c32fd118b8",
+  "error": {
+    "message": "Service unavailable",
+    "type": "service_unavailable",
+    "param": null,
+    "code": null
+  }
+}
+[defenders] large_oss/ep_benign_616c2dc3a51707d0ffbd failed (pass 0): model call to openai/gpt-oss-120b failed: HTTP 503: {
+  "id": "ozB2rJ6-z1gNr-a36c548dbc2955d0",
+  "error": {
+    "message": "Service unavailable",
+    "type": "service_unavailable",
+    "param": null,
+    "code": null
+  }
+}
+[defenders] large_oss/ep_benign_6229c7402f119e18e188 failed (pass 0): model call to openai/gpt-oss-120b failed: HTTP 503: {
+  "id": "ozB3SXT-fdNmn-a36c575d2be1b7be",
+  "error": {
+    "message": "Service unavailable",
+    "type": "service_unavailable",
+    "param": null,
+    "code": null
+  }
+}
+[defenders] large_oss/ep_benign_64c7ed134daeef037d3b failed (pass 0): model call to openai/gpt-oss-120b failed: HTTP 500: {
+  "id": "ozB42Vq-fdNmn-a36c5a277b9e7afc",
+  "error": {
+    "message": "Internal server error",
+    "type": "server_error",
+    "param": null,
+    "code": null
+  }
+}
+[defenders] large_oss/ep_benign_691b2ea5a15fb6ff89f6 failed (pass 0): model call to openai/gpt-oss-120b failed: HTTP 503: {
+  "id": "ozB5WeV-z1gNr-a36c613afb797608",
+  "error": {
+    "message": "Service unavailable",
+    "type": "service_unavailable",
+    "param": null,
+    "code": null
+  }
+}
+[defenders] large_oss/ep_benign_69570ed703ef279a1f5c failed (pass 0): model call to openai/gpt-oss-120b failed: HTTP 503: {
+  "id": "ozB65pe-z1gNr-a36c63f41fed5347",
+  "error": {
+    "message": "Service unavailable",
+    "type": "service_unavailable",
+    "param": null,
+    "code": null
+  }
+}
+[defenders] large_oss/ep_benign_6a96504929a1fdba8058 failed (pass 0): model call to openai/gpt-oss-120b failed: HTTP 503: {
+  "id": "ozB6hTQ-fdNmn-a36c66e16cb65d13",
+  "error": {
+    "message": "Service unavailable",
+    "type": "service_unavailable",
+    "param": null,
+    "code": null
+  }
+}
+[defenders] pass 0: 7 calls failed; backing off before retry
+[07:23:59] DONE 3/4 defenders (4 tiers, backfill) -> 1384 (12987s)
+
+=== [07:23:59] 4/4 analyze ===
+[07:23:59] DONE 4/4 analyze -> 2 (0s)
+
+=== ALL DONE. metrics=/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/data/reports/adaptive_metrics.json report=/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/data/reports/adaptive_report.md ===
+=== [11:33:10] cleanup ===
+787fe4e5f283
+7b62ea890e13
+cdlunarye05f7181199c_edge
+cdlunarye05f7181199c_isolated
+cdlunarye05f7181199c_db-data
+cdlunarye05f7181199c_oracle-events
+cdlunarye05f7181199c_proxy-state
+cdlunarye05f7181199c_public-events
+leaked stacks remaining: 0
+=== [11:33:11] START actors (24 pairs; 12 frozen skip, 12 new) ===
+=== [13:52:40] DONE actors -> 72 arms (8369s) ===
+
+=== [13:53:06] 3/4 defenders (4 tiers, backfill) ===
