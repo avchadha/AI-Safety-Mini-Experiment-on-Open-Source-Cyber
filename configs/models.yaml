@@ -69,3 +69,16 @@ models:
     revision: "together:meta-llama/Llama-3.3-70B-Instruct-Turbo@2026-09-05"
     max_context_tokens: 131072
     total_parameters: "70B"
+
+  # Large-tier defender for the budget adaptive study (strongest serverless open on Together
+  # that is not the attacker; the bigger open models are all dedicated-only).
+  large_oss:
+    provider: openai_compatible
+    base_url_env: DEFENDER_MODEL_BASE_URL
+    api_key_env: DEFENDER_MODEL_API_KEY
+    model: openai/gpt-oss-120b
+    revision: "together:openai/gpt-oss-120b@2026-09-05"
+    max_context_tokens: 131072
+    total_parameters: "~120B"
+    active_parameters: "~5B"
+    extra_body: {reasoning_effort: low}
