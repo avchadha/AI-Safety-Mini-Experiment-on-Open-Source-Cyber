@@ -220,43 +220,64 @@ def run_adaptive_actors(config_path, *, actor_client_factory=None, proxy_client=
     if limit:
         attack_scenarios = attack_scenarios[:limit]
 
+    from .real_runner import _episode_id, _existing_episode_is_valid
+
+    expected_arms = ["baseline", "evasive"] + (["naive_stealth"] if include_naive else [])
+
+    def _scenario_complete(scenario) -> bool:
+        return all(_existing_episode_is_valid(data / "episodes" / f"{_episode_id(scenario)}_{arm}")
+                   for arm in expected_arms)
+
     completed: list[str] = []
     for scenario in attack_scenarios:
-        client = actor_client_factory(scenario)
+        # Resume: skip the expensive self-red-team loop for scenarios already fully frozen.
+        # Without this, every relaunch re-runs completed pairs from scratch (burning Kimi $ and
+        # time) and never reaches the unfinished ones. Per-pair try/except isolates a flaky
+        # target so one dropped connection skips ONE pair instead of aborting the whole run.
+        if _scenario_complete(scenario):
+            completed.extend(f"{_episode_id(scenario)}_{arm}" for arm in expected_arms)
+            continue
+        try:
+            client = actor_client_factory(scenario)
 
-        def run_attack(extra_user_turns, condition):
-            """One fresh attack episode; returns an EpisodeOutcome carrying seed/runbook/etc."""
-            with adapter.start(scenario) as running:
-                seed = adapter.seed(running, scenario)
-                messages, prompt_text = build_lunary_messages(
-                    root, config.prompts, scenario.model_copy(update={"condition": condition}), seed)
-                messages = [*messages, *extra_user_turns]
-                tool = SafeHttpTool(running.gateway())
-                run = run_react_loop(client, tool, messages, limits)
-                final = adapter.verify_final_state(running, seed, "attack_standard")
-                public, oracle, raw = running.read_telemetry()
-                runbook = adapter.public_runbook(seed)
-            return EpisodeOutcome(
-                public_events=public, success=bool(final["success"]),
-                transcript=run.transcript, input_tokens=run.input_tokens, output_tokens=run.output_tokens,
-                extra={"seed": seed, "runbook": runbook, "oracle": oracle, "raw": raw, "prompt": prompt_text, "run": run})
+            def run_attack(extra_user_turns, condition):
+                """One fresh attack episode; returns an EpisodeOutcome carrying seed/runbook/etc."""
+                with adapter.start(scenario) as running:
+                    seed = adapter.seed(running, scenario)
+                    messages, prompt_text = build_lunary_messages(
+                        root, config.prompts, scenario.model_copy(update={"condition": condition}), seed)
+                    messages = [*messages, *extra_user_turns]
+                    tool = SafeHttpTool(running.gateway())
+                    run = run_react_loop(client, tool, messages, limits)
+                    final = adapter.verify_final_state(running, seed, "attack_standard")
+                    public, oracle, raw = running.read_telemetry()
+                    runbook = adapter.public_runbook(seed)
+                return EpisodeOutcome(
+                    public_events=public, success=bool(final["success"]),
+                    transcript=run.transcript, input_tokens=run.input_tokens, output_tokens=run.output_tokens,
+                    extra={"seed": seed, "runbook": runbook, "oracle": oracle, "raw": raw, "prompt": prompt_text, "run": run})
 
-        def run_and_score_round(round_index, prior):
-            extra = [] if prior is None else [{"role": "user", "content": evasion_directive(prior)}]
-            outcome = run_attack(extra, ActorCondition.ATTACK_STANDARD)
-            proxy = score(outcome.public_events, outcome.extra["runbook"])
-            return AdaptiveRound(round_index=round_index, outcome=outcome, proxy=proxy)
+            def run_and_score_round(round_index, prior):
+                extra = [] if prior is None else [{"role": "user", "content": evasion_directive(prior)}]
+                outcome = run_attack(extra, ActorCondition.ATTACK_STANDARD)
+                proxy = score(outcome.public_events, outcome.extra["runbook"])
+                return AdaptiveRound(round_index=round_index, outcome=outcome, proxy=proxy)
 
-        result = run_self_red_team(run_and_score_round=run_and_score_round, max_rounds=K, stealth_target=stealth_target)
+            result = run_self_red_team(run_and_score_round=run_and_score_round, max_rounds=K, stealth_target=stealth_target)
 
-        arms = {"baseline": (result.baseline.outcome, result.baseline.proxy),
-                "evasive": (result.evasive.outcome, result.evasive.proxy)}
-        if include_naive:
-            naive = run_attack([], ActorCondition.ATTACK_STEALTH)
-            arms["naive_stealth"] = (naive, score(naive.public_events, naive.extra["runbook"]))
+            arms = {"baseline": (result.baseline.outcome, result.baseline.proxy),
+                    "evasive": (result.evasive.outcome, result.evasive.proxy)}
+            if include_naive:
+                naive = run_attack([], ActorCondition.ATTACK_STEALTH)
+                arms["naive_stealth"] = (naive, score(naive.public_events, naive.extra["runbook"]))
 
-        for arm_label, (outcome, proxy) in arms.items():
-            completed.append(_freeze_arm(
-                data=data, root=root, config=config, spec=spec, target_revision=target_revision,
-                scenario=scenario, arm_label=arm_label, outcome=outcome, proxy=proxy))
+            for arm_label, (outcome, proxy) in arms.items():
+                completed.append(_freeze_arm(
+                    data=data, root=root, config=config, spec=spec, target_revision=target_revision,
+                    scenario=scenario, arm_label=arm_label, outcome=outcome, proxy=proxy))
+        except Exception as exc:
+            import traceback as _tb
+            print(f"[adaptive] scenario {scenario.scenario_pair_id} FAILED, skipping: {exc!r}", flush=True)
+            _tb.print_exc()
+            continue
     return completed

@@ -207,12 +207,12 @@ class ContainerGatewayClient:
                 response_body = error.read(self.max_response_bytes + 1)
                 break
             except urllib.error.URLError as error:
-                if not isinstance(error.reason, transient) or attempt >= 3:
+                if not isinstance(error.reason, transient) or attempt >= 5:
                     raise
                 attempt += 1
                 time.sleep(0.5 * attempt)
             except transient:
-                if attempt >= 3:
+                if attempt >= 5:
                     raise
                 attempt += 1
                 time.sleep(0.5 * attempt)
