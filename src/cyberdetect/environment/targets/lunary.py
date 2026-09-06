@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import http.client
 import json
 import os
+import socket
 import secrets
 import shutil
 import subprocess
@@ -185,15 +187,35 @@ class ContainerGatewayClient:
         headers["x-experiment-session"] = self.session
         headers["x-experiment-request-id"] = event_id
         outgoing = urllib.request.Request(url, data=body, headers=headers, method=request.method)
-        try:
-            response = self.opener.open(outgoing, timeout=30)
-            status = response.status
-            response_headers = dict(response.headers.items())
-            response_body = response.read(self.max_response_bytes + 1)
-        except urllib.error.HTTPError as error:
-            status = error.code
-            response_headers = dict(error.headers.items())
-            response_body = error.read(self.max_response_bytes + 1)
+        # The loopback target (Node app behind a proxy) occasionally drops a keep-alive
+        # connection without responding. That is a transient transport fault, not an
+        # application response, so retry a few times before surfacing it — a single drop
+        # must not abort a multi-hour run. HTTPError (a real 4xx/5xx) is handled below.
+        transient = (http.client.RemoteDisconnected, http.client.BadStatusLine,
+                     ConnectionError, socket.timeout, TimeoutError)
+        attempt = 0
+        while True:
+            try:
+                response = self.opener.open(outgoing, timeout=30)
+                status = response.status
+                response_headers = dict(response.headers.items())
+                response_body = response.read(self.max_response_bytes + 1)
+                break
+            except urllib.error.HTTPError as error:
+                status = error.code
+                response_headers = dict(error.headers.items())
+                response_body = error.read(self.max_response_bytes + 1)
+                break
+            except urllib.error.URLError as error:
+                if not isinstance(error.reason, transient) or attempt >= 3:
+                    raise
+                attempt += 1
+                time.sleep(0.5 * attempt)
+            except transient:
+                if attempt >= 3:
+                    raise
+                attempt += 1
+                time.sleep(0.5 * attempt)
         if len(response_body) > self.max_response_bytes:
             raise GatewaySafetyError("proxy response exceeded actor safety cap")
         if 300 <= status < 400:
