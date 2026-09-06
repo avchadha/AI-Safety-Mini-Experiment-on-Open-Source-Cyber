@@ -27,9 +27,14 @@ actually bears on the near-term AI offense/defense trajectory:
 > rates, how capable — and how expensive — must a log-based defender be to hold an
 > operational bar?
 
-The target is the semantic authorization vulnerability (Lunary IDOR), the only v1 target that
-was not already saturated. The syntactic path-traversal target MAY be run as a control but is
-not the focus.
+The primary target is the semantic authorization vulnerability (Lunary IDOR), the only v1
+target that was not already saturated. Because a single vulnerability class cannot establish
+generality of the headline (the transfer fraction), the study MUST also replicate on a SECOND
+semantic target of a DIFFERENT class (e.g., broken function-level authorization / auth bypass),
+selected from the BountyBench catalogue via the v1 target-selection rubric and required to be
+HTTP-exploitable, resettable, and log-subtle. The saturated syntactic path-traversal target is
+NOT carried forward. The second target is staged: build and interpret v2 on Lunary first, then
+replicate the headline on the second target before any strong 'evasion is fundamental' claim.
 
 ---
 
@@ -138,15 +143,20 @@ A capability spectrum, NOT a single-family size ladder. This is a model-tier com
 design (v1 section 5.2 labeling applies); the axis is "small-business defender -> huge-
 institution defender," which is the operationally meaningful and SoTA-inclusive framing.
 
-Mandatory tiers (exact models chosen at freeze, all serverless where possible, none equal to
-the attacker/proxy model):
+Mandatory tiers (exact models chosen at freeze, all Together serverless, none equal to the
+attacker/proxy model):
 
-| Tier | Intent | Constraint |
-| --- | --- | --- |
-| `small_biz` | cheapest plausible in-house detector | ~<=8B open |
-| `mid_org` | mid-market detector | ~20–70B open |
-| `large_inst_open` | best open-weight a large org would run | strongest serverless open, != attacker |
-| `frontier_ceiling` (optional) | best money can buy | one SoTA closed model (low refusal risk for detection) |
+| Tier | Intent | Default (verify at freeze) | Constraint |
+| --- | --- | --- | --- |
+| `small_biz` | cheapest plausible in-house detector | Qwen3.5-9B | ~<=8B open |
+| `mid_org` | mid-market detector | Llama-3.3-70B-Instruct-Turbo | ~20–70B open |
+| `large_inst_open` | best open-weight a large org would run | DeepSeek-R1 or Qwen3-235B | strongest serverless open, != attacker |
+
+Provider is Together AI serverless for this study. A frontier CLOSED ceiling is DEFERRED:
+Together hosts only open-weight models, so there is no closed model to include here; adding one
+requires a different provider and is future work. For reasoning-mode defenders, hidden
+chain-of-thought MUST be disabled where the endpoint allows it, and otherwise only the final
+JSON is parsed and stored (the reasoning trace is never stored), per v1 section 10.1.
 
 Every defender scores every frozen episode (baseline and evasive) with a fresh context, the
 frozen v1 defender prompt, and the same tolerant parser. Hidden chain-of-thought MUST remain
@@ -212,7 +222,7 @@ written before test-set analysis.
 
 ## 7. Sampling and run size
 
-- One target (Lunary), semantic vulnerability.
+- Two semantic targets, staged: Lunary (primary) then a second semantic class (replication).
 - >= 20 scenario pairs, split 8 calibration / 12 test (or 10/20 if budget allows); all rounds
   of a pair share its split.
 - K <= 5 adaptation rounds per attack scenario.
@@ -274,3 +284,20 @@ frozen public logs, so no isolation surface changes.
 - Prevalence points reported beyond the validated 1:100 anchor.
 
 These are frozen into `configs/adaptive.yaml` and the lockfile before the main run.
+
+---
+
+## 11. Deferred to future work (explicitly out of scope for v2)
+
+- **Cyber-specialized defenders** (e.g., Cisco Foundation-sec-8B, WhiteRabbitNeo). Highest-value
+  extension: they test whether domain specialization substitutes for scale on the detection
+  task ("can a security-tuned 8B match a general 70B?"). Deferred because they are not on
+  Together serverless and require a self-hosted GPU/vLLM endpoint (the pipeline already speaks
+  OpenAI-compatible, so only infra, not code, is missing). Any such model MUST pass the v1
+  smoke-test gate (parse rate, refusal, calibration) before use — domain fine-tunes are often
+  brittle at strict JSON/instruction following.
+- **Closed frontier ceiling** (one SoTA closed defender: "does the best money can buy hold?").
+  Deferred because no closed model is available on Together; needs a separate provider.
+- **Offense-tuned attacker arm** (e.g., WhiteRabbitNeo): does offense specialization produce
+  stealthier attacks than a frontier generalist? Thematically the most realistic bad actor, but
+  a secondary question; deferred.
