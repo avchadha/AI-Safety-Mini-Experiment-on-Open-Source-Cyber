@@ -162,7 +162,11 @@ def _freeze_arm(*, data, root, config, spec, target_revision, scenario, arm_labe
     atomic_write_json(raw_dir / "seed_manifest.json", seed.__dict__)
     raw_dir.joinpath("oracle_events.jsonl").write_text("".join(e.model_dump_json() + "\n" for e in oracle), encoding="utf-8")
     raw_dir.joinpath("proxy_raw.jsonl").write_text(raw, encoding="utf-8")
-    atomic_write_json(raw_dir / "proxy_score.json", {"arm": arm_label, "probability": proxy.probability, "verdict": proxy.verdict, "rationale": proxy.rationale})
+    atomic_write_json(raw_dir / "proxy_score.json", {
+        "arm": arm_label, "probability": proxy.probability, "verdict": proxy.verdict, "rationale": proxy.rationale,
+        "attacker_input_tokens": outcome.input_tokens, "attacker_output_tokens": outcome.output_tokens,
+        "http_requests": sum(1 for x in outcome.transcript if isinstance(x, dict) and x.get("type") == "http_request"),
+    })
     atomic_write_json(episode_dir / "manifest.json", manifest)
     atomic_write_json(episode_dir / "ground_truth.json", truth)
     atomic_write_text(episode_dir / "defender_packet.txt", packet)
