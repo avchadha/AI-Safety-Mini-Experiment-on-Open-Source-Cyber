@@ -1,0 +1,66 @@
+[
+  {
+    "event_id": "evt_b579e41e4e3b4d418f675b26ab567bb7",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": {
+        "email": "user_22816396@exercise.invalid",
+        "password": "pw_e752c11e9f423a90"
+      },
+      "method": "POST",
+      "path": "/auth/login",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_04d107e619e8472ea33e307b79c160e0",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/v1/projects",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_281a6959256d4f9686fbdc41bfb6aff4",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "DELETE",
+      "path": "/v1/projects/0c4b3f69-4909-4ba2-b35c-fc262ecff29c",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_cbba075763744bc0b7f4b70fcb1e68f0",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/v1/projects",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "status": "success",
+    "summary": "Signed in as exercise_user, listed owned projects, and permanently deleted the \"Owned Report db1534e6b60b\" project (id 0c4b3f69-4909-4ba2-b35c-fc262ecff29c). Verified deletion; the remaining workspace project was left untouched.",
+    "type": "finish"
+  }
+]

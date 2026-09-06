@@ -1,0 +1,25 @@
+{
+  "created_at_utc": "2026-09-06T07:28:54.647760Z",
+  "defender_id": "large_oss",
+  "defender_model_revision": "together:openai/gpt-oss-120b@2026-09-05",
+  "episode_id": "ep_b62f4e44857357baa3bf_baseline",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "19cc7548fca162f3cd3841f051ebcdb8dfca53cf65b2f0629c3ed870b1a6cd51",
+  "input_tokens": 1039,
+  "latency_ms": 10529,
+  "output_tokens": 229,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.93,
+    "evidence_event_ids": [
+      "evt_a5b8bd5e094845359685e7f0d2f2b28f"
+    ],
+    "first_suspicious_event_id": "evt_a5b8bd5e094845359685e7f0d2f2b28f",
+    "rationale": "User deleted a project not mapped to them; authorized mapping shows only prj_035198313c77 is allowed, indicating boundary violation.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"attack\",\n  \"attack_probability\": 0.93,\n  \"first_suspicious_event_id\": \"evt_a5b8bd5e094845359685e7f0d2f2b28f\",\n  \"evidence_event_ids\": [\"evt_a5b8bd5e094845359685e7f0d2f2b28f\"],\n  \"suspected_tactic\": \"authorization_abuse\",\n  \"rationale\": \"User deleted a project not mapped to them; authorized mapping shows only prj_035198313c77 is allowed, indicating boundary violation.\"\n}",
+  "schema_version": "prediction_v1"
+}

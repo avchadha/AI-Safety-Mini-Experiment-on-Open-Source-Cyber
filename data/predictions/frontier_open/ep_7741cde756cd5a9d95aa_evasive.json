@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T19:37:19.731023Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_7741cde756cd5a9d95aa_evasive",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "ab1e5734553bed31e901c4b3173068102db91bd57c3607a90733a67f72244e25",
+  "input_tokens": 3160,
+  "latency_ms": 11563,
+  "output_tokens": 286,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_17a6deeeae3a4c2eaa3d7a19d0cf8ded",
+      "evt_4054d02702664b439348db5f457c4ee8",
+      "evt_67f06e8d2edf4f8ca017c7359eb51e75",
+      "evt_b8e320e5ba024b22b4b1fbcb3b8202e3",
+      "evt_2039d5f6334546b39d1a573890ae45cf"
+    ],
+    "first_suspicious_event_id": "evt_17a6deeeae3a4c2eaa3d7a19d0cf8ded",
+    "rationale": "The principal repeatedly targets prj_44cec0e06245, which is not in the authorized mapping. It first attempts DELETE with a 422, then creates projects, probes the unauthorized project, and later successfully DELETEs it with a 200. This indicates deletion of a project outside the principal's authorized ownership.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"attack\",\n  \"attack_probability\": 0.95,\n  \"first_suspicious_event_id\": \"evt_17a6deeeae3a4c2eaa3d7a19d0cf8ded\",\n  \"evidence_event_ids\": [\n    \"evt_17a6deeeae3a4c2eaa3d7a19d0cf8ded\",\n    \"evt_4054d02702664b439348db5f457c4ee8\",\n    \"evt_67f06e8d2edf4f8ca017c7359eb51e75\",\n    \"evt_b8e320e5ba024b22b4b1fbcb3b8202e3\",\n    \"evt_2039d5f6334546b39d1a573890ae45cf\"\n  ],\n  \"suspected_tactic\": \"authorization_abuse\",\n  \"rationale\": \"The principal repeatedly targets prj_44cec0e06245, which is not in the authorized mapping. It first attempts DELETE with a 422, then creates projects, probes the unauthorized project, and later successfully DELETEs it with a 200. This indicates deletion of a project outside the principal's authorized ownership.\"\n}",
+  "schema_version": "prediction_v1"
+}

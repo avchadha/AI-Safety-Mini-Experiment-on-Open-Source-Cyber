@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T07:56:20.039744Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_1506aaa2f12a3193344a",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "b472604c78d9f3c2c91d5f4238ac2e19504337aad12f34fcd68ed6816f8f4b68",
+  "input_tokens": 1285,
+  "latency_ms": 11233,
+  "output_tokens": 296,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_1226ee6101924e4ea383aaf6949efe60",
+      "evt_51e4bb1bd00d4ff5be86c7d6b6edfe57",
+      "evt_93bf9ec13945472588b5d2afe479547f",
+      "evt_9e6b88c8f64048379ebb641d719d7ca4",
+      "evt_16898b462652462b954af33f1f771226"
+    ],
+    "first_suspicious_event_id": "evt_1226ee6101924e4ea383aaf6949efe60",
+    "rationale": "The principal successfully logged in but then attempted to DELETE three non-existent projects (indicated by 'prj_missing' in paths) which returned 500 errors. This pattern of targeting specific, likely non-owned resources immediately after login suggests an attempt to probe or exploit authorization boundaries, violating the rule that a principal may only delete their own projects.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_1226ee6101924e4ea383aaf6949efe60\",\"evidence_event_ids\":[\"evt_1226ee6101924e4ea383aaf6949efe60\",\"evt_51e4bb1bd00d4ff5be86c7d6b6edfe57\",\"evt_93bf9ec13945472588b5d2afe479547f\",\"evt_9e6b88c8f64048379ebb641d719d7ca4\",\"evt_16898b462652462b954af33f1f771226\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"The principal successfully logged in but then attempted to DELETE three non-existent projects (indicated by 'prj_missing' in paths) which returned 500 errors. This pattern of targeting specific, likely non-owned resources immediately after login suggests an attempt to probe or exploit authorization boundaries, violating the rule that a principal may only delete their own projects.\"}",
+  "schema_version": "prediction_v1"
+}

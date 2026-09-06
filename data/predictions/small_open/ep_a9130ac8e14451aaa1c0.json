@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-05T23:41:57.966623Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_a9130ac8e14451aaa1c0",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "b18a7b17775ebaff47455e66a82f18b81034dff9bb8dd2a77b99fd5f9d0fb557",
+  "input_tokens": 1179,
+  "latency_ms": 12084,
+  "output_tokens": 232,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_4d3780da7c034ad8a825a68861cc0296",
+      "evt_2993dcce0158479b812cfc1de6777fb6",
+      "evt_26b7a5ff110f4de4ab452dabc9cf1987"
+    ],
+    "first_suspicious_event_id": "evt_4d3780da7c034ad8a825a68861cc0296",
+    "rationale": "The session attempts to access files outside the allowed /srv/reports root. Event 2 targets /srv/secret (403), Event 3 uses POST to move a resource to /srv/secret, and Event 4 successfully serves a file from /tmp/gradio. This sequence demonstrates active path manipulation to bypass directory restrictions.",
+    "suspected_tactic": "path_manipulation",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_4d3780da7c034ad8a825a68861cc0296\",\"evidence_event_ids\":[\"evt_4d3780da7c034ad8a825a68861cc0296\",\"evt_2993dcce0158479b812cfc1de6777fb6\",\"evt_26b7a5ff110f4de4ab452dabc9cf1987\"],\"suspected_tactic\":\"path_manipulation\",\"rationale\":\"The session attempts to access files outside the allowed /srv/reports root. Event 2 targets /srv/secret (403), Event 3 uses POST to move a resource to /srv/secret, and Event 4 successfully serves a file from /tmp/gradio. This sequence demonstrates active path manipulation to bypass directory restrictions.\"}",
+  "schema_version": "prediction_v1"
+}

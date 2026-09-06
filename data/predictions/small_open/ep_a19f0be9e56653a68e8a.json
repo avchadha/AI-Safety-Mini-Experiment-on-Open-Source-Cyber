@@ -1,0 +1,26 @@
+{
+  "created_at_utc": "2026-09-05T23:38:12.372181Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_a19f0be9e56653a68e8a",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "e5a9afeb34469965f6fcfbd9c1aabb9d31597e32d358d45cd6580ca41c97a97e",
+  "input_tokens": 784,
+  "latency_ms": 10808,
+  "output_tokens": 138,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_a1f6879d229d400190c926454c961104",
+      "evt_a492fc665b4f4bcb8d2e205c6969eea0"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "Both requests are benign. The first retrieves metadata, and the second accesses a file within the allowed /srv/reports directory. No path traversal or unauthorized access is observed.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_a1f6879d229d400190c926454c961104\",\"evt_a492fc665b4f4bcb8d2e205c6969eea0\"],\"suspected_tactic\":\"none\",\"rationale\":\"Both requests are benign. The first retrieves metadata, and the second accesses a file within the allowed /srv/reports directory. No path traversal or unauthorized access is observed.\"}",
+  "schema_version": "prediction_v1"
+}

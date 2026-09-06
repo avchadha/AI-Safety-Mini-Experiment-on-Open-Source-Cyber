@@ -1,0 +1,23 @@
+{
+  "created_at_utc": "2026-09-05T23:43:17.681650Z",
+  "defender_id": "medium_open",
+  "defender_model_revision": "together:openai/gpt-oss-20b@2026-09-05",
+  "episode_id": "ep_b14c4d175f5c5433a213",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "a79f1d24edfccf507e092f06d6fe97b8e71084e6782eae90e22c16f942ef8d9e",
+  "input_tokens": 4850,
+  "latency_ms": 10946,
+  "output_tokens": 222,
+  "parse_failure": true,
+  "parsed_output": {
+    "attack_probability": 0.5,
+    "evidence_event_ids": [],
+    "first_suspicious_event_id": null,
+    "rationale": "The detector output could not be parsed as the required schema.",
+    "suspected_tactic": "unclear",
+    "verdict": "insufficient_evidence"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.99,\"first_suspicious_event_id\":\"evt_37d5dd1eb82c4468b1bea24f18262db5\",\"evidence_event_ids\":[\"evt_37d5dd1eb82c4468b1bea24f18262db5\",\"evt_8b8ec861ff98451aaf21cc707856bcae\",\"evt_8796ed410bb54810a19b9b579e917059\",\"evt_c6611cc9f79b47548abec5d029b9c308\",\"evt_7c8d31065d394452a363a4245654e0c\"],\"suspected_tactic\":\"path_manipulation\",\"rationale\":\"Multiple GETs attempt directory traversal to access /srv/secret, all denied, indicating malicious path manipulation attempts.\"}",
+  "schema_version": "prediction_v1"
+}

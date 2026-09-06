@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T07:10:03.418742Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_323b63f796015bfcb900_baseline",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "ae175b621a4ce7a8086ce0867b561a5161cc46fed316b1cba19f5a8603eb2bf9",
+  "input_tokens": 946,
+  "latency_ms": 10784,
+  "output_tokens": 254,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_d0cf9cb1c1014cd0bff172fed030c1ac",
+      "evt_2cb1e9ac2fa746449f018d0fb045a3b9",
+      "evt_40c3a65045c54bf7a815df675ad2a20e"
+    ],
+    "first_suspicious_event_id": "evt_40c3a65045c54bf7a815df675ad2a20e",
+    "rationale": "The principal usr_0c026a988205 is authorized only for prj_a4bb340840cd. Event evt_40c3a65045c54bf7a815df675ad2a20e shows this principal attempting to DELETE a different project (prj_b099259ee3bb), violating the authorization boundary.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_40c3a65045c54bf7a815df675ad2a20e\",\"evidence_event_ids\":[\"evt_d0cf9cb1c1014cd0bff172fed030c1ac\",\"evt_2cb1e9ac2fa746449f018d0fb045a3b9\",\"evt_40c3a65045c54bf7a815df675ad2a20e\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"The principal usr_0c026a988205 is authorized only for prj_a4bb340840cd. Event evt_40c3a65045c54bf7a815df675ad2a20e shows this principal attempting to DELETE a different project (prj_b099259ee3bb), violating the authorization boundary.\"}",
+  "schema_version": "prediction_v1"
+}

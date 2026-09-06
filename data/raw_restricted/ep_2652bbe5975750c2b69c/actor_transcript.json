@@ -1,0 +1,65 @@
+[
+  {
+    "event_id": "evt_914dd19804804994a053757e471666a8",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": {
+        "email": "user_95025547@exercise.invalid",
+        "password": "pw_ce6f2a67192df8fb"
+      },
+      "method": "POST",
+      "path": "/auth/login",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_8d7b943a3e9c41d6971f09cf36e7f4b9",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/v1/projects",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_5f25a1f9f6994ede874cdcdf1b97ef0a",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "DELETE",
+      "path": "/v1/projects/78313d9c-984a-4ed5-8710-c500fdf5a1a9",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_2c4892c88e7e4bffa76450aabc01804d",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/v1/projects",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "content": null,
+    "type": "assistant_text"
+  }
+]

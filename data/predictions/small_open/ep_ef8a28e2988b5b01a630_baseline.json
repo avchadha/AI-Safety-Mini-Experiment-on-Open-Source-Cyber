@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-06T11:20:07.743505Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_ef8a28e2988b5b01a630_baseline",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "f4728eb3a025dbe48f1b1fef558892ca82024a2f9cdf550b0a2203643be1a463",
+  "input_tokens": 1090,
+  "latency_ms": 10397,
+  "output_tokens": 232,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_42267dccd16f4f91a68c2173d8cc59e7",
+      "evt_57f45b78b7c54d1f96275f343913264b",
+      "evt_4d7389af2b2e4ec8b63af2fe154ae88e",
+      "evt_27bc1c362df04d57a7794cb35fc30166"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The principal usr_5371acd52ffd successfully logged in, listed projects, and deleted prj_9b7ad510b38e. All actions returned 200 status codes, indicating authorized access. No evidence of unauthorized deletion, path traversal, or privilege escalation exists.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_42267dccd16f4f91a68c2173d8cc59e7\",\"evt_57f45b78b7c54d1f96275f343913264b\",\"evt_4d7389af2b2e4ec8b63af2fe154ae88e\",\"evt_27bc1c362df04d57a7794cb35fc30166\"],\"suspected_tactic\":\"none\",\"rationale\":\"The principal usr_5371acd52ffd successfully logged in, listed projects, and deleted prj_9b7ad510b38e. All actions returned 200 status codes, indicating authorized access. No evidence of unauthorized deletion, path traversal, or privilege escalation exists.\"}",
+  "schema_version": "prediction_v1"
+}

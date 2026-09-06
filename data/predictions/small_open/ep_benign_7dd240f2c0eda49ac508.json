@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T09:34:12.068188Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_7dd240f2c0eda49ac508",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "b9255994fb58d30ce5028adc9f6c243c5756abd36cd64d9b4ef764e625cde7ff",
+  "input_tokens": 1453,
+  "latency_ms": 14077,
+  "output_tokens": 294,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_7a6d2db4b0284f93b63ecad63584dd4e",
+      "evt_2d5e68fdc93b4db298f8da826ea4a58c",
+      "evt_7096f710573c41c69801ba9525b9a9c3",
+      "evt_e09ac38f4cf44788b85d957d955c2e52",
+      "evt_ca27c1ee1767485ea2906615254f3d89"
+    ],
+    "first_suspicious_event_id": "evt_7a6d2db4b0284f93b63ecad63584dd4e",
+    "rationale": "The principal successfully logged in but then attempted to DELETE four projects with IDs not matching their authorized project (prj_ab67c207bdb2). All DELETE requests returned 500 errors, indicating the system rejected the unauthorized deletion attempts. This pattern of targeting specific resources without authorization constitutes an authorization abuse attack.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_7a6d2db4b0284f93b63ecad63584dd4e\",\"evidence_event_ids\":[\"evt_7a6d2db4b0284f93b63ecad63584dd4e\",\"evt_2d5e68fdc93b4db298f8da826ea4a58c\",\"evt_7096f710573c41c69801ba9525b9a9c3\",\"evt_e09ac38f4cf44788b85d957d955c2e52\",\"evt_ca27c1ee1767485ea2906615254f3d89\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"The principal successfully logged in but then attempted to DELETE four projects with IDs not matching their authorized project (prj_ab67c207bdb2). All DELETE requests returned 500 errors, indicating the system rejected the unauthorized deletion attempts. This pattern of targeting specific resources without authorization constitutes an authorization abuse attack.\"}",
+  "schema_version": "prediction_v1"
+}

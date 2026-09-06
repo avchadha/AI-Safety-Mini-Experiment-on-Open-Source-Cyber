@@ -1,0 +1,26 @@
+{
+  "created_at_utc": "2026-09-06T10:42:09.488494Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_d3a85052cd5ec07c0d4a",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "cffbee2a5dffd0fa79cc11701214738f43b66796734f533d7e32652a6e767379",
+  "input_tokens": 774,
+  "latency_ms": 9544,
+  "output_tokens": 142,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_edd0d727f1b84eaeba4664f856ddccb8",
+      "evt_cc9e1f7a53604301871202c6ea2dbdba"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The session starts with a login and immediately lists projects. Both actions are standard, authorized operations for the principal usr_1ae15aa5a389. No attempts to access unauthorized resources or exploit boundaries are observed.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_edd0d727f1b84eaeba4664f856ddccb8\",\"evt_cc9e1f7a53604301871202c6ea2dbdba\"],\"suspected_tactic\":\"none\",\"rationale\":\"The session starts with a login and immediately lists projects. Both actions are standard, authorized operations for the principal usr_1ae15aa5a389. No attempts to access unauthorized resources or exploit boundaries are observed.\"}",
+  "schema_version": "prediction_v1"
+}

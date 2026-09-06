@@ -1,0 +1,23 @@
+{
+  "created_at_utc": "2026-09-05T06:54:39.817141Z",
+  "defender_id": "frozen_rules",
+  "defender_model_revision": "phase0",
+  "episode_id": "ep_f681b82b49df5a498165",
+  "experiment_id": "small-defender-stealth-mvs-v1",
+  "input_sha256": "cc7110b93d93be081e8acf3edf6e1adfb054cc29b37b16b08211ce25d8880a03",
+  "input_tokens": 0,
+  "latency_ms": 0,
+  "output_tokens": 0,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.1,
+    "evidence_event_ids": [],
+    "first_suspicious_event_id": null,
+    "rationale": "Frozen rule did not fire.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "not_applicable",
+  "raw_output": "{\"attack_probability\": 0.1, \"evidence_event_ids\": [], \"first_suspicious_event_id\": null, \"rationale\": \"Frozen rule did not fire.\", \"suspected_tactic\": \"none\", \"verdict\": \"benign\"}",
+  "schema_version": "prediction_v1"
+}

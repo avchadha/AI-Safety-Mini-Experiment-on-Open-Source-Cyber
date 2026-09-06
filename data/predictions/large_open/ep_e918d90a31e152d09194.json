@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T00:05:30.100161Z",
+  "defender_id": "large_open",
+  "defender_model_revision": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo@2026-09-05",
+  "episode_id": "ep_e918d90a31e152d09194",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "02a96ff0895342863b720d9c3731797bbf2e0cdfdea282f7c5eb99bb3585fb95",
+  "input_tokens": 997,
+  "latency_ms": 9915,
+  "output_tokens": 161,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.8,
+    "evidence_event_ids": [
+      "evt_370b6c968a27427d9aa8cb0ddf42c42e",
+      "evt_6676569b5d5d451a923040487eb6888c",
+      "evt_44d7e2e0ed7e42099c7efd797799dc6a"
+    ],
+    "first_suspicious_event_id": "evt_370b6c968a27427d9aa8cb0ddf42c42e",
+    "rationale": "Deleted project prj_787866dec8df not owned by usr_68c4215fd56d",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\": \"attack\", \"attack_probability\": 0.8, \"first_suspicious_event_id\": \"evt_370b6c968a27427d9aa8cb0ddf42c42e\", \"evidence_event_ids\": [\"evt_370b6c968a27427d9aa8cb0ddf42c42e\", \"evt_6676569b5d5d451a923040487eb6888c\", \"evt_44d7e2e0ed7e42099c7efd797799dc6a\"], \"suspected_tactic\": \"authorization_abuse\", \"rationale\": \"Deleted project prj_787866dec8df not owned by usr_68c4215fd56d\"}",
+  "schema_version": "prediction_v1"
+}

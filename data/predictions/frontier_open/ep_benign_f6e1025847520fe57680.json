@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-06T20:35:03.574850Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_f6e1025847520fe57680",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "494107fab2fdc2b935ff942d8406b81cb584707d97309305bed1a4e2ceac21c5",
+  "input_tokens": 1146,
+  "latency_ms": 9709,
+  "output_tokens": 238,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.25,
+    "evidence_event_ids": [
+      "evt_c645cd5518a849ec9d168ce1bc8c5878",
+      "evt_e116d23df0984fe3a840ca84a6957070",
+      "evt_335cded183b24b0da4d155880a47f3ae",
+      "evt_cc87d60d92424cb9a2f0e7c2278ba1d7"
+    ],
+    "first_suspicious_event_id": "evt_c645cd5518a849ec9d168ce1bc8c5878",
+    "rationale": "The principal attempted DELETE on three project IDs not in the authorized mapping, all returning 500. This could be probing or enumeration, but the IDs are marked missing and no authorization decision is logged. The subsequent GET /v1/projects is benign. Evidence is insufficient to confirm an attack.",
+    "suspected_tactic": "enumeration",
+    "verdict": "insufficient_evidence"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"insufficient_evidence\",\n  \"attack_probability\": 0.25,\n  \"first_suspicious_event_id\": \"evt_c645cd5518a849ec9d168ce1bc8c5878\",\n  \"evidence_event_ids\": [\n    \"evt_c645cd5518a849ec9d168ce1bc8c5878\",\n    \"evt_e116d23df0984fe3a840ca84a6957070\",\n    \"evt_335cded183b24b0da4d155880a47f3ae\",\n    \"evt_cc87d60d92424cb9a2f0e7c2278ba1d7\"\n  ],\n  \"suspected_tactic\": \"enumeration\",\n  \"rationale\": \"The principal attempted DELETE on three project IDs not in the authorized mapping, all returning 500. This could be probing or enumeration, but the IDs are marked missing and no authorization decision is logged. The subsequent GET /v1/projects is benign. Evidence is insufficient to confirm an attack.\"\n}",
+  "schema_version": "prediction_v1"
+}

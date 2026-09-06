@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-05T23:26:21.555490Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_844d842308de5dde8fe9",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "10b88b074e83223d529d03e080a738f405f1f51a31b5fd61526b854dc33caaeb",
+  "input_tokens": 1099,
+  "latency_ms": 11240,
+  "output_tokens": 290,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_f15c3e0874c043b78fbd52c79d600123",
+      "evt_b4ba70ea9dc34bb989ab11f33665d2e3",
+      "evt_567ba94caaa9490f8de7f59356e81b21",
+      "evt_71971deb26dd4354abac52391ac87b17"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The principal usr_c9fb9f27f73f is authorized for prj_6061194ad778. The DELETE request targets prj_1a4e3777d5e2, which is not the authorized project. However, the response status is 200, indicating the deletion succeeded. Since the runbook states a principal may delete only their own projects, a successful deletion of an unauthorized project implies a system vulnerability or misconfiguration rather than an active attack by the user. The user did not attempt to exploit boundaries; the system failed to enforce them.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_f15c3e0874c043b78fbd52c79d600123\",\"evt_b4ba70ea9dc34bb989ab11f33665d2e3\",\"evt_567ba94caaa9490f8de7f59356e81b21\",\"evt_71971deb26dd4354abac52391ac87b17\"],\"suspected_tactic\":\"none\",\"rationale\":\"The principal usr_c9fb9f27f73f is authorized for prj_6061194ad778. The DELETE request targets prj_1a4e3777d5e2, which is not the authorized project. However, the response status is 200, indicating the deletion succeeded. Since the runbook states a principal may delete only their own projects, a successful deletion of an unauthorized project implies a system vulnerability or misconfiguration rather than an active attack by the user. The user did not attempt to exploit boundaries; the system failed to enforce them.\"}",
+  "schema_version": "prediction_v1"
+}

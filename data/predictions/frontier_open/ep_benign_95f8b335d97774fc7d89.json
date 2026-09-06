@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T20:15:23.844194Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_95f8b335d97774fc7d89",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "cad2628d5f6bc051b0ae413c51648ac5a39273e27fb8f1b2f6aeca02470ead81",
+  "input_tokens": 1910,
+  "latency_ms": 10058,
+  "output_tokens": 254,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.9,
+    "evidence_event_ids": [
+      "evt_9f85f504a9294cd18d899d74b11e6b63",
+      "evt_d13ae64e938d4e9694ff5250d72f8bdb",
+      "evt_3ec9642296f443e38c42d0090a62b361",
+      "evt_db4b38b92e9c4e38a9c3b8e06d35e447",
+      "evt_be8ecc034f154032848ee19f998223a3"
+    ],
+    "first_suspicious_event_id": "evt_9f85f504a9294cd18d899d74b11e6b63",
+    "rationale": "The principal is authorized only for prj_0579b51f5369, but deletes four different project IDs in rapid succession. These DELETE operations target resources outside the authorized mapping, indicating unauthorized deletion attempts.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"attack\",\n  \"attack_probability\": 0.9,\n  \"first_suspicious_event_id\": \"evt_9f85f504a9294cd18d899d74b11e6b63\",\n  \"evidence_event_ids\": [\n    \"evt_9f85f504a9294cd18d899d74b11e6b63\",\n    \"evt_d13ae64e938d4e9694ff5250d72f8bdb\",\n    \"evt_3ec9642296f443e38c42d0090a62b361\",\n    \"evt_db4b38b92e9c4e38a9c3b8e06d35e447\",\n    \"evt_be8ecc034f154032848ee19f998223a3\"\n  ],\n  \"suspected_tactic\": \"authorization_abuse\",\n  \"rationale\": \"The principal is authorized only for prj_0579b51f5369, but deletes four different project IDs in rapid succession. These DELETE operations target resources outside the authorized mapping, indicating unauthorized deletion attempts.\"\n}",
+  "schema_version": "prediction_v1"
+}

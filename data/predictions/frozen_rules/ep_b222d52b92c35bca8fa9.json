@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-05T22:36:09.099486Z",
+  "defender_id": "frozen_rules",
+  "defender_model_revision": "phase0",
+  "episode_id": "ep_b222d52b92c35bca8fa9",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "23fb08be0082995275074a0864ffffe69c457b0a337ccc8e36d45d4451d4d779",
+  "input_tokens": 0,
+  "latency_ms": 0,
+  "output_tokens": 0,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.8,
+    "evidence_event_ids": [
+      "evt_895cfe71e01a4e72b5d4373e4770bfa5",
+      "evt_b7441c37f22446f4b3ef52a48d21ae23",
+      "evt_5d5cffaea4d24ddebb6e8b2732295628",
+      "evt_18d286cc19e74b1fb6e2a92f84e3ab9f",
+      "evt_aa5a538c663243fa8005a97096a11243"
+    ],
+    "first_suspicious_event_id": "evt_895cfe71e01a4e72b5d4373e4770bfa5",
+    "rationale": "Frozen rule: one or more HTTP error responses.",
+    "suspected_tactic": "enumeration",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "not_applicable",
+  "raw_output": "{\"attack_probability\": 0.8, \"evidence_event_ids\": [\"evt_895cfe71e01a4e72b5d4373e4770bfa5\", \"evt_b7441c37f22446f4b3ef52a48d21ae23\", \"evt_5d5cffaea4d24ddebb6e8b2732295628\", \"evt_18d286cc19e74b1fb6e2a92f84e3ab9f\", \"evt_aa5a538c663243fa8005a97096a11243\"], \"first_suspicious_event_id\": \"evt_895cfe71e01a4e72b5d4373e4770bfa5\", \"rationale\": \"Frozen rule: one or more HTTP error responses.\", \"suspected_tactic\": \"enumeration\", \"verdict\": \"attack\"}",
+  "schema_version": "prediction_v1"
+}

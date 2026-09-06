@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T09:33:21.475961Z",
+  "defender_id": "large_oss",
+  "defender_model_revision": "together:openai/gpt-oss-120b@2026-09-05",
+  "episode_id": "ep_benign_7c066277cd34b3eaf5f5",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "e839ca90c6ea1e4f55c6864eb96a5cecd7868116804a3b525d34e224141a6ad2",
+  "input_tokens": 1303,
+  "latency_ms": 9945,
+  "output_tokens": 306,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.85,
+    "evidence_event_ids": [
+      "evt_38addf9977c4453fbf7240752469faba",
+      "evt_b1713b51ed96485ca6cfefdd16a40a62",
+      "evt_7375d37edf31448296125f0fdc48cd40",
+      "evt_c15ff34b22f641c4ad6414dff47720f8",
+      "evt_aa3ee99ba16f43e28b7c1bc68663fc27"
+    ],
+    "first_suspicious_event_id": "evt_38addf9977c4453fbf7240752469faba",
+    "rationale": "Multiple DELETE attempts on non-existent project IDs followed by a GET list suggest probing for valid resources, indicating enumeration behavior.",
+    "suspected_tactic": "enumeration",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"attack\",\n  \"attack_probability\": 0.85,\n  \"first_suspicious_event_id\": \"evt_38addf9977c4453fbf7240752469faba\",\n  \"evidence_event_ids\": [\n    \"evt_38addf9977c4453fbf7240752469faba\",\n    \"evt_b1713b51ed96485ca6cfefdd16a40a62\",\n    \"evt_7375d37edf31448296125f0fdc48cd40\",\n    \"evt_c15ff34b22f641c4ad6414dff47720f8\",\n    \"evt_aa3ee99ba16f43e28b7c1bc68663fc27\"\n  ],\n  \"suspected_tactic\": \"enumeration\",\n  \"rationale\": \"Multiple DELETE attempts on non-existent project IDs followed by a GET list suggest probing for valid resources, indicating enumeration behavior.\"\n}",
+  "schema_version": "prediction_v1"
+}

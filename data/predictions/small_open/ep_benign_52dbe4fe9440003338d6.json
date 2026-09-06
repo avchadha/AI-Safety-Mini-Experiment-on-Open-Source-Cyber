@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T08:52:15.898703Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_52dbe4fe9440003338d6",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "0618071937854a3b40451e06d2b902f6fd32cead1b59784be6ac3bafbc424431",
+  "input_tokens": 929,
+  "latency_ms": 10131,
+  "output_tokens": 170,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_f5cffe9e5bed4d2582ca9bdb801f6b24",
+      "evt_31d143f8f2c748a3a03ab93cabf6e752",
+      "evt_539e934e309f42d7a4fe8ebd497723f7"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The session shows a standard login followed by creating and listing projects. All actions use the authorized principal and follow the runbook's permission model without any traversal, injection, or unauthorized access attempts.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_f5cffe9e5bed4d2582ca9bdb801f6b24\",\"evt_31d143f8f2c748a3a03ab93cabf6e752\",\"evt_539e934e309f42d7a4fe8ebd497723f7\"],\"suspected_tactic\":\"none\",\"rationale\":\"The session shows a standard login followed by creating and listing projects. All actions use the authorized principal and follow the runbook's permission model without any traversal, injection, or unauthorized access attempts.\"}",
+  "schema_version": "prediction_v1"
+}

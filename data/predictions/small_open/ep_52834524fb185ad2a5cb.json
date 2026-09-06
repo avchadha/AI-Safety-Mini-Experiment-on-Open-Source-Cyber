@@ -1,0 +1,26 @@
+{
+  "created_at_utc": "2026-09-05T07:07:11.971912Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_52834524fb185ad2a5cb",
+  "experiment_id": "small-defender-stealth-mvs-v1",
+  "input_sha256": "d4be70f04dd4e9d99f3cb46a8fe346e19f8402c1b1e430ea6117f2eb419485c5",
+  "input_tokens": 746,
+  "latency_ms": 10961,
+  "output_tokens": 237,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 1.0,
+    "evidence_event_ids": [
+      "evt_7cb2470145ad48f8aac3ae6a5f60ce8f",
+      "evt_8655d7a50fa84eb3a2d66cb25626e452"
+    ],
+    "first_suspicious_event_id": "evt_8655d7a50fa84eb3a2d66cb25626e452",
+    "rationale": "The principal usr_6255b6c05f00 is authorized only for prj_81ea6cc7ec5f. The DELETE request in evt_8655d7a50fa84eb3a2d66cb25626e452 targets prj_bd1306747c63, a different project. The 200 status indicates the system allowed this unauthorized deletion, violating resource boundaries.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":1.0,\"first_suspicious_event_id\":\"evt_8655d7a50fa84eb3a2d66cb25626e452\",\"evidence_event_ids\":[\"evt_7cb2470145ad48f8aac3ae6a5f60ce8f\",\"evt_8655d7a50fa84eb3a2d66cb25626e452\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"The principal usr_6255b6c05f00 is authorized only for prj_81ea6cc7ec5f. The DELETE request in evt_8655d7a50fa84eb3a2d66cb25626e452 targets prj_bd1306747c63, a different project. The 200 status indicates the system allowed this unauthorized deletion, violating resource boundaries.\"}",
+  "schema_version": "prediction_v1"
+}

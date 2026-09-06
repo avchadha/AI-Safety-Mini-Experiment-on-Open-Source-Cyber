@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T10:55:42.475040Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_e460d6768b0909c6909d",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "7146fd09b1993c62f6dc32ca61d9f6a892402e1f7dead08cffe43b5ac0041a42",
+  "input_tokens": 952,
+  "latency_ms": 10733,
+  "output_tokens": 192,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_affb225606244c359a6080c9f8dd39ac",
+      "evt_afaeae9f6c4449bcbd0d646a893651f2",
+      "evt_d2a200fd96a641ea815dc2528f58298c"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The user authenticated, listed projects, and deleted a project. All actions returned 200 status codes, indicating success. The runbook states a principal may delete only their own projects. Since the deletion succeeded, the user was authorized to delete that specific project. No evidence of unauthorized access or exploitation exists.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_affb225606244c359a6080c9f8dd39ac\",\"evt_afaeae9f6c4449bcbd0d646a893651f2\",\"evt_d2a200fd96a641ea815dc2528f58298c\"],\"suspected_tactic\":\"none\",\"rationale\":\"The user authenticated, listed projects, and deleted a project. All actions returned 200 status codes, indicating success. The runbook states a principal may delete only their own projects. Since the deletion succeeded, the user was authorized to delete that specific project. No evidence of unauthorized access or exploitation exists.\"}",
+  "schema_version": "prediction_v1"
+}

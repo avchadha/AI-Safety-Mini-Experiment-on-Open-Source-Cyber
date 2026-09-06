@@ -1,0 +1,1 @@
+{"schema_version":"oracle_event_v1","event_id":"evt_ee484ff020664426a05ae8da7fa6f211","sequence":1,"policy_violation":false,"violation_type":null,"canary_exposed":false,"actor_principal_private":"user_18341419@exercise.invalid","resource_owner_private":null,"annotation_version":"lunary_idor_oracle_v1"}

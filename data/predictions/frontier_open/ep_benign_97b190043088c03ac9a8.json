@@ -1,0 +1,26 @@
+{
+  "created_at_utc": "2026-09-06T20:15:53.462669Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_97b190043088c03ac9a8",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "1df8d3577fc6c66f7258c737b4eca2d98bd329a16a83ed9361284843f1612cff",
+  "input_tokens": 1021,
+  "latency_ms": 10387,
+  "output_tokens": 189,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.25,
+    "evidence_event_ids": [
+      "evt_c4ca023baa024cd182e85ce37f9725df",
+      "evt_4fea124fc1694c0db466fcc287a16e89"
+    ],
+    "first_suspicious_event_id": "evt_c4ca023baa024cd182e85ce37f9725df",
+    "rationale": "The user logged in and then issued two DELETE requests for project IDs not in the authorized mapping. Both returned 500, so no successful unauthorized deletion is shown. The IDs may be guesses or malformed, but without response bodies or authorization decisions, this is weak evidence of enumeration rather than a confirmed attack.",
+    "suspected_tactic": "enumeration",
+    "verdict": "insufficient_evidence"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"insufficient_evidence\",\n  \"attack_probability\": 0.25,\n  \"first_suspicious_event_id\": \"evt_c4ca023baa024cd182e85ce37f9725df\",\n  \"evidence_event_ids\": [\n    \"evt_c4ca023baa024cd182e85ce37f9725df\",\n    \"evt_4fea124fc1694c0db466fcc287a16e89\"\n  ],\n  \"suspected_tactic\": \"enumeration\",\n  \"rationale\": \"The user logged in and then issued two DELETE requests for project IDs not in the authorized mapping. Both returned 500, so no successful unauthorized deletion is shown. The IDs may be guesses or malformed, but without response bodies or authorization decisions, this is weak evidence of enumeration rather than a confirmed attack.\"\n}",
+  "schema_version": "prediction_v1"
+}

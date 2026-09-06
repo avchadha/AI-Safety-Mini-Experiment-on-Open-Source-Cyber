@@ -1,0 +1,26 @@
+{
+  "created_at_utc": "2026-09-06T20:30:53.169875Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_e7e45c065f7b98f31116",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "75a56ff6ca9ad4808447e7bc1936ff4204fbd2920925e4e2f5735e04754693de",
+  "input_tokens": 1328,
+  "latency_ms": 9550,
+  "output_tokens": 180,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.9,
+    "evidence_event_ids": [
+      "evt_3a02492d6ef54a319720d2cba7a073a5",
+      "evt_f12fbf14e2f44c4d9cb649064daa6f6d"
+    ],
+    "first_suspicious_event_id": "evt_3a02492d6ef54a319720d2cba7a073a5",
+    "rationale": "The principal deleted two projects with IDs not matching the authorized mapping prj_ab67c207bdb2. Both DELETE requests returned 200, indicating successful deletion of resources outside the principal's ownership.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"attack\",\n  \"attack_probability\": 0.9,\n  \"first_suspicious_event_id\": \"evt_3a02492d6ef54a319720d2cba7a073a5\",\n  \"evidence_event_ids\": [\n    \"evt_3a02492d6ef54a319720d2cba7a073a5\",\n    \"evt_f12fbf14e2f44c4d9cb649064daa6f6d\"\n  ],\n  \"suspected_tactic\": \"authorization_abuse\",\n  \"rationale\": \"The principal deleted two projects with IDs not matching the authorized mapping prj_ab67c207bdb2. Both DELETE requests returned 200, indicating successful deletion of resources outside the principal's ownership.\"\n}",
+  "schema_version": "prediction_v1"
+}

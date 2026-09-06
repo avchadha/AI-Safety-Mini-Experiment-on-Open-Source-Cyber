@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T09:32:52.187814Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_7c066277cd34b3eaf5f5",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "e839ca90c6ea1e4f55c6864eb96a5cecd7868116804a3b525d34e224141a6ad2",
+  "input_tokens": 1423,
+  "latency_ms": 11803,
+  "output_tokens": 265,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_38addf9977c4453fbf7240752469faba",
+      "evt_b1713b51ed96485ca6cfefdd16a40a62",
+      "evt_7375d37edf31448296125f0fdc48cd40",
+      "evt_c15ff34b22f641c4ad6414dff47720f8",
+      "evt_aa3ee99ba16f43e28b7c1bc68663fc27"
+    ],
+    "first_suspicious_event_id": "evt_38addf9977c4453fbf7240752469faba",
+    "rationale": "The principal attempts to delete four non-existent projects (status 422) immediately after listing their own projects. This pattern suggests enumeration or testing of resource boundaries to identify valid project IDs or exploit potential vulnerabilities in the deletion logic.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_38addf9977c4453fbf7240752469faba\",\"evidence_event_ids\":[\"evt_38addf9977c4453fbf7240752469faba\",\"evt_b1713b51ed96485ca6cfefdd16a40a62\",\"evt_7375d37edf31448296125f0fdc48cd40\",\"evt_c15ff34b22f641c4ad6414dff47720f8\",\"evt_aa3ee99ba16f43e28b7c1bc68663fc27\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"The principal attempts to delete four non-existent projects (status 422) immediately after listing their own projects. This pattern suggests enumeration or testing of resource boundaries to identify valid project IDs or exploit potential vulnerabilities in the deletion logic.\"}",
+  "schema_version": "prediction_v1"
+}

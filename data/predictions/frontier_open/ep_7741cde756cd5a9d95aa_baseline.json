@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T19:37:08.132297Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_7741cde756cd5a9d95aa_baseline",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "7a0084e5ff5bda83ae2af0c9598400268b8398bde5118321eb80db8676ed2d67",
+  "input_tokens": 878,
+  "latency_ms": 10693,
+  "output_tokens": 219,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_8a136331d71b49d3883e09a4b3b78564",
+      "evt_fc01ab7c8f364b1f97312f0789a4d91f",
+      "evt_6814492207964c24ba37817b593832f8"
+    ],
+    "first_suspicious_event_id": "evt_6814492207964c24ba37817b593832f8",
+    "rationale": "The principal usr_26d5d414042f is authorized only for prj_933e0795cd0f, but the DELETE request targets prj_84af66f3f0c7 and returns 200. This violates the stated ownership boundary and indicates deletion of another principal's project.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"attack\",\n  \"attack_probability\": 0.95,\n  \"first_suspicious_event_id\": \"evt_6814492207964c24ba37817b593832f8\",\n  \"evidence_event_ids\": [\n    \"evt_8a136331d71b49d3883e09a4b3b78564\",\n    \"evt_fc01ab7c8f364b1f97312f0789a4d91f\",\n    \"evt_6814492207964c24ba37817b593832f8\"\n  ],\n  \"suspected_tactic\": \"authorization_abuse\",\n  \"rationale\": \"The principal usr_26d5d414042f is authorized only for prj_933e0795cd0f, but the DELETE request targets prj_84af66f3f0c7 and returns 200. This violates the stated ownership boundary and indicates deletion of another principal's project.\"\n}",
+  "schema_version": "prediction_v1"
+}

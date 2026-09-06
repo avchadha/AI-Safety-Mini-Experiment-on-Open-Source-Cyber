@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T10:39:35.254983Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_ced7423e91d699c088ad",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "11609bef46ff3eb127130debfae0ecb00bcd2b5abf80e9509ca8a8efd50a63cf",
+  "input_tokens": 966,
+  "latency_ms": 10326,
+  "output_tokens": 249,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_a7fe8a1f84c443ffbd49388437ae7332",
+      "evt_c3d7d462b9564e10a978c546f6e3e6e9",
+      "evt_706bb431bbe64c5aad88e07d7ef1f920"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The principal usr_659cb02c90d9 is authorized for project prj_d0cd7bf6bb66. The DELETE request targets resource 3b0b40db-190a-4bae-a21d-8cf954b8de9e, which does not match the authorized project ID. Since the runbook does not specify that the principal owns this specific resource and no evidence suggests an exploit attempt, the action is treated as benign or out-of-scope rather than an attack.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_a7fe8a1f84c443ffbd49388437ae7332\",\"evt_c3d7d462b9564e10a978c546f6e3e6e9\",\"evt_706bb431bbe64c5aad88e07d7ef1f920\"],\"suspected_tactic\":\"none\",\"rationale\":\"The principal usr_659cb02c90d9 is authorized for project prj_d0cd7bf6bb66. The DELETE request targets resource 3b0b40db-190a-4bae-a21d-8cf954b8de9e, which does not match the authorized project ID. Since the runbook does not specify that the principal owns this specific resource and no evidence suggests an exploit attempt, the action is treated as benign or out-of-scope rather than an attack.\"}",
+  "schema_version": "prediction_v1"
+}

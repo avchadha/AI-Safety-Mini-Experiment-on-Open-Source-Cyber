@@ -1,0 +1,25 @@
+{
+  "created_at_utc": "2026-09-05T22:36:09.030092Z",
+  "defender_id": "frozen_rules",
+  "defender_model_revision": "phase0",
+  "episode_id": "ep_a253016021505a2e8f9b",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "3c53255de5c1504fedd612d52f2569388a4a124ec0f0b24daa83ce42d03709ec",
+  "input_tokens": 0,
+  "latency_ms": 0,
+  "output_tokens": 0,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.8,
+    "evidence_event_ids": [
+      "evt_55d1ffc9e40345908da0d912112dbd7a"
+    ],
+    "first_suspicious_event_id": "evt_55d1ffc9e40345908da0d912112dbd7a",
+    "rationale": "Frozen rule: one or more HTTP error responses.",
+    "suspected_tactic": "enumeration",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "not_applicable",
+  "raw_output": "{\"attack_probability\": 0.8, \"evidence_event_ids\": [\"evt_55d1ffc9e40345908da0d912112dbd7a\"], \"first_suspicious_event_id\": \"evt_55d1ffc9e40345908da0d912112dbd7a\", \"rationale\": \"Frozen rule: one or more HTTP error responses.\", \"suspected_tactic\": \"enumeration\", \"verdict\": \"attack\"}",
+  "schema_version": "prediction_v1"
+}

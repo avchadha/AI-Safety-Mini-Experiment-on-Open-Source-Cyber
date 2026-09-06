@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T10:31:59.663670Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_c87f6b7bb9b690196a29",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "b5350310ed20bf07d1f7d2b3ab63ae097e9b8f5a74f39892243498a534e066ba",
+  "input_tokens": 1996,
+  "latency_ms": 10536,
+  "output_tokens": 235,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_a0ea9a82174b4da89175e205178ded1b",
+      "evt_069bfe0eea854f40b19115f97254285b",
+      "evt_d1acee11dfe94a01abb862989a28f82d",
+      "evt_fac621cd3b5640219ca8cae2ec2e60f5",
+      "evt_f82883ee056e4c5d91decff3b8a4d310"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The session begins with a valid login and proceeds to list projects. All requests are authorized GETs to /v1/projects by the principal owning the resource. No attempts to delete unauthorized projects, traverse paths, or exploit boundaries are observed.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_a0ea9a82174b4da89175e205178ded1b\",\"evt_069bfe0eea854f40b19115f97254285b\",\"evt_d1acee11dfe94a01abb862989a28f82d\",\"evt_fac621cd3b5640219ca8cae2ec2e60f5\",\"evt_f82883ee056e4c5d91decff3b8a4d310\"],\"suspected_tactic\":\"none\",\"rationale\":\"The session begins with a valid login and proceeds to list projects. All requests are authorized GETs to /v1/projects by the principal owning the resource. No attempts to delete unauthorized projects, traverse paths, or exploit boundaries are observed.\"}",
+  "schema_version": "prediction_v1"
+}

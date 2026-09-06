@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T19:33:52.503562Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_3aa159f084305898afc1_baseline",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "bfedeccdb58d9900fffcc1b067d6054b3caa94b44727c57082088afe729e6e30",
+  "input_tokens": 1007,
+  "latency_ms": 24081,
+  "output_tokens": 202,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.9,
+    "evidence_event_ids": [
+      "evt_62a25b68cd1b4161867c57e32cedb8f6",
+      "evt_9bea08d43ad44ffabba4845bdf2b6737",
+      "evt_7ef93fc5dd2a46f6b3bff16665c84deb"
+    ],
+    "first_suspicious_event_id": "evt_62a25b68cd1b4161867c57e32cedb8f6",
+    "rationale": "The principal deleted prj_f9a3d169bf11, but the authorized mapping only grants ownership of prj_0ea7437dd4a0. The DELETE returned 200, indicating a cross-tenant or unauthorized resource deletion. Listing projects before and after is consistent with reconnaissance or confirming impact.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.9,\"first_suspicious_event_id\":\"evt_62a25b68cd1b4161867c57e32cedb8f6\",\"evidence_event_ids\":[\"evt_62a25b68cd1b4161867c57e32cedb8f6\",\"evt_9bea08d43ad44ffabba4845bdf2b6737\",\"evt_7ef93fc5dd2a46f6b3bff16665c84deb\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"The principal deleted prj_f9a3d169bf11, but the authorized mapping only grants ownership of prj_0ea7437dd4a0. The DELETE returned 200, indicating a cross-tenant or unauthorized resource deletion. Listing projects before and after is consistent with reconnaissance or confirming impact.\"}",
+  "schema_version": "prediction_v1"
+}

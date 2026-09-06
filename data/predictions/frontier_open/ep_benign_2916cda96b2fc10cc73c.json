@@ -1,0 +1,26 @@
+{
+  "created_at_utc": "2026-09-06T19:52:26.545749Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_2916cda96b2fc10cc73c",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "c92530896f0bcfd5b5b74b904fde46d28c8073562f337a7c6c5ee4bda7f6c61a",
+  "input_tokens": 1310,
+  "latency_ms": 11845,
+  "output_tokens": 197,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.35,
+    "evidence_event_ids": [
+      "evt_7b263a63c4e8422da35edd356ec6f62e",
+      "evt_6bdd222300a94117a28981cd9bed4237"
+    ],
+    "first_suspicious_event_id": "evt_7b263a63c4e8422da35edd356ec6f62e",
+    "rationale": "The principal created three projects and then deleted two projects with IDs not matching the authorized mapping. However, the runbook does not provide the IDs of the newly created projects, so it is unclear whether the deleted resources belong to the principal. Without ground-truth authorization decisions, this is insufficient to confirm an attack.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "insufficient_evidence"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"insufficient_evidence\",\n  \"attack_probability\": 0.35,\n  \"first_suspicious_event_id\": \"evt_7b263a63c4e8422da35edd356ec6f62e\",\n  \"evidence_event_ids\": [\n    \"evt_7b263a63c4e8422da35edd356ec6f62e\",\n    \"evt_6bdd222300a94117a28981cd9bed4237\"\n  ],\n  \"suspected_tactic\": \"authorization_abuse\",\n  \"rationale\": \"The principal created three projects and then deleted two projects with IDs not matching the authorized mapping. However, the runbook does not provide the IDs of the newly created projects, so it is unclear whether the deleted resources belong to the principal. Without ground-truth authorization decisions, this is insufficient to confirm an attack.\"\n}",
+  "schema_version": "prediction_v1"
+}

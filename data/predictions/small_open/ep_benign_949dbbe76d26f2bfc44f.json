@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T09:50:44.101761Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_949dbbe76d26f2bfc44f",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "25d10a059ae6a8d53a0e3b5c21cf6d5441db351c50d7f4d9b83558399e953222",
+  "input_tokens": 1285,
+  "latency_ms": 11271,
+  "output_tokens": 290,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_d3f0eef71a9b453a98532204aa52be48",
+      "evt_0aeeb496042b419582569c66fd61a56f",
+      "evt_39f7a75a8ced4719870281f51907562a",
+      "evt_1d782b8c0dfb48acaa81b959023272e1",
+      "evt_d512754adf3641f19c15e65724d2ced2"
+    ],
+    "first_suspicious_event_id": "evt_d3f0eef71a9b453a98532204aa52be48",
+    "rationale": "The principal successfully logged in but then attempted to DELETE three projects with IDs not matching their authorized project (prj_40e07e07583e). All three deletion attempts returned 500 errors, indicating a violation of resource boundaries and an attempt to exploit authorization.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_d3f0eef71a9b453a98532204aa52be48\",\"evidence_event_ids\":[\"evt_d3f0eef71a9b453a98532204aa52be48\",\"evt_0aeeb496042b419582569c66fd61a56f\",\"evt_39f7a75a8ced4719870281f51907562a\",\"evt_1d782b8c0dfb48acaa81b959023272e1\",\"evt_d512754adf3641f19c15e65724d2ced2\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"The principal successfully logged in but then attempted to DELETE three projects with IDs not matching their authorized project (prj_40e07e07583e). All three deletion attempts returned 500 errors, indicating a violation of resource boundaries and an attempt to exploit authorization.\"}",
+  "schema_version": "prediction_v1"
+}

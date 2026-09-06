@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T10:57:26.516090Z",
+  "defender_id": "large_oss",
+  "defender_model_revision": "together:openai/gpt-oss-120b@2026-09-05",
+  "episode_id": "ep_benign_e5cbca56133def64ea26",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "44ea7aa3f118456eb3fce5a5864a899297fc41a10c6bd9728328508503f22da3",
+  "input_tokens": 892,
+  "latency_ms": 9876,
+  "output_tokens": 202,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.07,
+    "evidence_event_ids": [
+      "evt_cdbc4e0713ae42e18deadc9648957ac2",
+      "evt_d4f97988889148609b486ecc94327670",
+      "evt_e6678387b39e42dea271573d5e7de2be"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "All logged actions are normal login, project creation, and listing within authorized scope; no delete or boundary\u2011testing activity observed.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.07,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_cdbc4e0713ae42e18deadc9648957ac2\",\"evt_d4f97988889148609b486ecc94327670\",\"evt_e6678387b39e42dea271573d5e7de2be\"],\"suspected_tactic\":\"none\",\"rationale\":\"All logged actions are normal login, project creation, and listing within authorized scope; no delete or boundary\u2011testing activity observed.\"}",
+  "schema_version": "prediction_v1"
+}

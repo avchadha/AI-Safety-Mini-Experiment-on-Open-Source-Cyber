@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T19:47:48.239925Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_1665508074ee585b35e7",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "72cd2eaa3b007bf44e6002edafaa35ba5530a70d370f0bce3f703d3d4696a857",
+  "input_tokens": 885,
+  "latency_ms": 10132,
+  "output_tokens": 207,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.92,
+    "evidence_event_ids": [
+      "evt_4a6e461e55624e069f6a6eae6d55bf81",
+      "evt_4e23ecd3474c4f98a66577df24145464",
+      "evt_4cac6de4289445998ed3c5d01d6de77e"
+    ],
+    "first_suspicious_event_id": "evt_4cac6de4289445998ed3c5d01d6de77e",
+    "rationale": "The principal deleted a project ID that does not match the authorized mapping prj_a5518b2dfcec. The runbook states a principal may delete only its own projects, so deleting e7d1a88a-3725-49d6-9263-ad17d7768d70 appears to violate that boundary.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.92,\"first_suspicious_event_id\":\"evt_4cac6de4289445998ed3c5d01d6de77e\",\"evidence_event_ids\":[\"evt_4a6e461e55624e069f6a6eae6d55bf81\",\"evt_4e23ecd3474c4f98a66577df24145464\",\"evt_4cac6de4289445998ed3c5d01d6de77e\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"The principal deleted a project ID that does not match the authorized mapping prj_a5518b2dfcec. The runbook states a principal may delete only its own projects, so deleting e7d1a88a-3725-49d6-9263-ad17d7768d70 appears to violate that boundary.\"}",
+  "schema_version": "prediction_v1"
+}

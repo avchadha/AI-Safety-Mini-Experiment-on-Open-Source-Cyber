@@ -1,19 +1,23 @@
+# Python / build
 .venv/
+.venv-linux/
 __pycache__/
 *.py[cod]
 *.egg-info/
 .coverage
 .pytest_cache/
 .ruff_cache/
-experiment.lock.json
-data/raw_restricted/
-data/episodes/
-data/predictions/
-data/derived/
-data/reports/
 dist/
+
+# Secrets — NEVER commit (use secrets.env.example as the template)
+secrets.env
+
+# Large upstream checkouts (reproducible from the pinned commits in
+# configs/targets/*.yaml via `cyberdetect target build`) and ephemeral run dirs
 .phase1-source/
 .phase1-runs/
-target-images.lock.json
-secrets.env
-target-images-b.lock.json
+
+# NOTE: data/ (episodes, predictions, raw_restricted, reports), logs/, and *.lock.json
+# ARE intentionally published in this repository for full reproducibility.
+# They were audited to contain no real secrets — only ephemeral throwaway-container
+# credentials and experiment canary tokens for instances that no longer exist.

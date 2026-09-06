@@ -1,5 +1,10 @@
 # Findings — v2: Detection under realistic base rates & an adaptive attacker
 
+> **This file is the concise findings note. The canonical, fully-detailed experimental report
+> is [`REPORT.md`](REPORT.md).** Numbers below include the 5th (DeepSeek-V4-Pro) defender tier
+> added after the main run.
+
+
 **Experiment:** `adaptive-baserate-lunary-v1` (spec `EXPERIMENT_SPEC_V2.md`).
 **Design:** open-weight attacker (Kimi K3) runs benign vs. attack episodes against an isolated
 Lunary IDOR target (CVE-2024-1625, cross-tenant project DELETE). For each attack it self-red-teams:
@@ -28,16 +33,25 @@ defense $1.03).
 Fixing FPR ≤ 0.10 on balanced data looks fine, but at realistic prevalence precision craters for
 *every* detector, including the best:
 
-| Detector (model) | FPR | recall(base) | recall(evasive) | precision @1:100 | @1:1000 | @1:10000 |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| medium_open (gpt-oss-20b) | 0.068 | 0.950 | 0.800 | 0.107 | 0.012 | 0.001 |
-| large_oss (gpt-oss-120b)  | 0.068 | 0.650 | 0.300 | 0.043 | 0.004 | 0.000 |
-| large_open (Llama-3.3-70B) | 0.039 | 0.050 | 0.050 | 0.013 | 0.001 | 0.000 |
-| small_open (Qwen3.5-9B)   | 0.094 | 0.100 | 0.050 | 0.005 | 0.001 | 0.000 |
+| Detector (model) | FPR | recall(base) | recall(evasive) | transfer τ [95% CI] | precision @1:100 | @1:1000 | @1:10000 |
+| --- | ---: | ---: | ---: | :---: | ---: | ---: | ---: |
+| medium_open (gpt-oss-20b) | 0.068 | 0.950 | 0.800 | 0.28 [0.00, 0.69] | 0.107 | 0.012 | 0.001 |
+| large_oss (gpt-oss-120b)  | 0.068 | 0.650 | 0.300 | 0.53 [0.30, 0.80] | 0.043 | 0.004 | 0.000 |
+| frontier_open (DeepSeek-V4-Pro) | 0.052 | 0.500 | 0.600 | 0.06 [-0.06, 0.21] | 0.105 | 0.012 | 0.001 |
+| small_open (Qwen3.5-9B)   | 0.094 | 0.100 | 0.050 | -0.15 [-0.53, 0.26] | 0.005 | 0.001 | 0.000 |
+| large_open (Llama-3.3-70B) | 0.039 | 0.050 | 0.050 | -0.02 [-0.17, 0.12] | 0.013 | 0.001 | 0.000 |
 
 At 1:1000, even the best detector's alerts are ~99% false. **Budget-tier log-based LLM attack
 detection is economically unusable at realistic enterprise base rates regardless of detector
 quality** — the false-positive flood, not miss rate, is the binding constraint.
+
+**The frontier-open model (DeepSeek-V4-Pro) lands mid-pack, not on top** — beaten on recall by
+*both* gpt-oss models, including the mid-size 20B. It is, however, the best-calibrated (lowest FPR
+of the competent detectors, tied-best precision) and the **most robust to evasion**: the attacker's
+adaptation did not transfer to it (τ ≈ 0.06, and its evasive recall actually *rose* 0.50 → 0.60).
+So a genuine frontier open model neither tops detection nor succumbs to the transferable evasion —
+reinforcing that detection is a family/training property, and adding that *evasion transferability
+is itself detector-specific* (strong to gpt-oss-120b, ~zero to DeepSeek).
 
 ### 2. Detection quality is model-FAMILY driven, NOT size — and the doubling made this razor-sharp
 Baseline-recall ranking: **gpt-oss-20b (0.95) > gpt-oss-120b (0.65) ≫ Qwen3.5-9B (0.10) >

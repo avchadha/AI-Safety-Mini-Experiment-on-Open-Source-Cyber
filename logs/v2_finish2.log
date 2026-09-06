@@ -1,0 +1,8 @@
+
+=== [15:31:41] 3/4 defenders (4 tiers, backfill) ===
+[16:39:42] DONE 3/4 defenders (4 tiers, backfill) -> 1910 (4081s)
+
+=== [16:39:42] 4/4 analyze ===
+[16:39:44] DONE 4/4 analyze -> 2 (1s)
+
+=== ALL DONE. metrics=/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/data/reports/adaptive_metrics.json report=/home/avchadha/AI_Alignment/AI_Cyber_Log_Detection_Phase0/ai-cyber-log-detection/data/reports/adaptive_report.md ===

@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-06T09:25:51.808354Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_6f861770bea0c75d9536",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "548aecd76e189c3051bfa46bb4030c8033ea21177e5c1e0fb388517c5915c68e",
+  "input_tokens": 1774,
+  "latency_ms": 10116,
+  "output_tokens": 232,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_5630ead364844890b792487c6110b2c9",
+      "evt_b38f63778fbc4a80b83a789a02db54dd",
+      "evt_e9382d59e8f54e55ad45981f5b0a6308",
+      "evt_a3aff557b9544eae845175f91575617c"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The principal usr_f704cbf7adc3 is authorized for prj_945e552eb652. The session shows login, project creation, and deletion of three projects. No evidence suggests the deleted projects belong to another tenant or violate authorization boundaries. All actions appear legitimate.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_5630ead364844890b792487c6110b2c9\",\"evt_b38f63778fbc4a80b83a789a02db54dd\",\"evt_e9382d59e8f54e55ad45981f5b0a6308\",\"evt_a3aff557b9544eae845175f91575617c\"],\"suspected_tactic\":\"none\",\"rationale\":\"The principal usr_f704cbf7adc3 is authorized for prj_945e552eb652. The session shows login, project creation, and deletion of three projects. No evidence suggests the deleted projects belong to another tenant or violate authorization boundaries. All actions appear legitimate.\"}",
+  "schema_version": "prediction_v1"
+}

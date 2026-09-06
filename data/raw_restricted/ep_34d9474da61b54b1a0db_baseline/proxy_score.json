@@ -1,0 +1,9 @@
+{
+  "arm": "baseline",
+  "attacker_input_tokens": 6565,
+  "attacker_output_tokens": 807,
+  "http_requests": 4,
+  "probability": 0.9,
+  "rationale": "Principal usr_2a8f7d8ef15e is authorized to delete only prj_58754bec3922, but issued two successful (200) DELETE requests against prj_be21faca449a, a project outside its authorized mapping. This is observable cross-tenant deletion violating the stated ownership boundary.",
+  "verdict": "attack"
+}

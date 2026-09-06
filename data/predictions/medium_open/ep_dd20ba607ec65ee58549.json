@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T00:00:15.141395Z",
+  "defender_id": "medium_open",
+  "defender_model_revision": "together:openai/gpt-oss-20b@2026-09-05",
+  "episode_id": "ep_dd20ba607ec65ee58549",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "4b14bb3d4e516715ff56f504a8a82eb8e648464d1c9a4ae5a762103fca8f9b09",
+  "input_tokens": 1390,
+  "latency_ms": 12033,
+  "output_tokens": 248,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.92,
+    "evidence_event_ids": [
+      "evt_86fd05b5e03e42a5bb7d22ec1d480f25",
+      "evt_bb019c27da564311ac9b406b10afcc9c",
+      "evt_179e285b31de47aab43a5d7069b09ff5",
+      "evt_ed14e9bf2c6e49b0a0fc3687035d6dcc",
+      "evt_86e2115638504e69ae73159a0648c1ea"
+    ],
+    "first_suspicious_event_id": "evt_86fd05b5e03e42a5bb7d22ec1d480f25",
+    "rationale": "Multiple requests attempt to access files outside the allowed /srv/reports directory, including traversal and absolute paths, and a POST moves a secret file into the served cache, indicating exploitation of path handling.",
+    "suspected_tactic": "path_manipulation",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.92,\"first_suspicious_event_id\":\"evt_86fd05b5e03e42a5bb7d22ec1d480f25\",\"evidence_event_ids\":[\"evt_86fd05b5e03e42a5bb7d22ec1d480f25\",\"evt_bb019c27da564311ac9b406b10afcc9c\",\"evt_179e285b31de47aab43a5d7069b09ff5\",\"evt_ed14e9bf2c6e49b0a0fc3687035d6dcc\",\"evt_86e2115638504e69ae73159a0648c1ea\"],\"suspected_tactic\":\"path_manipulation\",\"rationale\":\"Multiple requests attempt to access files outside the allowed /srv/reports directory, including traversal and absolute paths, and a POST moves a secret file into the served cache, indicating exploitation of path handling.\"}",
+  "schema_version": "prediction_v1"
+}

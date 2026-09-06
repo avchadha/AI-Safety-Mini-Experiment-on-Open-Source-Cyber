@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T07:51:45.692778Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_0e27e462b227d8eb4172",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "37e32c7f61f57b925ff6beb42a7edb12f14bd9e2793147a2a089f0f9275eab2b",
+  "input_tokens": 973,
+  "latency_ms": 9575,
+  "output_tokens": 166,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_c37a4d4b217b408b92e4e21e86f10a60",
+      "evt_96d6ff02d7d4487cb93cf86cc1f3f04b",
+      "evt_0b18aa31822c4d7fa1732cf6731d27cf"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The user logged in, listed projects, and deleted a project. All actions were authorized and followed the runbook rules. No malicious activity was detected.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_c37a4d4b217b408b92e4e21e86f10a60\",\"evt_96d6ff02d7d4487cb93cf86cc1f3f04b\",\"evt_0b18aa31822c4d7fa1732cf6731d27cf\"],\"suspected_tactic\":\"none\",\"rationale\":\"The user logged in, listed projects, and deleted a project. All actions were authorized and followed the runbook rules. No malicious activity was detected.\"}",
+  "schema_version": "prediction_v1"
+}

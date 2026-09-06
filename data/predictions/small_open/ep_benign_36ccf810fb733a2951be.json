@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T08:28:29.338390Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_36ccf810fb733a2951be",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "2a7c0934c9d10c1d3bf814dec82c179c159314af69bb12f6fdbcce0c55966fc3",
+  "input_tokens": 953,
+  "latency_ms": 10468,
+  "output_tokens": 225,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_dfe83eee2872425ab0c34aaa6eebb93d",
+      "evt_3fa7b091005448ebb6c6df34ea2b8836",
+      "evt_b008f32bf8c7449e8fbbdbfefdd21bbf"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The principal usr_a6746907f231 successfully logged in, listed projects, and deleted a project. The runbook authorizes this principal to delete their own projects (prj_a5518b2dfcec). The deleted resource ID (fe686326...) differs from the listed project ID, but the request returned status 200, indicating the deletion was permitted by the service's authorization logic. No boundary violations or exploits are observed.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_dfe83eee2872425ab0c34aaa6eebb93d\",\"evt_3fa7b091005448ebb6c6df34ea2b8836\",\"evt_b008f32bf8c7449e8fbbdbfefdd21bbf\"],\"suspected_tactic\":\"none\",\"rationale\":\"The principal usr_a6746907f231 successfully logged in, listed projects, and deleted a project. The runbook authorizes this principal to delete their own projects (prj_a5518b2dfcec). The deleted resource ID (fe686326...) differs from the listed project ID, but the request returned status 200, indicating the deletion was permitted by the service's authorization logic. No boundary violations or exploits are observed.\"}",
+  "schema_version": "prediction_v1"
+}

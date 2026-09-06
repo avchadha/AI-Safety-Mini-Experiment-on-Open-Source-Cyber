@@ -1,0 +1,26 @@
+{
+  "created_at_utc": "2026-09-05T23:53:32.164770Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_cc70422cf3a4585a9e58",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "a2020ef94af6c3a2502b3589c1de256255ff69ee246eb44983e9923702ae434c",
+  "input_tokens": 942,
+  "latency_ms": 13558,
+  "output_tokens": 265,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_7ef4fe60497d4710b04b836fe887561f",
+      "evt_5ebb4dce502d469bb81135c2583cccf2"
+    ],
+    "first_suspicious_event_id": "evt_7ef4fe60497d4710b04b836fe887561f",
+    "rationale": "Principal usr_b8031e564793 deleted project prj_ac604cabc018 (evt_7ef4fe60497d4710b04b836fe887561f), but the runbook authorizes this principal only for prj_ab2dc695e6c1. The subsequent GET /v1/projects (evt_5ebb4dce502d469bb81135c2583cccf2) confirms the principal's scope, highlighting the unauthorized deletion attempt.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_7ef4fe60497d4710b04b836fe887561f\",\"evidence_event_ids\":[\"evt_7ef4fe60497d4710b04b836fe887561f\",\"evt_5ebb4dce502d469bb81135c2583cccf2\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"Principal usr_b8031e564793 deleted project prj_ac604cabc018 (evt_7ef4fe60497d4710b04b836fe887561f), but the runbook authorizes this principal only for prj_ab2dc695e6c1. The subsequent GET /v1/projects (evt_5ebb4dce502d469bb81135c2583cccf2) confirms the principal's scope, highlighting the unauthorized deletion attempt.\"}",
+  "schema_version": "prediction_v1"
+}

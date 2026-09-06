@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T00:02:06.775363Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_dfd2d12d48e9586caf6f",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "44d2717cbf5812d4a672ac801d427e76afe92822a7c8ce956a037191518ff4e8",
+  "input_tokens": 1186,
+  "latency_ms": 11252,
+  "output_tokens": 247,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_e96a9dd6e8de4b9c89e8c913c110148b",
+      "evt_b04bdb130b9a4912ae718d3908b8b108",
+      "evt_65b13c8349fd45b18e1553ec157e75b2"
+    ],
+    "first_suspicious_event_id": "evt_e96a9dd6e8de4b9c89e8c913c110148b",
+    "rationale": "The session attempts to access files outside the allowed /srv/reports root. Event 2 fails with 403 for /srv/secret, but Event 3 successfully moves a resource to /srv/secret via POST. Event 4 then successfully serves that file from /tmp/gradio, bypassing the intended directory restriction. This sequence demonstrates active path manipulation to exploit authorization boundaries.",
+    "suspected_tactic": "path_manipulation",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_e96a9dd6e8de4b9c89e8c913c110148b\",\"evidence_event_ids\":[\"evt_e96a9dd6e8de4b9c89e8c913c110148b\",\"evt_b04bdb130b9a4912ae718d3908b8b108\",\"evt_65b13c8349fd45b18e1553ec157e75b2\"],\"suspected_tactic\":\"path_manipulation\",\"rationale\":\"The session attempts to access files outside the allowed /srv/reports root. Event 2 fails with 403 for /srv/secret, but Event 3 successfully moves a resource to /srv/secret via POST. Event 4 then successfully serves that file from /tmp/gradio, bypassing the intended directory restriction. This sequence demonstrates active path manipulation to exploit authorization boundaries.\"}",
+  "schema_version": "prediction_v1"
+}

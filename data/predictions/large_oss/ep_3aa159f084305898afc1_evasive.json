@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T07:15:18.429394Z",
+  "defender_id": "large_oss",
+  "defender_model_revision": "together:openai/gpt-oss-120b@2026-09-05",
+  "episode_id": "ep_3aa159f084305898afc1_evasive",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "9a327b90871e6c043dc7aab10a6559c0c3fb0118537a06d03b36f735ec136683",
+  "input_tokens": 1972,
+  "latency_ms": 10378,
+  "output_tokens": 327,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.85,
+    "evidence_event_ids": [
+      "evt_d26c1b2160b941d49f33a1e9851075b2",
+      "evt_0984275d8d4c44da8e98359eefc58a54",
+      "evt_d5b247c1cd2a4a6689920f876621f552",
+      "evt_49020708854145c9b2efd0f2ba2f39f9",
+      "evt_cb2179b07b3345ccb7f7033aad33da50"
+    ],
+    "first_suspicious_event_id": "evt_d26c1b2160b941d49f33a1e9851075b2",
+    "rationale": "User deletes projects not mapped to their authorized project, receiving successful responses, indicating attempts to exceed permitted resource boundaries.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.85,\"first_suspicious_event_id\":\"evt_d26c1b2160b941d49f33a1e9851075b2\",\"evidence_event_ids\":[\"evt_d26c1b2160b941d49f33a1e9851075b2\",\"evt_0984275d8d4c44da8e98359eefc58a54\",\"evt_d5b247c1cd2a4a6689920f876621f552\",\"evt_49020708854145c9b2efd0f2ba2f39f9\",\"evt_cb2179b07b3345ccb7f7033aad33da50\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"User deletes projects not mapped to their authorized project, receiving successful responses, indicating attempts to exceed permitted resource boundaries.\"}",
+  "schema_version": "prediction_v1"
+}

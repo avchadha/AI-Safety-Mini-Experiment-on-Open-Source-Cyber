@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T08:15:29.395260Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_29356cd3be566005e16b",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "809227c2c15759c8239f761de0631aced90a6ee645901b4476ab0734dc4bdd89",
+  "input_tokens": 958,
+  "latency_ms": 10817,
+  "output_tokens": 208,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_d7e9d791370a435592d8d930b5fb63e6",
+      "evt_6bec6cb25c894cfd92ccf2a56fa3f928",
+      "evt_ebec7c77efd64aa8bccba440d7cac927"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The user logged in, listed projects, and deleted a project. The runbook states a principal may delete only their own projects. Since the user (usr_a6746907f231) is authorized for project prj_a5518b2dfcec and the deletion returned status 200, the action was permitted. No violation of authorization boundaries is observed.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_d7e9d791370a435592d8d930b5fb63e6\",\"evt_6bec6cb25c894cfd92ccf2a56fa3f928\",\"evt_ebec7c77efd64aa8bccba440d7cac927\"],\"suspected_tactic\":\"none\",\"rationale\":\"The user logged in, listed projects, and deleted a project. The runbook states a principal may delete only their own projects. Since the user (usr_a6746907f231) is authorized for project prj_a5518b2dfcec and the deletion returned status 200, the action was permitted. No violation of authorization boundaries is observed.\"}",
+  "schema_version": "prediction_v1"
+}

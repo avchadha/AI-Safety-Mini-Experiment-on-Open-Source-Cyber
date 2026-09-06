@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-05T06:08:45.624700Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_ed1e0e3402b85bada12b",
+  "experiment_id": "real-pilot-lunary-v1",
+  "input_sha256": "1b8321b3869b6bd01179db81687ae5ce07e3c00f0d857609e9ca2cf6047606e4",
+  "input_tokens": 1047,
+  "latency_ms": 10784,
+  "output_tokens": 225,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_44b1f0bd88b04aba96ecff3712b6a68d",
+      "evt_2ccc60566a8e465794476b025e95bd24",
+      "evt_ee3357f6279c4d19985a7e9b00bf6fa9",
+      "evt_ab224fb6c8ca48f99926f305a9c9b4ea"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The principal usr_656ec5c2de72 is authorized to access prj_bf059310f46f. The sequence shows login, listing projects, deleting the authorized project, and listing again. All actions align with the runbook and authorization mapping.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_44b1f0bd88b04aba96ecff3712b6a68d\",\"evt_2ccc60566a8e465794476b025e95bd24\",\"evt_ee3357f6279c4d19985a7e9b00bf6fa9\",\"evt_ab224fb6c8ca48f99926f305a9c9b4ea\"],\"suspected_tactic\":\"none\",\"rationale\":\"The principal usr_656ec5c2de72 is authorized to access prj_bf059310f46f. The sequence shows login, listing projects, deleting the authorized project, and listing again. All actions align with the runbook and authorization mapping.\"}",
+  "schema_version": "prediction_v1"
+}

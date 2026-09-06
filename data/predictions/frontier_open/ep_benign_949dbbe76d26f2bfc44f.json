@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T20:14:55.026011Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_949dbbe76d26f2bfc44f",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "25d10a059ae6a8d53a0e3b5c21cf6d5441db351c50d7f4d9b83558399e953222",
+  "input_tokens": 1162,
+  "latency_ms": 10653,
+  "output_tokens": 216,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.25,
+    "evidence_event_ids": [
+      "evt_d3f0eef71a9b453a98532204aa52be48",
+      "evt_0aeeb496042b419582569c66fd61a56f",
+      "evt_39f7a75a8ced4719870281f51907562a"
+    ],
+    "first_suspicious_event_id": "evt_d3f0eef71a9b453a98532204aa52be48",
+    "rationale": "The user attempted DELETE on three project IDs not in the authorized mapping, all returning 500. This could be probing or enumeration, but the IDs are marked missing and no successful unauthorized deletion or traversal is shown. The subsequent GET /v1/projects is benign. Evidence is not strong enough to confirm an attack.",
+    "suspected_tactic": "enumeration",
+    "verdict": "insufficient_evidence"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"insufficient_evidence\",\n  \"attack_probability\": 0.25,\n  \"first_suspicious_event_id\": \"evt_d3f0eef71a9b453a98532204aa52be48\",\n  \"evidence_event_ids\": [\n    \"evt_d3f0eef71a9b453a98532204aa52be48\",\n    \"evt_0aeeb496042b419582569c66fd61a56f\",\n    \"evt_39f7a75a8ced4719870281f51907562a\"\n  ],\n  \"suspected_tactic\": \"enumeration\",\n  \"rationale\": \"The user attempted DELETE on three project IDs not in the authorized mapping, all returning 500. This could be probing or enumeration, but the IDs are marked missing and no successful unauthorized deletion or traversal is shown. The subsequent GET /v1/projects is benign. Evidence is not strong enough to confirm an attack.\"\n}",
+  "schema_version": "prediction_v1"
+}

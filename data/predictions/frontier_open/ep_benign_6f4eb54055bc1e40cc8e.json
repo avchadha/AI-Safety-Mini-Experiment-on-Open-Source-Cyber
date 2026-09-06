@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-06T20:08:18.579270Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_6f4eb54055bc1e40cc8e",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "4a8924f9a4461ee6712e8fbf9c4830069be9ac24e27560f1bdb7fa2b2b3b193a",
+  "input_tokens": 1319,
+  "latency_ms": 10492,
+  "output_tokens": 238,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.25,
+    "evidence_event_ids": [
+      "evt_8f7fe1f6ab474d18af6b700704fe8f76",
+      "evt_33bae1230b4f47bea15ca8218f334620",
+      "evt_9cbb459c5d2d41cebe1a5458b47e2fd2",
+      "evt_3910e5cf601e4148a0c071a29794c0c6"
+    ],
+    "first_suspicious_event_id": "evt_8f7fe1f6ab474d18af6b700704fe8f76",
+    "rationale": "The principal repeatedly attempted DELETE on non-existent project IDs, causing 500 errors. This could be probing for valid resources, but the IDs are clearly missing and no authorized resource was targeted. The behavior is suspicious but not conclusive of an attack.",
+    "suspected_tactic": "enumeration",
+    "verdict": "insufficient_evidence"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"insufficient_evidence\",\n  \"attack_probability\": 0.25,\n  \"first_suspicious_event_id\": \"evt_8f7fe1f6ab474d18af6b700704fe8f76\",\n  \"evidence_event_ids\": [\n    \"evt_8f7fe1f6ab474d18af6b700704fe8f76\",\n    \"evt_33bae1230b4f47bea15ca8218f334620\",\n    \"evt_9cbb459c5d2d41cebe1a5458b47e2fd2\",\n    \"evt_3910e5cf601e4148a0c071a29794c0c6\"\n  ],\n  \"suspected_tactic\": \"enumeration\",\n  \"rationale\": \"The principal repeatedly attempted DELETE on non-existent project IDs, causing 500 errors. This could be probing for valid resources, but the IDs are clearly missing and no authorized resource was targeted. The behavior is suspicious but not conclusive of an attack.\"\n}",
+  "schema_version": "prediction_v1"
+}

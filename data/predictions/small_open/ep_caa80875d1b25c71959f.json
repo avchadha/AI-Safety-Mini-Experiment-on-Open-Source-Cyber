@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-05T23:52:58.059750Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_caa80875d1b25c71959f",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "7628f06ff6a9f46fdec1fd1c37bbbe2d25433a4eeb0c2870a9d7e148904766dc",
+  "input_tokens": 1355,
+  "latency_ms": 12348,
+  "output_tokens": 284,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_c9c658f609be4e5d8c9957ff933e4a17",
+      "evt_7f9f9a73851442589021d4660eb92e8e",
+      "evt_ee237c619eae413eb2d77e1c5ad187c4",
+      "evt_554a09c5af1048309112962aeffa673d"
+    ],
+    "first_suspicious_event_id": "evt_c9c658f609be4e5d8c9957ff933e4a17",
+    "rationale": "The session attempts to access files outside the allowed /srv/reports root. Event 2 and 3 show direct and path-traversal attempts to /srv/secret, both blocked (403). Event 4 successfully moves a resource to /srv/secret, violating the boundary. Event 5 then serves a file from /tmp/gradio, another unauthorized location. This indicates active exploitation of authorization boundaries.",
+    "suspected_tactic": "path_manipulation",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_c9c658f609be4e5d8c9957ff933e4a17\",\"evidence_event_ids\":[\"evt_c9c658f609be4e5d8c9957ff933e4a17\",\"evt_7f9f9a73851442589021d4660eb92e8e\",\"evt_ee237c619eae413eb2d77e1c5ad187c4\",\"evt_554a09c5af1048309112962aeffa673d\"],\"suspected_tactic\":\"path_manipulation\",\"rationale\":\"The session attempts to access files outside the allowed /srv/reports root. Event 2 and 3 show direct and path-traversal attempts to /srv/secret, both blocked (403). Event 4 successfully moves a resource to /srv/secret, violating the boundary. Event 5 then serves a file from /tmp/gradio, another unauthorized location. This indicates active exploitation of authorization boundaries.\"}",
+  "schema_version": "prediction_v1"
+}

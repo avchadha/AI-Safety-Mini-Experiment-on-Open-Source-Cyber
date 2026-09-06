@@ -1,0 +1,23 @@
+{
+  "created_at_utc": "2026-09-06T20:02:42.097192Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_52dbe4fe9440003338d6",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "0618071937854a3b40451e06d2b902f6fd32cead1b59784be6ac3bafbc424431",
+  "input_tokens": 865,
+  "latency_ms": 9523,
+  "output_tokens": 101,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.02,
+    "evidence_event_ids": [],
+    "first_suspicious_event_id": null,
+    "rationale": "The session shows a normal login, project creation, and project listing by the authorized principal. No delete, traversal, enumeration, or unauthorized resource access is present. All actions align with the runbook and authorized mapping.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"benign\",\n  \"attack_probability\": 0.02,\n  \"first_suspicious_event_id\": null,\n  \"evidence_event_ids\": [],\n  \"suspected_tactic\": \"none\",\n  \"rationale\": \"The session shows a normal login, project creation, and project listing by the authorized principal. No delete, traversal, enumeration, or unauthorized resource access is present. All actions align with the runbook and authorized mapping.\"\n}",
+  "schema_version": "prediction_v1"
+}

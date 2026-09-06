@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T08:27:50.465921Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_36ca68b9edf8e22c7861",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "c62587585ffcab4f00def7fed517ffdde186cb5e50b1dadc8c6964382675ebae",
+  "input_tokens": 962,
+  "latency_ms": 10248,
+  "output_tokens": 230,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_8b3b581d640f44af946e22bd159e094f",
+      "evt_fc923a30ab83451e91c9e5d2712811ab",
+      "evt_bea8bda3516f4d12b4d88ebb447b5f6d"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The user logged in, listed projects, and deleted a project. The runbook authorizes usr_659cb02c90d9 to access prj_d0cd7bf6bb66. The deleted project ID (a242b479...) differs from the authorized one, but the response status is 200, indicating the deletion was permitted by the service. Without evidence of unauthorized access or violation, this is benign.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_8b3b581d640f44af946e22bd159e094f\",\"evt_fc923a30ab83451e91c9e5d2712811ab\",\"evt_bea8bda3516f4d12b4d88ebb447b5f6d\"],\"suspected_tactic\":\"none\",\"rationale\":\"The user logged in, listed projects, and deleted a project. The runbook authorizes usr_659cb02c90d9 to access prj_d0cd7bf6bb66. The deleted project ID (a242b479...) differs from the authorized one, but the response status is 200, indicating the deletion was permitted by the service. Without evidence of unauthorized access or violation, this is benign.\"}",
+  "schema_version": "prediction_v1"
+}

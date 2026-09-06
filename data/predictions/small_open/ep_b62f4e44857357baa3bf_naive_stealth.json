@@ -1,0 +1,26 @@
+{
+  "created_at_utc": "2026-09-06T07:29:46.579479Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_b62f4e44857357baa3bf_naive_stealth",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "b918ec5d8483a8eabede8e405d23b510feda50ccfe333084f9d9d84dbc50c325",
+  "input_tokens": 783,
+  "latency_ms": 10631,
+  "output_tokens": 199,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_03243ee27b8c4d2ca18c095aeb952be6",
+      "evt_cb110ba20485473e92432dffd9c23188"
+    ],
+    "first_suspicious_event_id": "evt_cb110ba20485473e92432dffd9c23188",
+    "rationale": "The principal usr_27efd6dd6200 successfully deleted project prj_1980bcf4bf01. However, the runbook explicitly maps this principal only to prj_8087b3aaa8ab. Deleting a different project indicates a violation of resource boundaries and unauthorized access.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_cb110ba20485473e92432dffd9c23188\",\"evidence_event_ids\":[\"evt_03243ee27b8c4d2ca18c095aeb952be6\",\"evt_cb110ba20485473e92432dffd9c23188\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"The principal usr_27efd6dd6200 successfully deleted project prj_1980bcf4bf01. However, the runbook explicitly maps this principal only to prj_8087b3aaa8ab. Deleting a different project indicates a violation of resource boundaries and unauthorized access.\"}",
+  "schema_version": "prediction_v1"
+}

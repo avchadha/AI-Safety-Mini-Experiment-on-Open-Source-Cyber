@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T20:20:38.528542Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_b8fac348d3055ad45b41",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "206702105db8db65e319dbd72509d670518f5dc333a3b7605884dcd4a6860c8a",
+  "input_tokens": 1605,
+  "latency_ms": 9366,
+  "output_tokens": 205,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.35,
+    "evidence_event_ids": [
+      "evt_91a10d41930e433497872966304ca1ac",
+      "evt_2e69888f6d804eed9d124e5e2bd01e50",
+      "evt_45e28da058844475b4fad6bfc164f75d"
+    ],
+    "first_suspicious_event_id": "evt_91a10d41930e433497872966304ca1ac",
+    "rationale": "The principal created four projects and then deleted three projects with IDs not matching the authorized mapping prj_199e309e8484. However, the runbook does not provide the IDs of the newly created projects, so it is unclear whether the deleted projects were owned by this principal or another tenant. The DELETE requests returned 200, but authorization decisions are not logged.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "insufficient_evidence"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"insufficient_evidence\",\"attack_probability\":0.35,\"first_suspicious_event_id\":\"evt_91a10d41930e433497872966304ca1ac\",\"evidence_event_ids\":[\"evt_91a10d41930e433497872966304ca1ac\",\"evt_2e69888f6d804eed9d124e5e2bd01e50\",\"evt_45e28da058844475b4fad6bfc164f75d\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"The principal created four projects and then deleted three projects with IDs not matching the authorized mapping prj_199e309e8484. However, the runbook does not provide the IDs of the newly created projects, so it is unclear whether the deleted projects were owned by this principal or another tenant. The DELETE requests returned 200, but authorization decisions are not logged.\"}",
+  "schema_version": "prediction_v1"
+}

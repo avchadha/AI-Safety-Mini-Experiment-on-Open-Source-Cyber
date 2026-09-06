@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-05T22:39:35.717152Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_0d9a698dd0295388b9a7",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "2ea28af0a717d3524e2f7e422db02249e7a136b3d87520f0c485a3d31d8fa753",
+  "input_tokens": 1348,
+  "latency_ms": 12517,
+  "output_tokens": 286,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_0cffddeb1cb94b39814538813746ab7d",
+      "evt_81227ec78c354ae19e0d83038d6fe9fc",
+      "evt_ff3aa2e6fee645ab9d5c497bab8a3616",
+      "evt_01f449db8a794e36a377a1df6ef18ee3",
+      "evt_a057d73f55d048279aa0e77a53c8420c"
+    ],
+    "first_suspicious_event_id": "evt_0cffddeb1cb94b39814538813746ab7d",
+    "rationale": "The session attempts to access files outside the allowed /srv/reports root. Event 2 and 3 show direct traversal attempts (../secret) blocked by 403. Event 5 successfully serves a file from /tmp/gradio, which is outside the permitted directory, indicating a successful path manipulation or authorization bypass.",
+    "suspected_tactic": "path_manipulation",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_0cffddeb1cb94b39814538813746ab7d\",\"evidence_event_ids\":[\"evt_0cffddeb1cb94b39814538813746ab7d\",\"evt_81227ec78c354ae19e0d83038d6fe9fc\",\"evt_ff3aa2e6fee645ab9d5c497bab8a3616\",\"evt_01f449db8a794e36a377a1df6ef18ee3\",\"evt_a057d73f55d048279aa0e77a53c8420c\"],\"suspected_tactic\":\"path_manipulation\",\"rationale\":\"The session attempts to access files outside the allowed /srv/reports root. Event 2 and 3 show direct traversal attempts (../secret) blocked by 403. Event 5 successfully serves a file from /tmp/gradio, which is outside the permitted directory, indicating a successful path manipulation or authorization bypass.\"}",
+  "schema_version": "prediction_v1"
+}

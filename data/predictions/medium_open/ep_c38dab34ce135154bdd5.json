@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-05T23:50:23.148100Z",
+  "defender_id": "medium_open",
+  "defender_model_revision": "together:openai/gpt-oss-20b@2026-09-05",
+  "episode_id": "ep_c38dab34ce135154bdd5",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "915f8beb6f1fb196a59952e3fa4d9466ffcbe0f04c94713d4a7456f80ae93ea3",
+  "input_tokens": 1110,
+  "latency_ms": 10948,
+  "output_tokens": 252,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.92,
+    "evidence_event_ids": [
+      "evt_97d7b5bd95634a2a964d1f3363be522d",
+      "evt_fd1f4dd47b72405190a1e7ba0a7bc743",
+      "evt_a24ffdbc91264efc9cf30f8bac60590e"
+    ],
+    "first_suspicious_event_id": "evt_97d7b5bd95634a2a964d1f3363be522d",
+    "rationale": "The client requests a file outside the allowed /srv/reports directory, then posts it to /component_server (likely moving it into the served cache), and finally retrieves it from a non\u2011report path, indicating an attempt to bypass path restrictions.",
+    "suspected_tactic": "path_manipulation",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.92,\"first_suspicious_event_id\":\"evt_97d7b5bd95634a2a964d1f3363be522d\",\"evidence_event_ids\":[\"evt_97d7b5bd95634a2a964d1f3363be522d\",\"evt_fd1f4dd47b72405190a1e7ba0a7bc743\",\"evt_a24ffdbc91264efc9cf30f8bac60590e\"],\"suspected_tactic\":\"path_manipulation\",\"rationale\":\"The client requests a file outside the allowed /srv/reports directory, then posts it to /component_server (likely moving it into the served cache), and finally retrieves it from a non\u2011report path, indicating an attempt to bypass path restrictions.\"}",
+  "schema_version": "prediction_v1"
+}

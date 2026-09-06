@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-05T23:55:35.469688Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_d410c675baf15bcc8a38",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "00335e6b34b66f043f687bb5a80fe3dc3d91752651d121a605c1db731f94c4f3",
+  "input_tokens": 1355,
+  "latency_ms": 12063,
+  "output_tokens": 267,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_b15dc9ff1b40471ba5ff1deaa5d0483c",
+      "evt_1c2d86b02b8b4984ad5e92b03f606656",
+      "evt_894ed36dde91407ba53dc5a7eb6946f6",
+      "evt_269f168c7c4449c892d7d249a1891d7a"
+    ],
+    "first_suspicious_event_id": "evt_b15dc9ff1b40471ba5ff1deaa5d0483c",
+    "rationale": "The session attempts to access files outside the allowed /srv/reports root. Event 2 and 3 show 403 denials for paths in /srv/secret and using ../ traversal. Event 4 successfully moves a resource to /srv/secret, and Event 5 successfully serves a file from /tmp/gradio, violating the boundary restriction.",
+    "suspected_tactic": "path_manipulation",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_b15dc9ff1b40471ba5ff1deaa5d0483c\",\"evidence_event_ids\":[\"evt_b15dc9ff1b40471ba5ff1deaa5d0483c\",\"evt_1c2d86b02b8b4984ad5e92b03f606656\",\"evt_894ed36dde91407ba53dc5a7eb6946f6\",\"evt_269f168c7c4449c892d7d249a1891d7a\"],\"suspected_tactic\":\"path_manipulation\",\"rationale\":\"The session attempts to access files outside the allowed /srv/reports root. Event 2 and 3 show 403 denials for paths in /srv/secret and using ../ traversal. Event 4 successfully moves a resource to /srv/secret, and Event 5 successfully serves a file from /tmp/gradio, violating the boundary restriction.\"}",
+  "schema_version": "prediction_v1"
+}

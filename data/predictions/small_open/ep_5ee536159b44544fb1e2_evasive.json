@@ -1,0 +1,23 @@
+{
+  "created_at_utc": "2026-09-06T07:16:50.275467Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_5ee536159b44544fb1e2_evasive",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "fae064e6094d1705e11d9d5a4370557677370ed3320b8f8a667163dc9c3c6478",
+  "input_tokens": 1762,
+  "latency_ms": 9835,
+  "output_tokens": 148,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [],
+    "first_suspicious_event_id": null,
+    "rationale": "The user successfully logged in, listed projects, and deleted a project (evt_2985a89a11e94deda3448e3564ec643e) that matches their authorized mapping. Subsequent attempts to delete other projects (evt_82bf9ed4ced94f1f8a09a0d45b40652d) correctly returned 422 errors, indicating proper authorization enforcement rather than exploitation.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[],\"suspected_tactic\":\"none\",\"rationale\":\"The user successfully logged in, listed projects, and deleted a project (evt_2985a89a11e94deda3448e3564ec643e) that matches their authorized mapping. Subsequent attempts to delete other projects (evt_82bf9ed4ced94f1f8a09a0d45b40652d) correctly returned 422 errors, indicating proper authorization enforcement rather than exploitation.\"}",
+  "schema_version": "prediction_v1"
+}

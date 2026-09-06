@@ -1,0 +1,25 @@
+{
+  "created_at_utc": "2026-09-05T23:09:08.528686Z",
+  "defender_id": "large_open",
+  "defender_model_revision": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo@2026-09-05",
+  "episode_id": "ep_54ed2945dfb657a18e78",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "7d44814169c58d9378ec5952d7268801a86e7777707058c426f06df099f109cb",
+  "input_tokens": 863,
+  "latency_ms": 9835,
+  "output_tokens": 115,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.8,
+    "evidence_event_ids": [
+      "evt_4f3abe31b79c4edcb2a2f47ef2bb929c"
+    ],
+    "first_suspicious_event_id": "evt_4f3abe31b79c4edcb2a2f47ef2bb929c",
+    "rationale": "Principal deleted project prj_d45c6389baef, not authorized to delete",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\": \"attack\", \"attack_probability\": 0.8, \"first_suspicious_event_id\": \"evt_4f3abe31b79c4edcb2a2f47ef2bb929c\", \"evidence_event_ids\": [\"evt_4f3abe31b79c4edcb2a2f47ef2bb929c\"], \"suspected_tactic\": \"authorization_abuse\", \"rationale\": \"Principal deleted project prj_d45c6389baef, not authorized to delete\"}",
+  "schema_version": "prediction_v1"
+}

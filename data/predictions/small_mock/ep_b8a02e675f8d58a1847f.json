@@ -1,0 +1,23 @@
+{
+  "created_at_utc": "2026-09-05T01:18:57.894895Z",
+  "defender_id": "small_mock",
+  "defender_model_revision": "phase0",
+  "episode_id": "ep_b8a02e675f8d58a1847f",
+  "experiment_id": "mock-small-defender-stealth-v1",
+  "input_sha256": "2d9fd5f8ab2c77f9bc3ebb3e29b632245e7377fa074932911dc2451fa4a3618d",
+  "input_tokens": 535,
+  "latency_ms": 0,
+  "output_tokens": 49,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.12,
+    "evidence_event_ids": [],
+    "first_suspicious_event_id": null,
+    "rationale": "No coarse error-rate indicator is present.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"attack_probability\": 0.12, \"evidence_event_ids\": [], \"first_suspicious_event_id\": null, \"rationale\": \"No coarse error-rate indicator is present.\", \"suspected_tactic\": \"none\", \"verdict\": \"benign\"}",
+  "schema_version": "prediction_v1"
+}

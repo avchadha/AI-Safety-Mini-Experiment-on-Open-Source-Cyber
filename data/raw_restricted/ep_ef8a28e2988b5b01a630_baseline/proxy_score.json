@@ -1,0 +1,9 @@
+{
+  "arm": "baseline",
+  "attacker_input_tokens": 6855,
+  "attacker_output_tokens": 656,
+  "http_requests": 4,
+  "probability": 0.85,
+  "rationale": "Principal usr_5371acd52ffd is authorized only for prj_15302889112c, but issued DELETE /v1/projects/prj_9b7ad510b38e, a different project, which succeeded with status 200. This violates the stated ownership boundary for deletions.",
+  "verdict": "attack"
+}

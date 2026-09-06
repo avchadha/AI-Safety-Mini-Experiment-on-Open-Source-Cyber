@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T08:39:56.106988Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_44e88f9ede2bfd4d6494",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "df368516e42ad4919c4967f0428b03ffbfb2606b2e2293a4c241ac7d29f9af80",
+  "input_tokens": 2152,
+  "latency_ms": 11609,
+  "output_tokens": 260,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_55de23a58f0d4f81b84423a7951e6220",
+      "evt_19f5829094634392b69d9be10a4558a6",
+      "evt_9f6ae1a6097c44079e668adc0560bfa8",
+      "evt_1ae77fde618f46aaa2b8d6282e52a5b3",
+      "evt_23473c2aa8d24530a50528d9aa224f17"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The principal usr_05724062158e successfully logged in and created multiple projects. Subsequent DELETE requests returned 200 status codes, indicating the principal had authorization to delete the specific projects targeted. No evidence of unauthorized access or boundary violations.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_55de23a58f0d4f81b84423a7951e6220\",\"evt_19f5829094634392b69d9be10a4558a6\",\"evt_9f6ae1a6097c44079e668adc0560bfa8\",\"evt_1ae77fde618f46aaa2b8d6282e52a5b3\",\"evt_23473c2aa8d24530a50528d9aa224f17\"],\"suspected_tactic\":\"none\",\"rationale\":\"The principal usr_05724062158e successfully logged in and created multiple projects. Subsequent DELETE requests returned 200 status codes, indicating the principal had authorization to delete the specific projects targeted. No evidence of unauthorized access or boundary violations.\"}",
+  "schema_version": "prediction_v1"
+}

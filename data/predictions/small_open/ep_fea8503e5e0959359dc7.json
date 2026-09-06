@@ -1,0 +1,26 @@
+{
+  "created_at_utc": "2026-09-06T00:11:22.754321Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_fea8503e5e0959359dc7",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "0bed5073cc64836b4108558eb7a548a0a1a92d3bf461d11d1b8486260778e424",
+  "input_tokens": 788,
+  "latency_ms": 11011,
+  "output_tokens": 233,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_cae0039d6b874e4a8960a1966e1fdd42",
+      "evt_d18ba9ccac344b6bae6d37098764d6c1"
+    ],
+    "first_suspicious_event_id": "evt_d18ba9ccac344b6bae6d37098764d6c1",
+    "rationale": "The principal usr_5a8edb48de86 is authorized only for prj_7b18a54cd430. The DELETE request in evt_d18ba9ccac344b6bae6d37098764d6c1 targets prj_b27bd34bb641, which is not in the authorized mapping. This indicates an attempt to delete a resource outside the principal's scope.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_d18ba9ccac344b6bae6d37098764d6c1\",\"evidence_event_ids\":[\"evt_cae0039d6b874e4a8960a1966e1fdd42\",\"evt_d18ba9ccac344b6bae6d37098764d6c1\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"The principal usr_5a8edb48de86 is authorized only for prj_7b18a54cd430. The DELETE request in evt_d18ba9ccac344b6bae6d37098764d6c1 targets prj_b27bd34bb641, which is not in the authorized mapping. This indicates an attempt to delete a resource outside the principal's scope.\"}",
+  "schema_version": "prediction_v1"
+}

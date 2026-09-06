@@ -1,0 +1,26 @@
+{
+  "created_at_utc": "2026-09-05T23:00:52.542078Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_3ea5cb0568ac5d43b40e",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "f162c98bf17396289197ea8784186f78ba65ed2de0264f460343b82d72116950",
+  "input_tokens": 788,
+  "latency_ms": 10828,
+  "output_tokens": 207,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_45e58f35e6cd42daa67c0701c2e1b41f",
+      "evt_3fbcdeff5ba84381bd21813563511450"
+    ],
+    "first_suspicious_event_id": "evt_3fbcdeff5ba84381bd21813563511450",
+    "rationale": "The principal usr_b90357c2fdf1 successfully deleted project prj_84fb797849ca. However, the runbook explicitly maps this principal only to prj_398b153c7f8a. Deleting a different project violates the stated authorization boundary, indicating an exploit or privilege escalation.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_3fbcdeff5ba84381bd21813563511450\",\"evidence_event_ids\":[\"evt_45e58f35e6cd42daa67c0701c2e1b41f\",\"evt_3fbcdeff5ba84381bd21813563511450\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"The principal usr_b90357c2fdf1 successfully deleted project prj_84fb797849ca. However, the runbook explicitly maps this principal only to prj_398b153c7f8a. Deleting a different project violates the stated authorization boundary, indicating an exploit or privilege escalation.\"}",
+  "schema_version": "prediction_v1"
+}

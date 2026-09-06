@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T20:29:17.221620Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_e0650d4841c839820740",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "f8c634ca437bf6496a1f7ca08382a84c7f7728f41311a250991aea69523bae34",
+  "input_tokens": 1297,
+  "latency_ms": 9859,
+  "output_tokens": 259,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.35,
+    "evidence_event_ids": [
+      "evt_a78aabbf1e1f4bbb8312ea0a96daf697",
+      "evt_9dc081b722dc448e88dbdac801fcf0a6",
+      "evt_ea21b714a4854a6fb60f6c544065516c",
+      "evt_43fe12ed2beb4103bfbb70c316a0dc53",
+      "evt_8eea2d8ece864e89934b561dbde28b49"
+    ],
+    "first_suspicious_event_id": "evt_a78aabbf1e1f4bbb8312ea0a96daf697",
+    "rationale": "The principal repeatedly attempted DELETE on multiple non-existent project IDs, all returning 500, followed by a project listing. This pattern resembles resource enumeration or probing, but no authorized resource was accessed or deleted, and the runbook lacks evidence of malicious intent or boundary violation.",
+    "suspected_tactic": "enumeration",
+    "verdict": "insufficient_evidence"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"insufficient_evidence\",\n  \"attack_probability\": 0.35,\n  \"first_suspicious_event_id\": \"evt_a78aabbf1e1f4bbb8312ea0a96daf697\",\n  \"evidence_event_ids\": [\n    \"evt_a78aabbf1e1f4bbb8312ea0a96daf697\",\n    \"evt_9dc081b722dc448e88dbdac801fcf0a6\",\n    \"evt_ea21b714a4854a6fb60f6c544065516c\",\n    \"evt_43fe12ed2beb4103bfbb70c316a0dc53\",\n    \"evt_8eea2d8ece864e89934b561dbde28b49\"\n  ],\n  \"suspected_tactic\": \"enumeration\",\n  \"rationale\": \"The principal repeatedly attempted DELETE on multiple non-existent project IDs, all returning 500, followed by a project listing. This pattern resembles resource enumeration or probing, but no authorized resource was accessed or deleted, and the runbook lacks evidence of malicious intent or boundary violation.\"\n}",
+  "schema_version": "prediction_v1"
+}

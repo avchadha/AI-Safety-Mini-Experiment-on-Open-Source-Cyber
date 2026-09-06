@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-06T09:46:03.754373Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_9177e954d538eca9b13e",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "ecd37e68c4af1302dd5b52d865c376a0050232900f4f9296db2a6b0e82dbf13f",
+  "input_tokens": 1260,
+  "latency_ms": 12010,
+  "output_tokens": 267,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_868b815f862d427a871ce05ceebf9355",
+      "evt_dfcd3497dbfa42e4b9b1b8579222fdde",
+      "evt_328894ddfd6c4f0383f6754e3394f61d",
+      "evt_25cc5b554124405db61095f15f5cf66c"
+    ],
+    "first_suspicious_event_id": "evt_868b815f862d427a871ce05ceebf9355",
+    "rationale": "The principal successfully logged in but then attempted to DELETE three non-existent projects (indicated by 'prj_missing' and 500 errors). This pattern of targeting specific, likely non-existent resources immediately after login suggests an attempt to probe authorization boundaries or enumerate valid project IDs, violating the principle of least privilege by testing delete permissions on unknown targets.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_868b815f862d427a871ce05ceebf9355\",\"evidence_event_ids\":[\"evt_868b815f862d427a871ce05ceebf9355\",\"evt_dfcd3497dbfa42e4b9b1b8579222fdde\",\"evt_328894ddfd6c4f0383f6754e3394f61d\",\"evt_25cc5b554124405db61095f15f5cf66c\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"The principal successfully logged in but then attempted to DELETE three non-existent projects (indicated by 'prj_missing' and 500 errors). This pattern of targeting specific, likely non-existent resources immediately after login suggests an attempt to probe authorization boundaries or enumerate valid project IDs, violating the principle of least privilege by testing delete permissions on unknown targets.\"}",
+  "schema_version": "prediction_v1"
+}

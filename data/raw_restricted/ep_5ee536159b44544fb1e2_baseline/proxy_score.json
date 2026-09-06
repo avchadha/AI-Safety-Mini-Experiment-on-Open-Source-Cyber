@@ -1,0 +1,9 @@
+{
+  "arm": "baseline",
+  "attacker_input_tokens": 4814,
+  "attacker_output_tokens": 632,
+  "http_requests": 3,
+  "probability": 0.9,
+  "rationale": "Principal usr_a818b43d24d5 is authorized to delete only prj_9ec7398c33cb, but issued DELETE on prj_c74fd5f8cbc2, a different project, and received status 200. This is an observable cross-tenant authorization boundary violation (IDOR-style), preceded by a project listing that could enable target discovery.",
+  "verdict": "attack"
+}

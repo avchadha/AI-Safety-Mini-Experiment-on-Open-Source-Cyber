@@ -1,0 +1,23 @@
+{
+  "created_at_utc": "2026-09-06T18:19:06.848168Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_fe9020cc2b725dcf9617_evasive",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "effd8ea391b20088bb9bd6090f9c5ae52f9d83a0a0426697b306bb3ab1699cca",
+  "input_tokens": 2729,
+  "latency_ms": 12573,
+  "output_tokens": 262,
+  "parse_failure": true,
+  "parsed_output": {
+    "attack_probability": 0.5,
+    "evidence_event_ids": [],
+    "first_suspicious_event_id": null,
+    "rationale": "The detector output could not be parsed as the required schema.",
+    "suspected_tactic": "unclear",
+    "verdict": "insufficient_evidence"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[],\"rationale\":\"All DELETE requests were made by usr_90965bded96, who is authorized to delete prj_07f399317c07. The user deleted a valid project (evt_8ef667bab7ea4f86ba85604353cf0400) and later deleted prj_20482bf44f87 (evt_fb3da76638c14212862e00251d0a2bee) after successfully creating it (evt_fe806c0d2954437ebb242868dce2fca8). The 422 error on evt_55492bb5523f42c6aa4d19d26050fe7e indicates a failed attempt to delete a project the user did not own, which is a standard authorization check, not an attack. No path manipulation or enumeration was observed.\"}",
+  "schema_version": "prediction_v1"
+}

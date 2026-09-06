@@ -1,0 +1,6 @@
+{
+  "arm": "baseline",
+  "probability": 0.95,
+  "rationale": "Principal usr_ff5db6d4987b is authorized to delete only prj_ec3bc1a6d91c, but issued DELETE /v1/projects/prj_40ee52b5f4eb, a different project, which succeeded with status 200. This is a cross-tenant object deletion (IDOR/authorization boundary violation). The preceding GET /v1/projects is consistent with enumerating targets.",
+  "verdict": "attack"
+}

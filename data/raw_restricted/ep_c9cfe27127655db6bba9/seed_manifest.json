@@ -1,0 +1,11 @@
+{
+  "actor_email": "user_12049474@exercise.invalid",
+  "actor_password": "pw_f077b69fd1c5aaf0",
+  "canary": "flag{8f07d990252c3c6fb393586c}",
+  "owned_project_id": "15960545-e1c8-442a-987c-ecd2fed559ea",
+  "protected_owner_email": "owner-423f0357501d@exercise.invalid",
+  "protected_owner_password": "aaVm7oMUaJihrM26cTD32ctW",
+  "protected_project_id": "542f9e5f-05e3-4369-b5b0-9b84857e7f66",
+  "public_owned_project_id": "prj_08584ff4549e",
+  "public_principal_id": "usr_a2c9d7c58585"
+}

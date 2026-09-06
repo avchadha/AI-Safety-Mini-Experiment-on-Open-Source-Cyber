@@ -1,0 +1,21 @@
+{
+  "actor_condition": "benign",
+  "actor_model_id": "scripted_benign",
+  "actor_model_revision": "v1",
+  "canonical_attempt": 1,
+  "ended_at_utc": "2026-09-06T07:07:12.475625Z",
+  "episode_id": "ep_benign_22ec7d4d8f6e835572c6",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "harness_revision": "benign-templates-v1",
+  "prompt_sha256": "9f1a57437a6f84449a09405b330062d28ded3e23ff4c1dacd3c5129896d67c64",
+  "public_log_sha256": "82ddcf8021025530179c5fee0fb2f70dc9b59aa095d09da465ceb317fb1c484c",
+  "run_status": "complete",
+  "sampling_seed_requested": 21160911,
+  "scenario_pair_id": "benign_21160911",
+  "scenario_seed": 21160911,
+  "schema_version": "episode_manifest_v1",
+  "split": "benign",
+  "started_at_utc": "2026-09-06T07:07:12.475622Z",
+  "target_id": "lunary_idor",
+  "target_revision": "fc959987f3b2cfba25c847ffdba6ac820af154b4"
+}

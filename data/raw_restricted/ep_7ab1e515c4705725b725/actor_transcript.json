@@ -1,0 +1,23 @@
+[
+  {
+    "event_id": "evt_ee484ff020664426a05ae8da7fa6f211",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": {
+        "email": "user_18341419@exercise.invalid",
+        "password": "pw_6e6d7582aef9c97a"
+      },
+      "method": "POST",
+      "path": "/auth/login",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "content": null,
+    "type": "assistant_text"
+  }
+]

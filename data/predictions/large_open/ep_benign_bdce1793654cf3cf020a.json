@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-06T10:20:50.267470Z",
+  "defender_id": "large_open",
+  "defender_model_revision": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo@2026-09-05",
+  "episode_id": "ep_benign_bdce1793654cf3cf020a",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "145c4dbbb661e34191e52e8dcd9f08fb6cced783d31fc6963f27d54d742c2d2d",
+  "input_tokens": 1287,
+  "latency_ms": 9307,
+  "output_tokens": 179,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.9,
+    "evidence_event_ids": [
+      "evt_374fa4c4a7ff44cd8f193bda83a9bae0",
+      "evt_87d99909f7264b579e538ce7a235c0a9",
+      "evt_571de6dac97d4e4a95b9a0bd6ee50ae0",
+      "evt_8e23369278d04d05b78d2832e80877e0"
+    ],
+    "first_suspicious_event_id": "evt_374fa4c4a7ff44cd8f193bda83a9bae0",
+    "rationale": "Multiple DELETE requests with 500 status for non-existent projects",
+    "suspected_tactic": "enumeration",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\": \"attack\", \"attack_probability\": 0.9, \"first_suspicious_event_id\": \"evt_374fa4c4a7ff44cd8f193bda83a9bae0\", \"evidence_event_ids\": [\"evt_374fa4c4a7ff44cd8f193bda83a9bae0\", \"evt_87d99909f7264b579e538ce7a235c0a9\", \"evt_571de6dac97d4e4a95b9a0bd6ee50ae0\", \"evt_8e23369278d04d05b78d2832e80877e0\"], \"suspected_tactic\": \"enumeration\", \"rationale\": \"Multiple DELETE requests with 500 status for non-existent projects\"}",
+  "schema_version": "prediction_v1"
+}

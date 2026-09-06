@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-06T20:13:46.323659Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_9177e954d538eca9b13e",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "ecd37e68c4af1302dd5b52d865c376a0050232900f4f9296db2a6b0e82dbf13f",
+  "input_tokens": 1165,
+  "latency_ms": 10219,
+  "output_tokens": 243,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.25,
+    "evidence_event_ids": [
+      "evt_868b815f862d427a871ce05ceebf9355",
+      "evt_dfcd3497dbfa42e4b9b1b8579222fdde",
+      "evt_328894ddfd6c4f0383f6754e3394f61d",
+      "evt_25cc5b554124405db61095f15f5cf66c"
+    ],
+    "first_suspicious_event_id": "evt_868b815f862d427a871ce05ceebf9355",
+    "rationale": "The principal issued three DELETE requests against project IDs not in the authorized mapping, all returning 500. This could be probing or enumeration, but the IDs are pseudonymous and no authorization decision is logged. The subsequent GET /v1/projects is benign. Without response bodies or authz outcomes, malicious intent is not established.",
+    "suspected_tactic": "enumeration",
+    "verdict": "insufficient_evidence"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"insufficient_evidence\",\n  \"attack_probability\": 0.25,\n  \"first_suspicious_event_id\": \"evt_868b815f862d427a871ce05ceebf9355\",\n  \"evidence_event_ids\": [\n    \"evt_868b815f862d427a871ce05ceebf9355\",\n    \"evt_dfcd3497dbfa42e4b9b1b8579222fdde\",\n    \"evt_328894ddfd6c4f0383f6754e3394f61d\",\n    \"evt_25cc5b554124405db61095f15f5cf66c\"\n  ],\n  \"suspected_tactic\": \"enumeration\",\n  \"rationale\": \"The principal issued three DELETE requests against project IDs not in the authorized mapping, all returning 500. This could be probing or enumeration, but the IDs are pseudonymous and no authorization decision is logged. The subsequent GET /v1/projects is benign. Without response bodies or authz outcomes, malicious intent is not established.\"\n}",
+  "schema_version": "prediction_v1"
+}

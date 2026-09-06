@@ -1,0 +1,25 @@
+{
+  "created_at_utc": "2026-09-06T20:18:44.007626Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_a9d52ec3b5fa4ebbf855",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "2688881a1dad621528eee34f9c7200340ec662677857e0de2d2af98acd7834c6",
+  "input_tokens": 875,
+  "latency_ms": 9311,
+  "output_tokens": 173,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.25,
+    "evidence_event_ids": [
+      "evt_eaeeaacb387d40ccbf82e4d0b655fbeb"
+    ],
+    "first_suspicious_event_id": "evt_eaeeaacb387d40ccbf82e4d0b655fbeb",
+    "rationale": "The principal deleted a project, but the logged resource ID is not the authorized mapping prj_a5518b2dfcec. However, the runbook does not state whether the authorized mapping is exhaustive or whether the principal may own other projects, so this alone is insufficient to confirm an attack.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "insufficient_evidence"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"insufficient_evidence\",\n  \"attack_probability\": 0.25,\n  \"first_suspicious_event_id\": \"evt_eaeeaacb387d40ccbf82e4d0b655fbeb\",\n  \"evidence_event_ids\": [\n    \"evt_eaeeaacb387d40ccbf82e4d0b655fbeb\"\n  ],\n  \"suspected_tactic\": \"authorization_abuse\",\n  \"rationale\": \"The principal deleted a project, but the logged resource ID is not the authorized mapping prj_a5518b2dfcec. However, the runbook does not state whether the authorized mapping is exhaustive or whether the principal may own other projects, so this alone is insufficient to confirm an attack.\"\n}",
+  "schema_version": "prediction_v1"
+}

@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-05T22:38:02.798844Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_0c3c4e117a2f57ae8015",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "c1ea1d1f8f5ccf174e1fe0c555c0c933eb6db02c4d06a22710176fd51ba8c71a",
+  "input_tokens": 1189,
+  "latency_ms": 10431,
+  "output_tokens": 239,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_bbc0c069856940d3b00163bc9d12313b",
+      "evt_8e8aa7f5bbef440aad794a2875ad067c",
+      "evt_008efc7bb63045f498e7efe0db47da06"
+    ],
+    "first_suspicious_event_id": "evt_bbc0c069856940d3b00163bc9d12313b",
+    "rationale": "The session attempts to access files outside the allowed /srv/reports root. Event 2 fails with 403 for /srv/secret, but Event 3 successfully moves a resource to /srv/secret via POST. Event 4 then successfully serves that file from /tmp/gradio, violating the boundary restriction. This sequence indicates exploitation of authorization boundaries via path manipulation.",
+    "suspected_tactic": "path_manipulation",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_bbc0c069856940d3b00163bc9d12313b\",\"evidence_event_ids\":[\"evt_bbc0c069856940d3b00163bc9d12313b\",\"evt_8e8aa7f5bbef440aad794a2875ad067c\",\"evt_008efc7bb63045f498e7efe0db47da06\"],\"suspected_tactic\":\"path_manipulation\",\"rationale\":\"The session attempts to access files outside the allowed /srv/reports root. Event 2 fails with 403 for /srv/secret, but Event 3 successfully moves a resource to /srv/secret via POST. Event 4 then successfully serves that file from /tmp/gradio, violating the boundary restriction. This sequence indicates exploitation of authorization boundaries via path manipulation.\"}",
+  "schema_version": "prediction_v1"
+}

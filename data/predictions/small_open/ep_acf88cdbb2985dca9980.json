@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-05T23:42:31.586226Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_acf88cdbb2985dca9980",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "7ef875d17ef871f0a5798be9c3f92aec4c6882b25a7210bfc1161ad2c89c7b45",
+  "input_tokens": 1326,
+  "latency_ms": 12985,
+  "output_tokens": 294,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_c94002b47fab4ba6aa173c6085a4b6b3",
+      "evt_3bb6b9b16d444ca9bb3dc777a218507e",
+      "evt_dab5f03e97b4475cbf788c7359ed0c04",
+      "evt_97bcdead018048b18bf6b72e8048a1d9",
+      "evt_52a63bdf665e42c189d284e290e4e6b9"
+    ],
+    "first_suspicious_event_id": "evt_c94002b47fab4ba6aa173c6085a4b6b3",
+    "rationale": "The session attempts to access files outside the allowed /srv/reports root. Event 2 and 3 show traversal attempts (../secret) blocked by 403. Event 4 successfully moves a resource to /srv/secret, and Event 5 successfully serves a file from /tmp/gradio, violating the boundary restriction.",
+    "suspected_tactic": "path_manipulation",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_c94002b47fab4ba6aa173c6085a4b6b3\",\"evidence_event_ids\":[\"evt_c94002b47fab4ba6aa173c6085a4b6b3\",\"evt_3bb6b9b16d444ca9bb3dc777a218507e\",\"evt_dab5f03e97b4475cbf788c7359ed0c04\",\"evt_97bcdead018048b18bf6b72e8048a1d9\",\"evt_52a63bdf665e42c189d284e290e4e6b9\"],\"suspected_tactic\":\"path_manipulation\",\"rationale\":\"The session attempts to access files outside the allowed /srv/reports root. Event 2 and 3 show traversal attempts (../secret) blocked by 403. Event 4 successfully moves a resource to /srv/secret, and Event 5 successfully serves a file from /tmp/gradio, violating the boundary restriction.\"}",
+  "schema_version": "prediction_v1"
+}

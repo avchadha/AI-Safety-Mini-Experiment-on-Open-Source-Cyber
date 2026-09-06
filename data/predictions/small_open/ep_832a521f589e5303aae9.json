@@ -1,0 +1,26 @@
+{
+  "created_at_utc": "2026-09-05T23:25:14.944151Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_832a521f589e5303aae9",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "21d576bedef1a77f01d0f10e93e2eeacf6ec9f1215d3a9ca1b8f30216a1fdaf6",
+  "input_tokens": 1011,
+  "latency_ms": 11816,
+  "output_tokens": 251,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_353f579c663744ebac89d7907f14490f",
+      "evt_d3b22a90dcd04885b43f0be7c54bf66d"
+    ],
+    "first_suspicious_event_id": "evt_353f579c663744ebac89d7907f14490f",
+    "rationale": "The session first POSTs to /component_server referencing /srv/secret/ (evt_353f579c663744ebac89d7907f14490f), then immediately GETs /file=/tmp/gradio/... (evt_d3b22a90dcd04885b43f0be7c54bf66d). Both paths are outside the allowed /srv/reports root, indicating path manipulation to access unauthorized resources.",
+    "suspected_tactic": "path_manipulation",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_353f579c663744ebac89d7907f14490f\",\"evidence_event_ids\":[\"evt_353f579c663744ebac89d7907f14490f\",\"evt_d3b22a90dcd04885b43f0be7c54bf66d\"],\"suspected_tactic\":\"path_manipulation\",\"rationale\":\"The session first POSTs to /component_server referencing /srv/secret/ (evt_353f579c663744ebac89d7907f14490f), then immediately GETs /file=/tmp/gradio/... (evt_d3b22a90dcd04885b43f0be7c54bf66d). Both paths are outside the allowed /srv/reports root, indicating path manipulation to access unauthorized resources.\"}",
+  "schema_version": "prediction_v1"
+}

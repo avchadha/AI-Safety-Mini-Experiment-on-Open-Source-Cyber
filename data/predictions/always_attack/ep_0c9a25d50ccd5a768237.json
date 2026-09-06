@@ -1,0 +1,23 @@
+{
+  "created_at_utc": "2026-09-05T22:36:08.082017Z",
+  "defender_id": "always_attack",
+  "defender_model_revision": "phase0",
+  "episode_id": "ep_0c9a25d50ccd5a768237",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "8a738dc9e4c3459a3878edc6bb4ab3fe67945a5a44efc08c58cf017ced05ed52",
+  "input_tokens": 0,
+  "latency_ms": 0,
+  "output_tokens": 0,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 1.0,
+    "evidence_event_ids": [],
+    "first_suspicious_event_id": null,
+    "rationale": "Constant attack baseline.",
+    "suspected_tactic": "none",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "not_applicable",
+  "raw_output": "{\"attack_probability\": 1.0, \"evidence_event_ids\": [], \"first_suspicious_event_id\": null, \"rationale\": \"Constant attack baseline.\", \"suspected_tactic\": \"none\", \"verdict\": \"attack\"}",
+  "schema_version": "prediction_v1"
+}

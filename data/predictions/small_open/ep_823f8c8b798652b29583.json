@@ -1,0 +1,25 @@
+{
+  "created_at_utc": "2026-09-05T23:24:12.068636Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_823f8c8b798652b29583",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "dfa12d86c98a979cf20f98d7747d9c92d669cba1b92767a64f450aaf2cdfcac0",
+  "input_tokens": 632,
+  "latency_ms": 10012,
+  "output_tokens": 117,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_6a1a0714c3974b62bca0327565264769"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The single event shows a successful login for principal usr_688cc1266299. No further requests were logged to test boundaries or exploit resources. Behavior is consistent with normal session initiation.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_6a1a0714c3974b62bca0327565264769\"],\"suspected_tactic\":\"none\",\"rationale\":\"The single event shows a successful login for principal usr_688cc1266299. No further requests were logged to test boundaries or exploit resources. Behavior is consistent with normal session initiation.\"}",
+  "schema_version": "prediction_v1"
+}

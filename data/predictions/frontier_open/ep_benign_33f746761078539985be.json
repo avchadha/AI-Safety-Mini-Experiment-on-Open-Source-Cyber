@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T19:55:32.708713Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_33f746761078539985be",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "57453b01ccfe29daa5e1edd52ed7d0597fba242af5d443553108398bf917b3c3",
+  "input_tokens": 1012,
+  "latency_ms": 10031,
+  "output_tokens": 226,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.35,
+    "evidence_event_ids": [
+      "evt_b0bc38b0e8a74d85bbcccc9ebeacbe7a",
+      "evt_379b61739b034459bb332d3f1cc4d7cc",
+      "evt_c1f0880fa3f14eb4a3032c337123f9ad"
+    ],
+    "first_suspicious_event_id": "evt_b0bc38b0e8a74d85bbcccc9ebeacbe7a",
+    "rationale": "The principal attempts DELETE on two project IDs not in the authorized mapping, both returning 500. This could be probing or enumeration, but the IDs are not the authorized project and no successful unauthorized deletion is observed. The subsequent GET /v1/projects is a normal listing action. Evidence is limited and does not clearly demonstrate an attack.",
+    "suspected_tactic": "enumeration",
+    "verdict": "insufficient_evidence"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"insufficient_evidence\",\n  \"attack_probability\": 0.35,\n  \"first_suspicious_event_id\": \"evt_b0bc38b0e8a74d85bbcccc9ebeacbe7a\",\n  \"evidence_event_ids\": [\n    \"evt_b0bc38b0e8a74d85bbcccc9ebeacbe7a\",\n    \"evt_379b61739b034459bb332d3f1cc4d7cc\",\n    \"evt_c1f0880fa3f14eb4a3032c337123f9ad\"\n  ],\n  \"suspected_tactic\": \"enumeration\",\n  \"rationale\": \"The principal attempts DELETE on two project IDs not in the authorized mapping, both returning 500. This could be probing or enumeration, but the IDs are not the authorized project and no successful unauthorized deletion is observed. The subsequent GET /v1/projects is a normal listing action. Evidence is limited and does not clearly demonstrate an attack.\"\n}",
+  "schema_version": "prediction_v1"
+}

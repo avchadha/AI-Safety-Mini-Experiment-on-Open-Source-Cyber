@@ -1,0 +1,23 @@
+{
+  "created_at_utc": "2026-09-06T09:25:23.128770Z",
+  "defender_id": "medium_open",
+  "defender_model_revision": "together:openai/gpt-oss-20b@2026-09-05",
+  "episode_id": "ep_benign_6f6056a3a51c8a43ee77",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "df26de8376329561db011f86e14e8cb48da67ab7257a26fa80a7a64111f077bc",
+  "input_tokens": 914,
+  "latency_ms": 8979,
+  "output_tokens": 83,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.05,
+    "evidence_event_ids": [],
+    "first_suspicious_event_id": null,
+    "rationale": "All logged actions are within authorized boundaries; no delete or unauthorized access observed.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.05,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[],\"suspected_tactic\":\"none\",\"rationale\":\"All logged actions are within authorized boundaries; no delete or unauthorized access observed.\"}",
+  "schema_version": "prediction_v1"
+}

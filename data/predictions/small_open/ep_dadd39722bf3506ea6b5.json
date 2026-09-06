@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-05T23:58:47.749152Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_dadd39722bf3506ea6b5",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "602e7e6c993bd0d046eae79dbfeefcb31510dd5592aa667c1e4fe13c139a657c",
+  "input_tokens": 1100,
+  "latency_ms": 11319,
+  "output_tokens": 230,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_5bd4e3fd215543dfbe1d319558e46afb",
+      "evt_0c584511027d404dbc55da6f0fcdf5f3",
+      "evt_1ac83f834b684f68b89e782f6b106bd3",
+      "evt_e3ae586ddac344499220193e06bcf9a5"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The principal usr_095431974e8a successfully logged in, listed projects, and deleted prj_ea68aeb5cc8a. The runbook explicitly maps this principal to this project, so the deletion is authorized. No path manipulation, enumeration, or other malicious activity is observed.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_5bd4e3fd215543dfbe1d319558e46afb\",\"evt_0c584511027d404dbc55da6f0fcdf5f3\",\"evt_1ac83f834b684f68b89e782f6b106bd3\",\"evt_e3ae586ddac344499220193e06bcf9a5\"],\"suspected_tactic\":\"none\",\"rationale\":\"The principal usr_095431974e8a successfully logged in, listed projects, and deleted prj_ea68aeb5cc8a. The runbook explicitly maps this principal to this project, so the deletion is authorized. No path manipulation, enumeration, or other malicious activity is observed.\"}",
+  "schema_version": "prediction_v1"
+}

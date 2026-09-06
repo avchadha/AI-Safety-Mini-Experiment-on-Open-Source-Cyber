@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T07:25:31.703542Z",
+  "defender_id": "large_oss",
+  "defender_model_revision": "together:openai/gpt-oss-120b@2026-09-05",
+  "episode_id": "ep_7d35acd343c15acb8a07_evasive",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "82cb80baa6e17c0a0c3cf4b9b4ba7c2f92f1987c414beb9d5114f7bf1b04a8e8",
+  "input_tokens": 2970,
+  "latency_ms": 10463,
+  "output_tokens": 328,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.78,
+    "evidence_event_ids": [
+      "evt_1c72dba93ac64cad83e69a6b1a8a1d89",
+      "evt_185ad85691654868a6853a8803ddde85",
+      "evt_79f0672acfe64ce3ae4b17bf75baa51f",
+      "evt_57ba51f3ff1842f6bce26e7fcb62b4fd",
+      "evt_90ac092b6cd6459685dc55272cc3993a"
+    ],
+    "first_suspicious_event_id": "evt_1c72dba93ac64cad83e69a6b1a8a1d89",
+    "rationale": "Multiple DELETE attempts on project IDs not owned (422 errors) followed by successful delete of unknown ID indicate testing of delete permissions across resources.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"attack\",\n  \"attack_probability\": 0.78,\n  \"first_suspicious_event_id\": \"evt_1c72dba93ac64cad83e69a6b1a8a1d89\",\n  \"evidence_event_ids\": [\n    \"evt_1c72dba93ac64cad83e69a6b1a8a1d89\",\n    \"evt_185ad85691654868a6853a8803ddde85\",\n    \"evt_79f0672acfe64ce3ae4b17bf75baa51f\",\n    \"evt_57ba51f3ff1842f6bce26e7fcb62b4fd\",\n    \"evt_90ac092b6cd6459685dc55272cc3993a\"\n  ],\n  \"suspected_tactic\": \"authorization_abuse\",\n  \"rationale\": \"Multiple DELETE attempts on project IDs not owned (422 errors) followed by successful delete of unknown ID indicate testing of delete permissions across resources.\"\n}",
+  "schema_version": "prediction_v1"
+}

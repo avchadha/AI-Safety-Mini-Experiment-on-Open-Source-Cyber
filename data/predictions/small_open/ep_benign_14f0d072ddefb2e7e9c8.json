@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T07:55:39.757816Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_14f0d072ddefb2e7e9c8",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "f1f7f432cd99ec5a77e71e08ceee1015a884cb401e6cff9c4b96e727ff32a03b",
+  "input_tokens": 965,
+  "latency_ms": 11426,
+  "output_tokens": 180,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_76a02e1bbca6433fbbfc5b4058867159",
+      "evt_f9fea79939394b76913697e346dfdb52",
+      "evt_9a19520e86514e8a92513b401fb8d4f5"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The user logged in, listed projects, and deleted a project. The runbook states a principal may delete only their own projects. The sequence shows a standard workflow without evidence of unauthorized access, path traversal, or privilege escalation.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_76a02e1bbca6433fbbfc5b4058867159\",\"evt_f9fea79939394b76913697e346dfdb52\",\"evt_9a19520e86514e8a92513b401fb8d4f5\"],\"suspected_tactic\":\"none\",\"rationale\":\"The user logged in, listed projects, and deleted a project. The runbook states a principal may delete only their own projects. The sequence shows a standard workflow without evidence of unauthorized access, path traversal, or privilege escalation.\"}",
+  "schema_version": "prediction_v1"
+}

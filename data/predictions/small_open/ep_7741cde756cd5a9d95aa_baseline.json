@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T07:22:17.088217Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_7741cde756cd5a9d95aa_baseline",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "7a0084e5ff5bda83ae2af0c9598400268b8398bde5118321eb80db8676ed2d67",
+  "input_tokens": 962,
+  "latency_ms": 10614,
+  "output_tokens": 256,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_8a136331d71b49d3883e09a4b3b78564",
+      "evt_fc01ab7c8f364b1f97312f0789a4d91f",
+      "evt_6814492207964c24ba37817b593832f8"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The user logged in, listed projects, and deleted prj_84af66f3f0c7. The runbook authorizes usr_26d5d414042f to delete prj_933e0795cd0f, but the log shows deletion of a different project ID. Without evidence of unauthorized access or privilege escalation, this appears to be a legitimate operation on a resource the user owns or has permission to manage, or a benign deletion of an unrelated resource. No attack indicators are present.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_8a136331d71b49d3883e09a4b3b78564\",\"evt_fc01ab7c8f364b1f97312f0789a4d91f\",\"evt_6814492207964c24ba37817b593832f8\"],\"suspected_tactic\":\"none\",\"rationale\":\"The user logged in, listed projects, and deleted prj_84af66f3f0c7. The runbook authorizes usr_26d5d414042f to delete prj_933e0795cd0f, but the log shows deletion of a different project ID. Without evidence of unauthorized access or privilege escalation, this appears to be a legitimate operation on a resource the user owns or has permission to manage, or a benign deletion of an unrelated resource. No attack indicators are present.\"}",
+  "schema_version": "prediction_v1"
+}

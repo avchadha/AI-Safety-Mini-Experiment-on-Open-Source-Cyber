@@ -1,0 +1,23 @@
+{
+  "created_at_utc": "2026-09-06T09:32:40.372428Z",
+  "defender_id": "large_oss",
+  "defender_model_revision": "together:openai/gpt-oss-120b@2026-09-05",
+  "episode_id": "ep_benign_7b527c4a05c822b88005",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "eafdd296702a51fce3fdff7410c00c7385be1d8ea1942cdcc48e0b5024a72715",
+  "input_tokens": 775,
+  "latency_ms": 9465,
+  "output_tokens": 118,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.02,
+    "evidence_event_ids": [],
+    "first_suspicious_event_id": null,
+    "rationale": "Only login and project listing occurred; no delete or boundary\u2011testing actions observed.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.02,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[],\"suspected_tactic\":\"none\",\"rationale\":\"Only login and project listing occurred; no delete or boundary\u2011testing actions observed.\"}",
+  "schema_version": "prediction_v1"
+}

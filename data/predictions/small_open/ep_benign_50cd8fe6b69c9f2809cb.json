@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T08:50:20.347418Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_50cd8fe6b69c9f2809cb",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "3f20bc3cd3f79691ad1fbae82e2c9a5b5dc70b83e8e01cd0c9b0f8d9c611fe7f",
+  "input_tokens": 960,
+  "latency_ms": 10291,
+  "output_tokens": 199,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_8e84b35b30654ad9a4548e5f3f8ee910",
+      "evt_d55bbfd704b041e98c7c62b2fa69fb4f",
+      "evt_ef1d2f428e3144d8beba49bd3b6f925c"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The user authenticated and listed projects. The DELETE request targets a specific project ID. While the runbook states a principal can only delete their own projects, the event logs do not include the authorization decision or error status indicating a violation. Without evidence of a failed authorization or an attempt to access a different project, the action appears benign.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_8e84b35b30654ad9a4548e5f3f8ee910\",\"evt_d55bbfd704b041e98c7c62b2fa69fb4f\",\"evt_ef1d2f428e3144d8beba49bd3b6f925c\"],\"suspected_tactic\":\"none\",\"rationale\":\"The user authenticated and listed projects. The DELETE request targets a specific project ID. While the runbook states a principal can only delete their own projects, the event logs do not include the authorization decision or error status indicating a violation. Without evidence of a failed authorization or an attempt to access a different project, the action appears benign.\"}",
+  "schema_version": "prediction_v1"
+}

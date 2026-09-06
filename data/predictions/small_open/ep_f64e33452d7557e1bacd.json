@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-05T07:15:53.590799Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_f64e33452d7557e1bacd",
+  "experiment_id": "small-defender-stealth-mvs-v1",
+  "input_sha256": "191707b51827e9fe11d756a9e76314a81d6c4a1aff800a92243c8ab87fd827b7",
+  "input_tokens": 891,
+  "latency_ms": 10375,
+  "output_tokens": 237,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_174cbf32be0545ae892450eb5af055ec",
+      "evt_9213a2d274b54edb9c042fc34aea0ddb",
+      "evt_3de4a8f18f8e422583f1b4c9f0938700"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The principal usr_ce84f4e06f32 successfully logged in and deleted project prj_578ed779895e. The runbook maps this principal to prj_5be0766e3c85, but the deletion of a different project returned status 200. Without explicit error logs or negative authorization decisions in the provided events, the system appears to have permitted the action, making it impossible to confirm an attack based solely on these logs.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_174cbf32be0545ae892450eb5af055ec\",\"evt_9213a2d274b54edb9c042fc34aea0ddb\",\"evt_3de4a8f18f8e422583f1b4c9f0938700\"],\"suspected_tactic\":\"none\",\"rationale\":\"The principal usr_ce84f4e06f32 successfully logged in and deleted project prj_578ed779895e. The runbook maps this principal to prj_5be0766e3c85, but the deletion of a different project returned status 200. Without explicit error logs or negative authorization decisions in the provided events, the system appears to have permitted the action, making it impossible to confirm an attack based solely on these logs.\"}",
+  "schema_version": "prediction_v1"
+}

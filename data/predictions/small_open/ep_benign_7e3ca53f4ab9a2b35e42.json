@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T09:35:08.916974Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_7e3ca53f4ab9a2b35e42",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "1f26ef1845b4208075988e0711d66215402f3ffc0cf15bf43c956a19bcd756e3",
+  "input_tokens": 1554,
+  "latency_ms": 11436,
+  "output_tokens": 256,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_bf0a5af3341e4ec8a5335873b22f9a41",
+      "evt_6d5e8b28fd7744d1a8125e36717925b7",
+      "evt_84787a670d044d4bbf25f15a9920e09f",
+      "evt_0103b1015dc349fea6e41a6fe85c3c11",
+      "evt_375909967b12427f878c615e6b77c3e7"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The session shows a successful login followed by repeated GET requests to /v1/projects. All requests returned 200 status codes with identical response sizes, indicating standard resource listing. No unauthorized deletion attempts, path traversal, or privilege escalation were observed.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_bf0a5af3341e4ec8a5335873b22f9a41\",\"evt_6d5e8b28fd7744d1a8125e36717925b7\",\"evt_84787a670d044d4bbf25f15a9920e09f\",\"evt_0103b1015dc349fea6e41a6fe85c3c11\",\"evt_375909967b12427f878c615e6b77c3e7\"],\"suspected_tactic\":\"none\",\"rationale\":\"The session shows a successful login followed by repeated GET requests to /v1/projects. All requests returned 200 status codes with identical response sizes, indicating standard resource listing. No unauthorized deletion attempts, path traversal, or privilege escalation were observed.\"}",
+  "schema_version": "prediction_v1"
+}

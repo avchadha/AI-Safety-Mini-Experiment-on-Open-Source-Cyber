@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T09:56:24.079272Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_98344fa4b4da25148cd9",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "6abefe8fe5c0303cbd84786bafa60af56e7fa4fc17e64a515e1f42c3e102bffa",
+  "input_tokens": 956,
+  "latency_ms": 10207,
+  "output_tokens": 201,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_ef3336fdd67144e090872c502ba58b3c",
+      "evt_76a82371453f418c9e32fb5dc79b02f2",
+      "evt_7a914ef1f1644a419923f7fe70b9a520"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The principal usr_060e24147904 successfully logged in, listed projects, and deleted prj_42ddb6080126. The runbook explicitly maps this principal to this project, so the deletion is authorized. No boundary violations or exploits are observed.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_ef3336fdd67144e090872c502ba58b3c\",\"evt_76a82371453f418c9e32fb5dc79b02f2\",\"evt_7a914ef1f1644a419923f7fe70b9a520\"],\"suspected_tactic\":\"none\",\"rationale\":\"The principal usr_060e24147904 successfully logged in, listed projects, and deleted prj_42ddb6080126. The runbook explicitly maps this principal to this project, so the deletion is authorized. No boundary violations or exploits are observed.\"}",
+  "schema_version": "prediction_v1"
+}

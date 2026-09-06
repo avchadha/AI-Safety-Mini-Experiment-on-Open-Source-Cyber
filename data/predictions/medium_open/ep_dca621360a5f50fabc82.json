@@ -1,0 +1,23 @@
+{
+  "created_at_utc": "2026-09-05T23:59:40.010424Z",
+  "defender_id": "medium_open",
+  "defender_model_revision": "together:openai/gpt-oss-20b@2026-09-05",
+  "episode_id": "ep_dca621360a5f50fabc82",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "af0ebb6b5b33b31a84cf991303fd17399db31ad7ef6a7fd0aef708ea8ab19eab",
+  "input_tokens": 783,
+  "latency_ms": 9615,
+  "output_tokens": 81,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.05,
+    "evidence_event_ids": [],
+    "first_suspicious_event_id": null,
+    "rationale": "All requests are within allowed paths and return normal responses.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.05,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[],\"suspected_tactic\":\"none\",\"rationale\":\"All requests are within allowed paths and return normal responses.\"}",
+  "schema_version": "prediction_v1"
+}

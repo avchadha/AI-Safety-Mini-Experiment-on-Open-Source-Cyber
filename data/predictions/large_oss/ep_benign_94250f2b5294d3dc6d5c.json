@@ -1,0 +1,23 @@
+{
+  "created_at_utc": "2026-09-06T09:49:17.068689Z",
+  "defender_id": "large_oss",
+  "defender_model_revision": "together:openai/gpt-oss-120b@2026-09-05",
+  "episode_id": "ep_benign_94250f2b5294d3dc6d5c",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "27df83c5a8af3c59ec3ff8b6a7132aa6d88eecd57d44fac94f7f8498f89465ec",
+  "input_tokens": 900,
+  "latency_ms": 8968,
+  "output_tokens": 128,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.02,
+    "evidence_event_ids": [],
+    "first_suspicious_event_id": null,
+    "rationale": "Only login, project creation, and listing actions observed; no attempts to delete or access unauthorized resources.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.02,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[],\"suspected_tactic\":\"none\",\"rationale\":\"Only login, project creation, and listing actions observed; no attempts to delete or access unauthorized resources.\"}",
+  "schema_version": "prediction_v1"
+}

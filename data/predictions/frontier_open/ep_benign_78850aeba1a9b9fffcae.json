@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-06T20:09:47.012197Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_78850aeba1a9b9fffcae",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "88198a2e1c856380ad89ff20f7035cd562177e279f4ec173600daaf322a500ce",
+  "input_tokens": 1157,
+  "latency_ms": 11015,
+  "output_tokens": 239,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.35,
+    "evidence_event_ids": [
+      "evt_0d58350177704e9c8576007ce8d42b7c",
+      "evt_62db387fd5b048e1a2b4f43807452615",
+      "evt_e69ebe6821ab4a2dbdfa5271cf1bae1f",
+      "evt_efb7084cf72f4674a854d01c91559c8b"
+    ],
+    "first_suspicious_event_id": "evt_0d58350177704e9c8576007ce8d42b7c",
+    "rationale": "The user attempted DELETE on three non-existent project IDs, all returning 500, then listed projects. This could be probing or enumeration, but no authorized resource was accessed or violated, and the IDs are not the user's mapped project. Evidence is insufficient to confirm an attack.",
+    "suspected_tactic": "enumeration",
+    "verdict": "insufficient_evidence"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"insufficient_evidence\",\n  \"attack_probability\": 0.35,\n  \"first_suspicious_event_id\": \"evt_0d58350177704e9c8576007ce8d42b7c\",\n  \"evidence_event_ids\": [\n    \"evt_0d58350177704e9c8576007ce8d42b7c\",\n    \"evt_62db387fd5b048e1a2b4f43807452615\",\n    \"evt_e69ebe6821ab4a2dbdfa5271cf1bae1f\",\n    \"evt_efb7084cf72f4674a854d01c91559c8b\"\n  ],\n  \"suspected_tactic\": \"enumeration\",\n  \"rationale\": \"The user attempted DELETE on three non-existent project IDs, all returning 500, then listed projects. This could be probing or enumeration, but no authorized resource was accessed or violated, and the IDs are not the user's mapped project. Evidence is insufficient to confirm an attack.\"\n}",
+  "schema_version": "prediction_v1"
+}

@@ -1,0 +1,26 @@
+{
+  "created_at_utc": "2026-09-06T07:17:09.664725Z",
+  "defender_id": "large_open",
+  "defender_model_revision": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo@2026-09-05",
+  "episode_id": "ep_5ee536159b44544fb1e2_evasive",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "fae064e6094d1705e11d9d5a4370557677370ed3320b8f8a667163dc9c3c6478",
+  "input_tokens": 1538,
+  "latency_ms": 9267,
+  "output_tokens": 153,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.8,
+    "evidence_event_ids": [
+      "evt_82bf9ed4ced94f1f8a09a0d45b40652d",
+      "evt_e88d153a396d4a858c2bb74716598068"
+    ],
+    "first_suspicious_event_id": "evt_82bf9ed4ced94f1f8a09a0d45b40652d",
+    "rationale": "Principal attempted to delete project prj_1ef8ddf34262, which is not owned by usr_4405a2474fca, indicating potential authorization abuse.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\": \"attack\", \"attack_probability\": 0.8, \"first_suspicious_event_id\": \"evt_82bf9ed4ced94f1f8a09a0d45b40652d\", \"evidence_event_ids\": [\"evt_82bf9ed4ced94f1f8a09a0d45b40652d\", \"evt_e88d153a396d4a858c2bb74716598068\"], \"suspected_tactic\": \"authorization_abuse\", \"rationale\": \"Principal attempted to delete project prj_1ef8ddf34262, which is not owned by usr_4405a2474fca, indicating potential authorization abuse.\"}",
+  "schema_version": "prediction_v1"
+}

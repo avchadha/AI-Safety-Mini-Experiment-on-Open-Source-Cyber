@@ -1,0 +1,25 @@
+{
+  "created_at_utc": "2026-09-06T07:19:42.923713Z",
+  "defender_id": "medium_open",
+  "defender_model_revision": "together:openai/gpt-oss-20b@2026-09-05",
+  "episode_id": "ep_68bb858a486f5dd39d2a_naive_stealth",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "ad92af892f898a98b6d909b30f450b0ca6a0fde1c01f732d44fb1307b5f07c10",
+  "input_tokens": 782,
+  "latency_ms": 9697,
+  "output_tokens": 163,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 1.0,
+    "evidence_event_ids": [
+      "evt_eaaa610e0a69443683987de640ff97a6"
+    ],
+    "first_suspicious_event_id": "evt_eaaa610e0a69443683987de640ff97a6",
+    "rationale": "User attempted to delete a project not mapped to them, violating authorization boundaries.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":1.0,\"first_suspicious_event_id\":\"evt_eaaa610e0a69443683987de640ff97a6\",\"evidence_event_ids\":[\"evt_eaaa610e0a69443683987de640ff97a6\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"User attempted to delete a project not mapped to them, violating authorization boundaries.\"}",
+  "schema_version": "prediction_v1"
+}

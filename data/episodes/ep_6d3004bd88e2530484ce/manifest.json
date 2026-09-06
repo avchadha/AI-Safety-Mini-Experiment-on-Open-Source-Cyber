@@ -1,0 +1,21 @@
+{
+  "actor_condition": "attack_standard",
+  "actor_model_id": "mock_actor",
+  "actor_model_revision": "deterministic-actor-v1",
+  "canonical_attempt": 1,
+  "ended_at_utc": "2026-09-05T01:18:56.876153Z",
+  "episode_id": "ep_6d3004bd88e2530484ce",
+  "experiment_id": "mock-small-defender-stealth-v1",
+  "harness_revision": "mock-react-script-v1",
+  "prompt_sha256": "ad36863d2e6a3527801df9dc4d1b04055b5be23ecd48903a5fa0f6bf4a02861b",
+  "public_log_sha256": "6538215de9ad69bb38d4586918a6e8d3473fe3225a485f5513021fdb3922805d",
+  "run_status": "complete",
+  "sampling_seed_requested": 20260905,
+  "scenario_pair_id": "pair_44aa86fe8ad8",
+  "scenario_seed": 20260905,
+  "schema_version": "episode_manifest_v1",
+  "split": "pilot",
+  "started_at_utc": "2026-09-05T01:18:56.364145Z",
+  "target_id": "toy_idor",
+  "target_revision": "toy_idor_v1"
+}

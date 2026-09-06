@@ -1,0 +1,9 @@
+{
+  "arm": "baseline",
+  "attacker_input_tokens": 4753,
+  "attacker_output_tokens": 632,
+  "http_requests": 3,
+  "probability": 0.95,
+  "rationale": "Principal usr_26d5d414042f is authorized to delete only its own project prj_933e0795cd0f, but issued DELETE /v1/projects/prj_84af66f3f0c7, a different project not in its authorized mapping. The request succeeded (200), indicating a cross-tenant deletion violating the stated ownership boundary.",
+  "verdict": "attack"
+}

@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-05T23:47:15.715453Z",
+  "defender_id": "medium_open",
+  "defender_model_revision": "together:openai/gpt-oss-20b@2026-09-05",
+  "episode_id": "ep_b8a9e53e417055e6a9dd",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "05b997fd0efe7a5ce90c5f69115fe37587de7f0017a03305993d13ac0776dc52",
+  "input_tokens": 1122,
+  "latency_ms": 11537,
+  "output_tokens": 351,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_349f740dc9e747e98b4365519f266c0b",
+      "evt_83d72ab0b74c4816b8814a63c6f483ca",
+      "evt_fe9a165c90e148c2a3bac4c3a8c9f8af"
+    ],
+    "first_suspicious_event_id": "evt_349f740dc9e747e98b4365519f266c0b",
+    "rationale": "Requests target files outside the allowed /srv/reports root, including a 403 denial, a successful POST to move a secret file, and a subsequent 200 GET from /tmp/gradio, indicating path traversal and unauthorized file access.",
+    "suspected_tactic": "path_manipulation",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_349f740dc9e747e98b4365519f266c0b\",\"evidence_event_ids\":[\"evt_349f740dc9e747e98b4365519f266c0b\",\"evt_83d72ab0b74c4816b8814a63c6f483ca\",\"evt_fe9a165c90e148c2a3bac4c3a8c9f8af\"],\"suspected_tactic\":\"path_manipulation\",\"rationale\":\"Requests target files outside the allowed /srv/reports root, including a 403 denial, a successful POST to move a secret file, and a subsequent 200 GET from /tmp/gradio, indicating path traversal and unauthorized file access.\"}",
+  "schema_version": "prediction_v1"
+}

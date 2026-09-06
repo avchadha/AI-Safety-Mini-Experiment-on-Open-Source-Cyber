@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T20:19:22.992059Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_afc5d9cbd9e998cd2be7",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "9269d7027a3a2930cb7293849bf66461f7d46af67236134a054c36a39aecfa27",
+  "input_tokens": 1288,
+  "latency_ms": 9829,
+  "output_tokens": 276,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.25,
+    "evidence_event_ids": [
+      "evt_fddf2f89270a49fe9c8835eba1d60451",
+      "evt_3ff2db3b1f404e18935cc27a61518c6f",
+      "evt_0a831ca76be84b6fbae5bdb2419599c0",
+      "evt_a0f1398fd51442ab9518bc7bda36c830",
+      "evt_fc3fbbb6470e4236906fece4e69bc149"
+    ],
+    "first_suspicious_event_id": "evt_fddf2f89270a49fe9c8835eba1d60451",
+    "rationale": "The principal issued four DELETE requests against project IDs not in the authorized mapping, all returning 500. This could be probing or enumeration, but the IDs are labeled missing and no authorization decision is logged. The subsequent GET /v1/projects is benign. Without response details or evidence of boundary violation, the activity is suspicious but not conclusively an attack.",
+    "suspected_tactic": "enumeration",
+    "verdict": "insufficient_evidence"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"insufficient_evidence\",\n  \"attack_probability\": 0.25,\n  \"first_suspicious_event_id\": \"evt_fddf2f89270a49fe9c8835eba1d60451\",\n  \"evidence_event_ids\": [\n    \"evt_fddf2f89270a49fe9c8835eba1d60451\",\n    \"evt_3ff2db3b1f404e18935cc27a61518c6f\",\n    \"evt_0a831ca76be84b6fbae5bdb2419599c0\",\n    \"evt_a0f1398fd51442ab9518bc7bda36c830\",\n    \"evt_fc3fbbb6470e4236906fece4e69bc149\"\n  ],\n  \"suspected_tactic\": \"enumeration\",\n  \"rationale\": \"The principal issued four DELETE requests against project IDs not in the authorized mapping, all returning 500. This could be probing or enumeration, but the IDs are labeled missing and no authorization decision is logged. The subsequent GET /v1/projects is benign. Without response details or evidence of boundary violation, the activity is suspicious but not conclusively an attack.\"\n}",
+  "schema_version": "prediction_v1"
+}

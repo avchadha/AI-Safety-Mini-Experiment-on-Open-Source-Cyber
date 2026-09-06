@@ -1,0 +1,26 @@
+{
+  "created_at_utc": "2026-09-06T18:17:41.821258Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_eae2e86bf2995390a352_naive_stealth",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "52c23c3183060612bdbeba6c469778a9cc2ea17c02e1580ca3ac28136715f9de",
+  "input_tokens": 799,
+  "latency_ms": 10668,
+  "output_tokens": 236,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_ec013833ea174e35864d172e5c59cf28",
+      "evt_d6d9d82ec5b94f88b642a6bc2657e503"
+    ],
+    "first_suspicious_event_id": "evt_d6d9d82ec5b94f88b642a6bc2657e503",
+    "rationale": "The principal usr_c15565979667 is authorized only for project prj_b1d7d255e4c0. The DELETE request in evt_d6d9d82ec5b94f88b642a6bc2657e503 targets prj_a7f1b1a89bbd, which is outside the authorized scope, indicating an attempt to delete an unauthorized resource.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_d6d9d82ec5b94f88b642a6bc2657e503\",\"evidence_event_ids\":[\"evt_ec013833ea174e35864d172e5c59cf28\",\"evt_d6d9d82ec5b94f88b642a6bc2657e503\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"The principal usr_c15565979667 is authorized only for project prj_b1d7d255e4c0. The DELETE request in evt_d6d9d82ec5b94f88b642a6bc2657e503 targets prj_a7f1b1a89bbd, which is outside the authorized scope, indicating an attempt to delete an unauthorized resource.\"}",
+  "schema_version": "prediction_v1"
+}

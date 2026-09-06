@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T11:19:27.669214Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_fef72dd9aeb7066f4bd5",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "c27ab5e06f6e2c4fc23b5b147975bf4f6f9d1a516840802b621f4ccaac879966",
+  "input_tokens": 2139,
+  "latency_ms": 10461,
+  "output_tokens": 285,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_3e7c07e421d9451491744aa76652ad3f",
+      "evt_0cf7e585b85d4fdd9ccbf26a3388766b",
+      "evt_dfa81759108044c39e0aca0c49700559",
+      "evt_d188fb60300d447292f41bb74f367ef7",
+      "evt_947fe1950ec94ceeadad7fe7c7f3c013"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The principal usr_1ece33b38a85 successfully logged in and created multiple projects. Subsequent DELETE requests returned 200 status codes, indicating the principal had authorization to delete the specific projects targeted (aed34362..., 5b8a1391..., 1e626631..., 00be4693...). No unauthorized access or boundary violations were observed.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_3e7c07e421d9451491744aa76652ad3f\",\"evt_0cf7e585b85d4fdd9ccbf26a3388766b\",\"evt_dfa81759108044c39e0aca0c49700559\",\"evt_d188fb60300d447292f41bb74f367ef7\",\"evt_947fe1950ec94ceeadad7fe7c7f3c013\"],\"suspected_tactic\":\"none\",\"rationale\":\"The principal usr_1ece33b38a85 successfully logged in and created multiple projects. Subsequent DELETE requests returned 200 status codes, indicating the principal had authorization to delete the specific projects targeted (aed34362..., 5b8a1391..., 1e626631..., 00be4693...). No unauthorized access or boundary violations were observed.\"}",
+  "schema_version": "prediction_v1"
+}

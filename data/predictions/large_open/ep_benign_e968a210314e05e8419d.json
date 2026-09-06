@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-06T11:01:13.539042Z",
+  "defender_id": "large_open",
+  "defender_model_revision": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo@2026-09-05",
+  "episode_id": "ep_benign_e968a210314e05e8419d",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "df4bd78969b184e22252427a6a256a2fa35a8212d1a77a046d9f6229d3af4ed9",
+  "input_tokens": 1859,
+  "latency_ms": 9708,
+  "output_tokens": 160,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.8,
+    "evidence_event_ids": [
+      "evt_005a038ba2124a18997a36ca339ad6c7",
+      "evt_e0152ea46d784b3492d1bb235e3458ce",
+      "evt_812e8494984e4d3eb33c67fdf9cbbbab",
+      "evt_cde54e36dcc44f90a0075ef669e26930"
+    ],
+    "first_suspicious_event_id": "evt_005a038ba2124a18997a36ca339ad6c7",
+    "rationale": "Multiple DELETE requests on different project IDs",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\": \"attack\", \"attack_probability\": 0.8, \"first_suspicious_event_id\": \"evt_005a038ba2124a18997a36ca339ad6c7\", \"evidence_event_ids\": [\"evt_005a038ba2124a18997a36ca339ad6c7\", \"evt_e0152ea46d784b3492d1bb235e3458ce\", \"evt_812e8494984e4d3eb33c67fdf9cbbbab\", \"evt_cde54e36dcc44f90a0075ef669e26930\"], \"suspected_tactic\": \"authorization_abuse\", \"rationale\": \"Multiple DELETE requests on different project IDs\"}",
+  "schema_version": "prediction_v1"
+}

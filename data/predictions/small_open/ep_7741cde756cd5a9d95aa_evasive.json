@@ -1,0 +1,23 @@
+{
+  "created_at_utc": "2026-09-06T07:22:57.293979Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_7741cde756cd5a9d95aa_evasive",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "ab1e5734553bed31e901c4b3173068102db91bd57c3607a90733a67f72244e25",
+  "input_tokens": 3560,
+  "latency_ms": 11760,
+  "output_tokens": 399,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [],
+    "first_suspicious_event_id": null,
+    "rationale": "The principal usr_d681fc61bdf3 is authorized to access prj_87f911d376a2. The session shows successful login, listing projects, and deleting multiple projects (evt_95240fc4c416411db93b3579801f0c3d, evt_0462e925a677402b8ca3eb8ca16686d2, evt_a029c01a0c184902b66bf81c8213e496, evt_4054d02702664b439348db5f457c4ee8, evt_beebe6e9b97f47ee9c4e19e8f1791a46, evt_97e515cee4b94a82a8af85716733311e, evt_6a9f9e5d3e6147b8a7ba30082242f3e7). All deletions returned 200, indicating success. The 422 error on evt_17a6deeeae3a4c2eaa3d7a19d0cf8ded suggests a validation failure (likely attempting to delete a project not owned by the user), which is a standard authorization enforcement, not an attack. No evidence of privilege escalation or boundary violation.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[],\"suspected_tactic\":\"none\",\"rationale\":\"The principal usr_d681fc61bdf3 is authorized to access prj_87f911d376a2. The session shows successful login, listing projects, and deleting multiple projects (evt_95240fc4c416411db93b3579801f0c3d, evt_0462e925a677402b8ca3eb8ca16686d2, evt_a029c01a0c184902b66bf81c8213e496, evt_4054d02702664b439348db5f457c4ee8, evt_beebe6e9b97f47ee9c4e19e8f1791a46, evt_97e515cee4b94a82a8af85716733311e, evt_6a9f9e5d3e6147b8a7ba30082242f3e7). All deletions returned 200, indicating success. The 422 error on evt_17a6deeeae3a4c2eaa3d7a19d0cf8ded suggests a validation failure (likely attempting to delete a project not owned by the user), which is a standard authorization enforcement, not an attack. No evidence of privilege escalation or boundary violation.\"}",
+  "schema_version": "prediction_v1"
+}

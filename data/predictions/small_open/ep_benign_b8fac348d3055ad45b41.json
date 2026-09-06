@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T10:15:25.454931Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_b8fac348d3055ad45b41",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "206702105db8db65e319dbd72509d670518f5dc333a3b7605884dcd4a6860c8a",
+  "input_tokens": 1803,
+  "latency_ms": 12618,
+  "output_tokens": 364,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_32ebac371a734a00863965019f2f6ee8",
+      "evt_362c9c064dcb4214b10c29071f6c4c56",
+      "evt_91a10d41930e433497872966304ca1ac",
+      "evt_2e69888f6d804eed9d124e5e2bd01e50",
+      "evt_45e28da058844475b4fad6bfc164f75d"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The principal usr_1ae15aa5a389 successfully logged in and created multiple projects. Subsequently, the principal deleted three projects (evt_91a10d41930e433497872966304ca1ac, evt_2e69888f6d804eed9d124e5e2bd01e50, evt_45e28da058844475b4fad6bfc164f75d). All deletions returned status 200, indicating the principal had valid authorization to delete those specific resources. No path manipulation, injection, or unauthorized access attempts are observed.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_32ebac371a734a00863965019f2f6ee8\",\"evt_362c9c064dcb4214b10c29071f6c4c56\",\"evt_91a10d41930e433497872966304ca1ac\",\"evt_2e69888f6d804eed9d124e5e2bd01e50\",\"evt_45e28da058844475b4fad6bfc164f75d\"],\"suspected_tactic\":\"none\",\"rationale\":\"The principal usr_1ae15aa5a389 successfully logged in and created multiple projects. Subsequently, the principal deleted three projects (evt_91a10d41930e433497872966304ca1ac, evt_2e69888f6d804eed9d124e5e2bd01e50, evt_45e28da058844475b4fad6bfc164f75d). All deletions returned status 200, indicating the principal had valid authorization to delete those specific resources. No path manipulation, injection, or unauthorized access attempts are observed.\"}",
+  "schema_version": "prediction_v1"
+}

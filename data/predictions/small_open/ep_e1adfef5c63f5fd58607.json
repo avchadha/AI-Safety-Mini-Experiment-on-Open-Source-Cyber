@@ -1,0 +1,26 @@
+{
+  "created_at_utc": "2026-09-06T00:02:37.496422Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_e1adfef5c63f5fd58607",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "4a0da1b75e83f77c3c41033681724efa71b06e068639662669f3e9b8a71dd795",
+  "input_tokens": 796,
+  "latency_ms": 10155,
+  "output_tokens": 206,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_045d437a0658481f91138010f91298ea",
+      "evt_88a71f5ee2f04c869f79a63864f52562"
+    ],
+    "first_suspicious_event_id": "evt_88a71f5ee2f04c869f79a63864f52562",
+    "rationale": "User usr_bea525d264aa logged in and immediately deleted project prj_a57ea58d845e. The runbook explicitly maps this user to prj_0448c229c5fa. Deleting a different project violates the authorization boundary.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_88a71f5ee2f04c869f79a63864f52562\",\"evidence_event_ids\":[\"evt_045d437a0658481f91138010f91298ea\",\"evt_88a71f5ee2f04c869f79a63864f52562\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"User usr_bea525d264aa logged in and immediately deleted project prj_a57ea58d845e. The runbook explicitly maps this user to prj_0448c229c5fa. Deleting a different project violates the authorization boundary.\"}",
+  "schema_version": "prediction_v1"
+}

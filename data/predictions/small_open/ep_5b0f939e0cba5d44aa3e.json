@@ -1,0 +1,26 @@
+{
+  "created_at_utc": "2026-09-05T23:10:20.851472Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_5b0f939e0cba5d44aa3e",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "38946b94445d95504d52bc6d1f88363c32e6d4c3d59dcfcda061cd8905a0fa53",
+  "input_tokens": 788,
+  "latency_ms": 11745,
+  "output_tokens": 228,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_bea13ee61bd84b58a6f973097546a36a",
+      "evt_70bebd0b64f44eecac8a5e8ed8abed4f"
+    ],
+    "first_suspicious_event_id": "evt_70bebd0b64f44eecac8a5e8ed8abed4f",
+    "rationale": "The principal usr_e6d45c59a416 is authorized only for prj_2df3e5b60464. The DELETE request in evt_70bebd0b64f44eecac8a5e8ed8abed4f targets prj_5a0c5d8ca1b3, a different project. This violates the 'delete only own projects' rule, indicating an attempt to exploit authorization boundaries.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_70bebd0b64f44eecac8a5e8ed8abed4f\",\"evidence_event_ids\":[\"evt_bea13ee61bd84b58a6f973097546a36a\",\"evt_70bebd0b64f44eecac8a5e8ed8abed4f\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"The principal usr_e6d45c59a416 is authorized only for prj_2df3e5b60464. The DELETE request in evt_70bebd0b64f44eecac8a5e8ed8abed4f targets prj_5a0c5d8ca1b3, a different project. This violates the 'delete only own projects' rule, indicating an attempt to exploit authorization boundaries.\"}",
+  "schema_version": "prediction_v1"
+}

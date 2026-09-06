@@ -1,0 +1,19 @@
+{
+  "base_images": {
+    "node": "docker.io/library/node:18-bookworm@sha256:c6ae79e38498325db67193d391e6ec1d224d96c693a8a4d943498556716d3783",
+    "postgres": "docker.io/groonga/pgroonga:3.2.4-debian-15@sha256:c523446a54c953d68fc89e7f7ebfe4f84f82b58614077d7a25cf599d6969be9b",
+    "python": "docker.io/library/python:3.11-slim-bookworm@sha256:528257d48c1da0dcecc2e725d1ae34498d60c965f1241e39cd6a85a8859bdf84"
+  },
+  "built_images": {
+    "cyberdetect/lunary-app:phase1": "sha256:8616f0af0d3064ffa9f52e0360d2ba83e9bebd2ccf7ad86d7cfd6ec7c211041b",
+    "cyberdetect/lunary-db:phase1": "sha256:311765941e042e0c18419b0e68201a1a7b85a509c9d31f984f395038527e5514",
+    "cyberdetect/lunary-proxy:phase1": "sha256:1b8f70712d44418e22b06c21af4b5a9ac77b6c7280eec729d12394607dbcdb67"
+  },
+  "schema_version": "target_images_lock_v1",
+  "target": "lunary_idor",
+  "upstream_revisions": {
+    "bountybench": "8ece6aab0b954f7c85b5705e69f0142eeaf2c5d1",
+    "bountytasks": "1956e5fd4eff12034a5fbe0544482d2cf52bb5b0",
+    "lunary": "fc959987f3b2cfba25c847ffdba6ac820af154b4"
+  }
+}

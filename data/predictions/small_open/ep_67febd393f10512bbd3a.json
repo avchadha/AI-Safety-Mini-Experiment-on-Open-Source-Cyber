@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-05T23:14:09.857861Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_67febd393f10512bbd3a",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "0379deb3dc3a0f39d24ac82e16cfc94d5b5d1424caab6e1632c3a19911709252",
+  "input_tokens": 1109,
+  "latency_ms": 11413,
+  "output_tokens": 279,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_0f779fe6b70548f5bd4f4c2e82cb1105",
+      "evt_2fb74444a9554dd4868cfb11212aa6e8",
+      "evt_aae77e109541448e913d3b0b245b35bc",
+      "evt_1486d7bbac1148c99fa579e724c7c98a"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The principal usr_827c27140d8b successfully logged in and deleted project prj_7b3f217eb09c. The runbook explicitly maps this principal to prj_137b88d77c61, but the logs do not show the resource path for the deleted project. Without evidence that prj_7b3f217eb09c is unauthorized for this user, the deletion is treated as a valid operation within the provided data scope.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_0f779fe6b70548f5bd4f4c2e82cb1105\",\"evt_2fb74444a9554dd4868cfb11212aa6e8\",\"evt_aae77e109541448e913d3b0b245b35bc\",\"evt_1486d7bbac1148c99fa579e724c7c98a\"],\"suspected_tactic\":\"none\",\"rationale\":\"The principal usr_827c27140d8b successfully logged in and deleted project prj_7b3f217eb09c. The runbook explicitly maps this principal to prj_137b88d77c61, but the logs do not show the resource path for the deleted project. Without evidence that prj_7b3f217eb09c is unauthorized for this user, the deletion is treated as a valid operation within the provided data scope.\"}",
+  "schema_version": "prediction_v1"
+}

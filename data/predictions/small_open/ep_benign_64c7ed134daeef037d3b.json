@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T09:10:53.032782Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_64c7ed134daeef037d3b",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "0c14ef3dd7393d195fed2e6cd81b76f7717c89d0574c89bab0bdfc3eccf22d0d",
+  "input_tokens": 947,
+  "latency_ms": 10082,
+  "output_tokens": 197,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_532cfeb98c67495abd99bed5978278f4",
+      "evt_a7a936d3cb32454b8a35e5f15af55f05",
+      "evt_13f8894041a44380b8cd8cad5b809e9b"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The user logged in, listed their projects, and deleted a project. The runbook authorizes usr_e61f5745a694 to access and delete prj_826b2718dc47. All actions are within authorized boundaries with no exploitation or violation observed.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_532cfeb98c67495abd99bed5978278f4\",\"evt_a7a936d3cb32454b8a35e5f15af55f05\",\"evt_13f8894041a44380b8cd8cad5b809e9b\"],\"suspected_tactic\":\"none\",\"rationale\":\"The user logged in, listed their projects, and deleted a project. The runbook authorizes usr_e61f5745a694 to access and delete prj_826b2718dc47. All actions are within authorized boundaries with no exploitation or violation observed.\"}",
+  "schema_version": "prediction_v1"
+}

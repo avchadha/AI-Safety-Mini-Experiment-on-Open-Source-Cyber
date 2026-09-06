@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T20:05:09.695631Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_5dec9769948ec669561d",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "520e0fe5ff3697bd703e416986a542861c53ae762b96c7141aa863f1d6579733",
+  "input_tokens": 870,
+  "latency_ms": 10178,
+  "output_tokens": 224,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.9,
+    "evidence_event_ids": [
+      "evt_56e09e2d5949444da4314956715d6212",
+      "evt_6937e8ab2afc42cb8553553866ee048e",
+      "evt_3ce7262f706641059fe6fe741207af10"
+    ],
+    "first_suspicious_event_id": "evt_56e09e2d5949444da4314956715d6212",
+    "rationale": "The principal deleted project 6e3eccad-dda2-41e2-9b27-94d589d85ed2, but the authorized mapping only grants ownership of prj_42ddb6080126. The DELETE returned 200, indicating the service allowed removal of a project not owned by the principal, violating the stated boundary.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"attack\",\n  \"attack_probability\": 0.9,\n  \"first_suspicious_event_id\": \"evt_56e09e2d5949444da4314956715d6212\",\n  \"evidence_event_ids\": [\n    \"evt_56e09e2d5949444da4314956715d6212\",\n    \"evt_6937e8ab2afc42cb8553553866ee048e\",\n    \"evt_3ce7262f706641059fe6fe741207af10\"\n  ],\n  \"suspected_tactic\": \"authorization_abuse\",\n  \"rationale\": \"The principal deleted project 6e3eccad-dda2-41e2-9b27-94d589d85ed2, but the authorized mapping only grants ownership of prj_42ddb6080126. The DELETE returned 200, indicating the service allowed removal of a project not owned by the principal, violating the stated boundary.\"\n}",
+  "schema_version": "prediction_v1"
+}

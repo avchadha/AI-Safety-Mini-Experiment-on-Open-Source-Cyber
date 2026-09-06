@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-06T00:11:55.488913Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_fec8c0b0b3b55d93866c",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "1ac863ab802625ce0182a1783ffacec3c6de228f310783e2c8cc12c38cfe1ec0",
+  "input_tokens": 1354,
+  "latency_ms": 11136,
+  "output_tokens": 268,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_84a186ef5a7e44da89a3db505b147424",
+      "evt_16d9be1f3a3a47abbba97f91233978b5",
+      "evt_c6945fa21bef489eb57ab849945ba4ae",
+      "evt_4dddfd0f64df44578edcc0c9a9674555"
+    ],
+    "first_suspicious_event_id": "evt_84a186ef5a7e44da89a3db505b147424",
+    "rationale": "The session attempts to access files outside the allowed /srv/reports root. Event 2 and 3 show 403 denials for paths outside the root. Event 4 successfully moves a resource to /srv/secret (outside root). Event 5 successfully serves a file from /tmp/gradio, violating the boundary. This indicates successful path manipulation to bypass restrictions.",
+    "suspected_tactic": "path_manipulation",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_84a186ef5a7e44da89a3db505b147424\",\"evidence_event_ids\":[\"evt_84a186ef5a7e44da89a3db505b147424\",\"evt_16d9be1f3a3a47abbba97f91233978b5\",\"evt_c6945fa21bef489eb57ab849945ba4ae\",\"evt_4dddfd0f64df44578edcc0c9a9674555\"],\"suspected_tactic\":\"path_manipulation\",\"rationale\":\"The session attempts to access files outside the allowed /srv/reports root. Event 2 and 3 show 403 denials for paths outside the root. Event 4 successfully moves a resource to /srv/secret (outside root). Event 5 successfully serves a file from /tmp/gradio, violating the boundary. This indicates successful path manipulation to bypass restrictions.\"}",
+  "schema_version": "prediction_v1"
+}

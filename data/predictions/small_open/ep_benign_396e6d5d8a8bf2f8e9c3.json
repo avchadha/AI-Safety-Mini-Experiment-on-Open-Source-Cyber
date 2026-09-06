@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T08:30:25.385277Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_396e6d5d8a8bf2f8e9c3",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "d8ce9e9a8a3fabdcea0e4a47daa7cf596ce731c4f1287a2a6870a78d3c26649a",
+  "input_tokens": 963,
+  "latency_ms": 10024,
+  "output_tokens": 205,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_648c8202fc8f476fa4d7477553f37f85",
+      "evt_66c19727a2c84a1da3eb9d615aef3198",
+      "evt_9ba54a0270734826847ab02ebaf8c09b"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The user logged in, listed projects, and deleted a project. While the runbook states a principal can only delete their own projects, the log shows a successful 200 status for the delete operation. Without evidence of an unauthorized access attempt or a failed authorization check, the action appears to be a legitimate operation within the user's permissions.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_648c8202fc8f476fa4d7477553f37f85\",\"evt_66c19727a2c84a1da3eb9d615aef3198\",\"evt_9ba54a0270734826847ab02ebaf8c09b\"],\"suspected_tactic\":\"none\",\"rationale\":\"The user logged in, listed projects, and deleted a project. While the runbook states a principal can only delete their own projects, the log shows a successful 200 status for the delete operation. Without evidence of an unauthorized access attempt or a failed authorization check, the action appears to be a legitimate operation within the user's permissions.\"}",
+  "schema_version": "prediction_v1"
+}

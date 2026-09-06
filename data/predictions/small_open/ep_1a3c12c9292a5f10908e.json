@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-05T22:46:33.587079Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_1a3c12c9292a5f10908e",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "a642c86af70bdf028f12b52bf308522ae1990296d2b81373f7f1b237f5f2e24b",
+  "input_tokens": 1114,
+  "latency_ms": 12159,
+  "output_tokens": 229,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_5f7cafbe21ab4e45a9308444135836ff",
+      "evt_ffe39afc72664df1b6d74cf8905a61a1",
+      "evt_e936b8fe02b44adf89cb8567e501279b",
+      "evt_d23c6c8219364588b5ade2223e676acc"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The principal usr_1d0c4a104576 successfully logged in, listed projects, and deleted prj_9a900636810d. All actions returned 200 status codes, indicating successful authorization. No evidence of unauthorized access, path traversal, or privilege escalation is present.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_5f7cafbe21ab4e45a9308444135836ff\",\"evt_ffe39afc72664df1b6d74cf8905a61a1\",\"evt_e936b8fe02b44adf89cb8567e501279b\",\"evt_d23c6c8219364588b5ade2223e676acc\"],\"suspected_tactic\":\"none\",\"rationale\":\"The principal usr_1d0c4a104576 successfully logged in, listed projects, and deleted prj_9a900636810d. All actions returned 200 status codes, indicating successful authorization. No evidence of unauthorized access, path traversal, or privilege escalation is present.\"}",
+  "schema_version": "prediction_v1"
+}

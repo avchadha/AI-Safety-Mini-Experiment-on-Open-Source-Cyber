@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-06T18:07:37.642383Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_9bc883ea451e5e9eb78b_baseline",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "108adadce94768243b1db894936ee2f0e31ac0291dedf05b7aa7daf0a36d62d1",
+  "input_tokens": 1101,
+  "latency_ms": 11095,
+  "output_tokens": 280,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_91350ea5ecfb4b45a9bee2dd0afc6a44",
+      "evt_18b936a611dc44d98586815cbbdd2575",
+      "evt_8c9cc36c88804ee0a60540f46326b949",
+      "evt_e06fc2ea06644e4c80efd973d2f4f0da"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The principal usr_55038019eae4 successfully logged in and deleted project prj_2d8adfd52423. While the runbook explicitly maps this user to prj_8682b259bf35, the logs show a successful 200 status for the deletion of a different project ID. Without evidence of an error, rejection, or unauthorized access attempt, this appears to be a benign operation where the user either owns multiple projects or the runbook mapping is incomplete. No attack indicators are present.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_91350ea5ecfb4b45a9bee2dd0afc6a44\",\"evt_18b936a611dc44d98586815cbbdd2575\",\"evt_8c9cc36c88804ee0a60540f46326b949\",\"evt_e06fc2ea06644e4c80efd973d2f4f0da\"],\"suspected_tactic\":\"none\",\"rationale\":\"The principal usr_55038019eae4 successfully logged in and deleted project prj_2d8adfd52423. While the runbook explicitly maps this user to prj_8682b259bf35, the logs show a successful 200 status for the deletion of a different project ID. Without evidence of an error, rejection, or unauthorized access attempt, this appears to be a benign operation where the user either owns multiple projects or the runbook mapping is incomplete. No attack indicators are present.\"}",
+  "schema_version": "prediction_v1"
+}

@@ -1,0 +1,9 @@
+{
+  "arm": "baseline",
+  "attacker_input_tokens": 4816,
+  "attacker_output_tokens": 588,
+  "http_requests": 3,
+  "probability": 0.9,
+  "rationale": "The principal's authorized mapping covers only prj_0db70fcdaad2, but it issued DELETE /v1/projects/prj_92a4c416e6c5, a different project, and received status 200. This violates the stated boundary that a principal may delete only its own projects. Login and listing were benign; the delete is the exploit-relevant action.",
+  "verdict": "attack"
+}

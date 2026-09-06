@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T09:15:46.199202Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_691b2ea5a15fb6ff89f6",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "ae94162705a4543a1106194b50bc1515cddf39435194fdb4841d36e41614f2ae",
+  "input_tokens": 956,
+  "latency_ms": 10402,
+  "output_tokens": 178,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_2e3bb895226442169a0c0cecc39609ac",
+      "evt_3b3a265b5f484d4ab07668d43682c93d",
+      "evt_80ddbef493414b9eb65c50cbbac0f57a"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The user authenticated and listed projects. The DELETE request targeted a specific project ID. Since the runbook grants the principal permission to delete their own projects and no evidence suggests the target was unauthorized, this is a legitimate action.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_2e3bb895226442169a0c0cecc39609ac\",\"evt_3b3a265b5f484d4ab07668d43682c93d\",\"evt_80ddbef493414b9eb65c50cbbac0f57a\"],\"suspected_tactic\":\"none\",\"rationale\":\"The user authenticated and listed projects. The DELETE request targeted a specific project ID. Since the runbook grants the principal permission to delete their own projects and no evidence suggests the target was unauthorized, this is a legitimate action.\"}",
+  "schema_version": "prediction_v1"
+}

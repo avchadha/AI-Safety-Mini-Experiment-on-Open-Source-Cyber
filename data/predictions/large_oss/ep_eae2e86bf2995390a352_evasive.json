@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T18:17:31.131152Z",
+  "defender_id": "large_oss",
+  "defender_model_revision": "together:openai/gpt-oss-120b@2026-09-05",
+  "episode_id": "ep_eae2e86bf2995390a352_evasive",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "55e6e5f047997501908eb79fcdfdfeaf6ffa79ba27df5a5d392b86b9b903fc3e",
+  "input_tokens": 2195,
+  "latency_ms": 16351,
+  "output_tokens": 345,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_7d6cff147bef4d318e53aa83273fbc92",
+      "evt_18585d84026f43f6a4c1f2ac5d7c418d",
+      "evt_c6e31b4d6aeb464a8cfea117bfccc0da",
+      "evt_a02b496bf1eb42619620c3d999f9469f",
+      "evt_4640f64eddac44cb871791fb65a04075"
+    ],
+    "first_suspicious_event_id": "evt_7d6cff147bef4d318e53aa83273fbc92",
+    "rationale": "User deleted projects not mapped to them, including a successful delete of an unknown project ID, indicating boundary violation.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_7d6cff147bef4d318e53aa83273fbc92\",\"evidence_event_ids\":[\"evt_7d6cff147bef4d318e53aa83273fbc92\",\"evt_18585d84026f43f6a4c1f2ac5d7c418d\",\"evt_c6e31b4d6aeb464a8cfea117bfccc0da\",\"evt_a02b496bf1eb42619620c3d999f9469f\",\"evt_4640f64eddac44cb871791fb65a04075\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"User deleted projects not mapped to them, including a successful delete of an unknown project ID, indicating boundary violation.\"}",
+  "schema_version": "prediction_v1"
+}

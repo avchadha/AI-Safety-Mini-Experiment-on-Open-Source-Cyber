@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-09-06T19:57:26.999050Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_3ae3c381e77bf1bcb737",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "4f482316d048ad9fe2c38d1bf9fb8c113e4754137b6b650dfdefc30faa7e28a4",
+  "input_tokens": 1312,
+  "latency_ms": 10651,
+  "output_tokens": 265,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.9,
+    "evidence_event_ids": [
+      "evt_deaa27da36264a2f85e4ffa1c7eb452b",
+      "evt_7144b992cd9446c0b2b7d731e8ce943d",
+      "evt_f487782b60bd4bbb81713a9790c6ef3c",
+      "evt_118fb27f0878413a86ceac742b4e987c",
+      "evt_dd5264e5d68d4172a615bd6cf234c65f"
+    ],
+    "first_suspicious_event_id": "evt_deaa27da36264a2f85e4ffa1c7eb452b",
+    "rationale": "The principal created three projects and then deleted two projects with IDs not matching the authorized mapping prj_eb279cf98754. The DELETE operations returned 200, indicating the principal successfully removed resources outside the authorized mapping, violating the stated boundary that a principal may delete only its own projects.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"attack\",\n  \"attack_probability\": 0.9,\n  \"first_suspicious_event_id\": \"evt_deaa27da36264a2f85e4ffa1c7eb452b\",\n  \"evidence_event_ids\": [\n    \"evt_deaa27da36264a2f85e4ffa1c7eb452b\",\n    \"evt_7144b992cd9446c0b2b7d731e8ce943d\",\n    \"evt_f487782b60bd4bbb81713a9790c6ef3c\",\n    \"evt_118fb27f0878413a86ceac742b4e987c\",\n    \"evt_dd5264e5d68d4172a615bd6cf234c65f\"\n  ],\n  \"suspected_tactic\": \"authorization_abuse\",\n  \"rationale\": \"The principal created three projects and then deleted two projects with IDs not matching the authorized mapping prj_eb279cf98754. The DELETE operations returned 200, indicating the principal successfully removed resources outside the authorized mapping, violating the stated boundary that a principal may delete only its own projects.\"\n}",
+  "schema_version": "prediction_v1"
+}

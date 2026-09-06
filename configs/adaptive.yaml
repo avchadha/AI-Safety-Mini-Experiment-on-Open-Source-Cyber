@@ -39,6 +39,7 @@ defender_models:
   - medium_open       # gpt-oss-20b
   - large_open        # Llama-3.3-70B
   - large_oss         # gpt-oss-120b
+  - frontier_open     # DeepSeek-V4-Pro (SoTA-open, added post-hoc; scores frozen episodes)
 
 log_view: access_v1
 

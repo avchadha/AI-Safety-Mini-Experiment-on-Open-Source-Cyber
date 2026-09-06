@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T00:04:56.984535Z",
+  "defender_id": "large_open",
+  "defender_model_revision": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo@2026-09-05",
+  "episode_id": "ep_e79a3c218dc456fdaf48",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "028c3af809d96257d9e3bf60d8deef6aeefca35ca4120c568365a3d656ab6d3f",
+  "input_tokens": 989,
+  "latency_ms": 10088,
+  "output_tokens": 138,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.8,
+    "evidence_event_ids": [
+      "evt_25af862ec3894348bd33918068195cfe",
+      "evt_1ad64cc56c8b4f2088b64d7831d540b4",
+      "evt_03eb36914dbe49b481e2ee9c1021bd68"
+    ],
+    "first_suspicious_event_id": "evt_25af862ec3894348bd33918068195cfe",
+    "rationale": "Delete request for project not owned by user",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\": \"attack\", \"attack_probability\": 0.8, \"first_suspicious_event_id\": \"evt_25af862ec3894348bd33918068195cfe\", \"evidence_event_ids\": [\"evt_25af862ec3894348bd33918068195cfe\", \"evt_1ad64cc56c8b4f2088b64d7831d540b4\", \"evt_03eb36914dbe49b481e2ee9c1021bd68\"], \"suspected_tactic\": \"authorization_abuse\", \"rationale\": \"Delete request for project not owned by user\"}",
+  "schema_version": "prediction_v1"
+}

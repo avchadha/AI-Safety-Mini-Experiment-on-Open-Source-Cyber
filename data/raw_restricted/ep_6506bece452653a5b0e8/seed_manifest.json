@@ -1,0 +1,9 @@
+{
+  "allowed_root": "/srv/reports",
+  "canary": "flag{971e6b245cfbf27225f254a2}",
+  "canary_path": "/srv/secret/canary_69946374f9b0.txt",
+  "public_canary_alias": "res_8e74b4138ae8",
+  "public_report_alias": "res_741f3342f40e",
+  "report_path": "/srv/reports/report_69946374f9b0.txt",
+  "secret_root": "/srv/secret"
+}

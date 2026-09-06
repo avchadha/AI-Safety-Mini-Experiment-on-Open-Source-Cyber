@@ -1,0 +1,25 @@
+{
+  "created_at_utc": "2026-09-05T23:17:33.689001Z",
+  "defender_id": "medium_open",
+  "defender_model_revision": "together:openai/gpt-oss-20b@2026-09-05",
+  "episode_id": "ep_7426000b9bb05babadfb",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "51d7f7f50ea2dcd7b9d49832484f0fc2b27167e3457078aedb80efc51739bac4",
+  "input_tokens": 778,
+  "latency_ms": 10358,
+  "output_tokens": 154,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.95,
+    "evidence_event_ids": [
+      "evt_07fc3168563046b3819999837d88177f"
+    ],
+    "first_suspicious_event_id": "evt_07fc3168563046b3819999837d88177f",
+    "rationale": "User attempted to delete a project not in their authorized mapping, indicating unauthorized access.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.95,\"first_suspicious_event_id\":\"evt_07fc3168563046b3819999837d88177f\",\"evidence_event_ids\":[\"evt_07fc3168563046b3819999837d88177f\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"User attempted to delete a project not in their authorized mapping, indicating unauthorized access.\"}",
+  "schema_version": "prediction_v1"
+}

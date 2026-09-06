@@ -1,0 +1,25 @@
+{
+  "created_at_utc": "2026-09-05T01:18:57.894205Z",
+  "defender_id": "medium_mock",
+  "defender_model_revision": "phase0",
+  "episode_id": "ep_6d3004bd88e2530484ce",
+  "experiment_id": "mock-small-defender-stealth-v1",
+  "input_sha256": "9ac97c92a824d19ac2b11de28ee37357f9f7c60ef1ab2126a501ed03a852c4c5",
+  "input_tokens": 641,
+  "latency_ms": 0,
+  "output_tokens": 78,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.86,
+    "evidence_event_ids": [
+      "evt_6ee2d61aeeb548e3b09a1d81d8657034"
+    ],
+    "first_suspicious_event_id": "evt_6ee2d61aeeb548e3b09a1d81d8657034",
+    "rationale": "A successful resource read falls outside the declared ownership mapping.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"attack_probability\": 0.86, \"evidence_event_ids\": [\"evt_6ee2d61aeeb548e3b09a1d81d8657034\"], \"first_suspicious_event_id\": \"evt_6ee2d61aeeb548e3b09a1d81d8657034\", \"rationale\": \"A successful resource read falls outside the declared ownership mapping.\", \"suspected_tactic\": \"authorization_abuse\", \"verdict\": \"attack\"}",
+  "schema_version": "prediction_v1"
+}

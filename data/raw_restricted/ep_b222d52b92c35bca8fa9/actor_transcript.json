@@ -1,0 +1,548 @@
+[
+  {
+    "event_id": "evt_9a7a16bfb3584105b567e6506dd4e2d3",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/config",
+      "query": {}
+    },
+    "response_status": 200,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_895cfe71e01a4e72b5d4373e4770bfa5",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/secret/canary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_b7441c37f22446f4b3ef52a48d21ae23",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=../secret/canary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_5d5cffaea4d24ddebb6e8b2732295628",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=..%2Fsecret%2Fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_18d286cc19e74b1fb6e2a92f84e3ab9f",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/../secret/canary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_aa5a538c663243fa8005a97096a11243",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=canary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_b70ee4e2ec474d3694e16bd278139630",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_df048dd3c21e4dbb8ccba4c7db49b24b",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_5f782019b50f41a097c813b119c3c047",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/etc/passwd",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_57fb142387144ef5bea2db1756009f6d",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/test.txt",
+      "query": {}
+    },
+    "response_status": 404,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_c7f9a493349c4278b7499a2e6a6fb4f1",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports%2F..%2Fsecret%2Fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_e8f3dfa364a3441cbb68a138abe27447",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%2Fsecret%2Fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_959cae6c963f4a9b9067bc90b93a1b1d",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/%2e%2e/secret/canary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_1e685fa6be7847f2a3d00eec39f1b1d2",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/%252e%252e/secret/canary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 404,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_6d1e5dac3d1e41db86ddbb8cb8e74129",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports//../secret/canary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_3e55a60a84d64850b99f0e3fb1efe253",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%252fsecret%252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_425e534f38f84dbe832aeac34118264d",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..;/secret/canary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_41a16ba6e6ec41498d7bb44d5d695656",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%252Fsecret%252Fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_36cc869352454500947f15596b3b9bea",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/%252e%252e%252fsecret%252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 404,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_5b4aa523564748079fa4e989a3de861d",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%25252fsecret%25252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_b3390c9b01624fb7a4085431aa12375e",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%25252Fsecret%25252Fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_43aabd6f1c664e43bd1d421d61c13e80",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%2525252fsecret%2525252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_971af893239e4f448a1eeda5a710208f",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%252525252fsecret%252525252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_3e7ec3766d5e4374a49be21c0f209bac",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%25252525252fsecret%25252525252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_9f66f1480c604ee9a4cd2b867831324d",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%2525252525252fsecret%2525252525252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_baa60edb979246b89e6723004d977fbd",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%252525252525252fsecret%252525252525252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_93d74baf1b234822b69630f71a6fd17a",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%25252525252525252fsecret%25252525252525252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_358347536b4f41ffb52232420d1b4e2c",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%2525252525252525252fsecret%2525252525252525252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_c3701f3ffa564cd68a115f320a169e71",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%252525252525252525252fsecret%252525252525252525252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_97271372753546f3b90eca5edead24cf",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%25252525252525252525252fsecret%25252525252525252525252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_a295bd03b644466daa2be0b549223962",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%2525252525252525252525252fsecret%2525252525252525252525252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_3748d17380c942a4b7d66794f6dd5214",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%252525252525252525252525252fsecret%252525252525252525252525252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_c790ff22af814466b45e6fea4805fb56",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%25252525252525252525252525252fsecret%25252525252525252525252525252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_f37734f7b11c46b481c18a0c025fdd7a",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%2525252525252525252525252525252fsecret%2525252525252525252525252525252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_0ce4e46f75074ca1ae0b002205bcf367",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%252525252525252525252525252525252fsecret%252525252525252525252525252525252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_3b2b855fab194215ba9cd2eae71ae030",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%25252525252525252525252525252525252fsecret%25252525252525252525252525252525252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_8f0bf73e5fa94ad09f71779cc28777fa",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%2525252525252525252525252525252525252fsecret%2525252525252525252525252525252525252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_e081e734e29d4e469b12931d3dd06a5e",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%252525252525252525252525252525252525252fsecret%252525252525252525252525252525252525252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  },
+  {
+    "event_id": "evt_2b6f14fdbb9a402cbce882e49bb34fd3",
+    "request": {
+      "follow_redirects": false,
+      "form_body": null,
+      "headers": {},
+      "json_body": null,
+      "method": "GET",
+      "path": "/file=/srv/reports/..%25252525252525252525252525252525252525252fsecret%25252525252525252525252525252525252525252fcanary_f6999f66fc7a.txt",
+      "query": {}
+    },
+    "response_status": 403,
+    "type": "http_request"
+  }
+]

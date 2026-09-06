@@ -82,3 +82,17 @@ models:
     total_parameters: "~120B"
     active_parameters: "~5B"
     extra_body: {reasoning_effort: low}
+
+  # Frontier-open defender: strongest open model reachable on Together serverless (token-priced
+  # via the existing key). Reasoning DISABLED for parity with the other tiers (spec: defenders
+  # judge without hidden CoT) and to keep output clean/cheap. Added after the main run to score
+  # the already-frozen episodes — a pure additional defender tier, no attacker re-runs.
+  frontier_open:
+    provider: openai_compatible
+    base_url_env: DEFENDER_MODEL_BASE_URL
+    api_key_env: DEFENDER_MODEL_API_KEY
+    model: deepseek-ai/DeepSeek-V4-Pro-0813
+    revision: "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06"
+    max_context_tokens: 131072
+    total_parameters: "MoE (DeepSeek V4 Pro)"
+    extra_body: {chat_template_kwargs: {thinking: false}}

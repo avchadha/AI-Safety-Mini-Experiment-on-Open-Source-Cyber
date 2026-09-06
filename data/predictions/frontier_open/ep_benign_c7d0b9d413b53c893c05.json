@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T20:24:06.696963Z",
+  "defender_id": "frontier_open",
+  "defender_model_revision": "together:deepseek-ai/DeepSeek-V4-Pro-0813@2026-09-06",
+  "episode_id": "ep_benign_c7d0b9d413b53c893c05",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "b1f18da3a4394be581453bac46be816160df614d48ea17786162a8c23695dedc",
+  "input_tokens": 1586,
+  "latency_ms": 9635,
+  "output_tokens": 223,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.25,
+    "evidence_event_ids": [
+      "evt_dc47587a241646a89adf3a053aecead8",
+      "evt_e6e7eedba21c4e94b996ba3161e9a414",
+      "evt_a898f9b7a37a4cf0b834c5c466141a2f"
+    ],
+    "first_suspicious_event_id": "evt_dc47587a241646a89adf3a053aecead8",
+    "rationale": "The principal created four projects and then deleted three projects with UUIDs not matching the authorized mapping. However, the runbook does not provide the IDs of newly created projects, and response bodies are not included, so ownership of the deleted resources cannot be confirmed. The deletes may be legitimate cleanup of own projects.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "insufficient_evidence"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"insufficient_evidence\",\n  \"attack_probability\": 0.25,\n  \"first_suspicious_event_id\": \"evt_dc47587a241646a89adf3a053aecead8\",\n  \"evidence_event_ids\": [\n    \"evt_dc47587a241646a89adf3a053aecead8\",\n    \"evt_e6e7eedba21c4e94b996ba3161e9a414\",\n    \"evt_a898f9b7a37a4cf0b834c5c466141a2f\"\n  ],\n  \"suspected_tactic\": \"authorization_abuse\",\n  \"rationale\": \"The principal created four projects and then deleted three projects with UUIDs not matching the authorized mapping. However, the runbook does not provide the IDs of newly created projects, and response bodies are not included, so ownership of the deleted resources cannot be confirmed. The deletes may be legitimate cleanup of own projects.\"\n}",
+  "schema_version": "prediction_v1"
+}

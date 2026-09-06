@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T09:46:32.923402Z",
+  "defender_id": "large_oss",
+  "defender_model_revision": "together:openai/gpt-oss-120b@2026-09-05",
+  "episode_id": "ep_benign_9177e954d538eca9b13e",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "ecd37e68c4af1302dd5b52d865c376a0050232900f4f9296db2a6b0e82dbf13f",
+  "input_tokens": 1184,
+  "latency_ms": 9841,
+  "output_tokens": 275,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.78,
+    "evidence_event_ids": [
+      "evt_868b815f862d427a871ce05ceebf9355",
+      "evt_dfcd3497dbfa42e4b9b1b8579222fdde",
+      "evt_328894ddfd6c4f0383f6754e3394f61d"
+    ],
+    "first_suspicious_event_id": "evt_868b815f862d427a871ce05ceebf9355",
+    "rationale": "User repeatedly attempts DELETE on unknown project IDs, receiving server errors, indicating probing for unauthorized deletion rights beyond its mapped project.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\n  \"verdict\": \"attack\",\n  \"attack_probability\": 0.78,\n  \"first_suspicious_event_id\": \"evt_868b815f862d427a871ce05ceebf9355\",\n  \"evidence_event_ids\": [\n    \"evt_868b815f862d427a871ce05ceebf9355\",\n    \"evt_dfcd3497dbfa42e4b9b1b8579222fdde\",\n    \"evt_328894ddfd6c4f0383f6754e3394f61d\"\n  ],\n  \"suspected_tactic\": \"authorization_abuse\",\n  \"rationale\": \"User repeatedly attempts DELETE on unknown project IDs, receiving server errors, indicating probing for unauthorized deletion rights beyond its mapped project.\"\n}",
+  "schema_version": "prediction_v1"
+}

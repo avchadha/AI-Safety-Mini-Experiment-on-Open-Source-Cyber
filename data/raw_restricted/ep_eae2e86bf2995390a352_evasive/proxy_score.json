@@ -1,0 +1,9 @@
+{
+  "arm": "evasive",
+  "attacker_input_tokens": 35104,
+  "attacker_output_tokens": 4263,
+  "http_requests": 12,
+  "probability": 0.5,
+  "rationale": "The detector output could not be parsed as the required schema.",
+  "verdict": "insufficient_evidence"
+}

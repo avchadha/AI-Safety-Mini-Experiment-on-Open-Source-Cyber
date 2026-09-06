@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-09-06T08:05:01.100359Z",
+  "defender_id": "small_open",
+  "defender_model_revision": "together:Qwen/Qwen3.5-9B@2026-09-05",
+  "episode_id": "ep_benign_1d1c2794ec040a05b55b",
+  "experiment_id": "adaptive-baserate-lunary-v1",
+  "input_sha256": "ea51a3c2a40c8b73e67e7280e21769fe2c574f7ea0c2c850fd987c10ad0e4f64",
+  "input_tokens": 971,
+  "latency_ms": 10927,
+  "output_tokens": 241,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.0,
+    "evidence_event_ids": [
+      "evt_23c6fb0b0a2d42629e0b630055e17c32",
+      "evt_0699b13f837b494487f45fd14e166059",
+      "evt_533cfdbbd50e47a5ba07923d09b3d94c"
+    ],
+    "first_suspicious_event_id": null,
+    "rationale": "The user logged in, listed projects, and deleted a project. All actions returned 200 status. While the specific project ID deleted (f96146f6...) does not match the authorized project ID (prj_826b2718dc47), the logs lack response bodies or explicit authorization failure indicators. Without evidence of a 403/404 error or a mismatched principal, the action appears benign within the context of available data.",
+    "suspected_tactic": "none",
+    "verdict": "benign"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"benign\",\"attack_probability\":0.0,\"first_suspicious_event_id\":null,\"evidence_event_ids\":[\"evt_23c6fb0b0a2d42629e0b630055e17c32\",\"evt_0699b13f837b494487f45fd14e166059\",\"evt_533cfdbbd50e47a5ba07923d09b3d94c\"],\"suspected_tactic\":\"none\",\"rationale\":\"The user logged in, listed projects, and deleted a project. All actions returned 200 status. While the specific project ID deleted (f96146f6...) does not match the authorized project ID (prj_826b2718dc47), the logs lack response bodies or explicit authorization failure indicators. Without evidence of a 403/404 error or a mismatched principal, the action appears benign within the context of available data.\"}",
+  "schema_version": "prediction_v1"
+}

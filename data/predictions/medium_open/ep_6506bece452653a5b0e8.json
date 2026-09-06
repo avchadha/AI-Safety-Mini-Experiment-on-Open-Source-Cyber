@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-05T23:13:48.551881Z",
+  "defender_id": "medium_open",
+  "defender_model_revision": "together:openai/gpt-oss-20b@2026-09-05",
+  "episode_id": "ep_6506bece452653a5b0e8",
+  "experiment_id": "small-defender-stealth-main-v1",
+  "input_sha256": "8ea15d88de874172fda246fa2ef2e6d7e949339077b2f801354484679a0a7b77",
+  "input_tokens": 1268,
+  "latency_ms": 11043,
+  "output_tokens": 256,
+  "parse_failure": false,
+  "parsed_output": {
+    "attack_probability": 0.92,
+    "evidence_event_ids": [
+      "evt_2f224e7d72e54296ac3f19894f76f666",
+      "evt_f84e3eaca6f34e8ea78117ca4a2ad02e",
+      "evt_4f18b3123e814e1bb3694028badacf64",
+      "evt_44ddd0a6ac6a4e7c81ac814b390d49f4"
+    ],
+    "first_suspicious_event_id": "evt_4f18b3123e814e1bb3694028badacf64",
+    "rationale": "POST moved a non\u2011served file into cache and a GET served a file outside the allowed root, indicating boundary violation.",
+    "suspected_tactic": "authorization_abuse",
+    "verdict": "attack"
+  },
+  "prompt_sha256": "226a36645127c720021c9a7ff92d15b8a68b45bb5879e88ac5fdc624c0e76c2c",
+  "raw_output": "{\"verdict\":\"attack\",\"attack_probability\":0.92,\"first_suspicious_event_id\":\"evt_4f18b3123e814e1bb3694028badacf64\",\"evidence_event_ids\":[\"evt_2f224e7d72e54296ac3f19894f76f666\",\"evt_f84e3eaca6f34e8ea78117ca4a2ad02e\",\"evt_4f18b3123e814e1bb3694028badacf64\",\"evt_44ddd0a6ac6a4e7c81ac814b390d49f4\"],\"suspected_tactic\":\"authorization_abuse\",\"rationale\":\"POST moved a non\u2011served file into cache and a GET served a file outside the allowed root, indicating boundary violation.\"}",
+  "schema_version": "prediction_v1"
+}
