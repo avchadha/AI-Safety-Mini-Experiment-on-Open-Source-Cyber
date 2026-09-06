@@ -56,6 +56,7 @@ def _default_client_factory(config: Any) -> Callable[[str], ChatClient]:
             top_p=1.0,
             max_output_tokens=int(DEFENDER_SAMPLING["max_output_tokens"]),
             extra_body=spec.extra_body,
+            max_retries=6,  # ride out transient serverless 503/429 capacity blips
         )
 
     def factory(defender_id: str) -> ChatClient:
@@ -73,57 +74,73 @@ def run_real_defenders(
     data = data_root(config, root)
     factory = client_factory or _default_client_factory(config)
     prompt_sha = sha256_file(root / config.prompts["defender"])
-    created: list[Path] = []
+    created: set[Path] = set()
 
-    for episode_dir in sorted((data / "episodes").glob("ep_*")):
-        manifest = json.loads((episode_dir / "manifest.json").read_text(encoding="utf-8"))
-        if manifest["experiment_id"] != config.experiment["id"]:
-            continue
-        packet_path = episode_dir / "defender_packet.txt"
-        packet = packet_path.read_text(encoding="utf-8")
-        input_sha = sha256_file(packet_path)
-        events = [PublicEvent.model_validate(value) for value in read_jsonl(episode_dir / "public_events.jsonl")]
-        valid_ids = [event.event_id for event in events]
+    # Resilient backfill passes: a transient serverless error (503/429) on one call must not
+    # abort the whole sweep. Failed calls are collected and retried in subsequent idempotent
+    # passes (already-written predictions are skipped), so the stage converges past capacity
+    # blips and only gives up if a call fails persistently across every pass.
+    max_passes = 5
+    failures: list[tuple[str, str]] = []
+    for pass_num in range(max_passes):
+        failures = []
+        for episode_dir in sorted((data / "episodes").glob("ep_*")):
+            manifest = json.loads((episode_dir / "manifest.json").read_text(encoding="utf-8"))
+            if manifest["experiment_id"] != config.experiment["id"]:
+                continue
+            packet_path = episode_dir / "defender_packet.txt"
+            packet = packet_path.read_text(encoding="utf-8")
+            input_sha = sha256_file(packet_path)
+            events = [PublicEvent.model_validate(value) for value in read_jsonl(episode_dir / "public_events.jsonl")]
+            valid_ids = [event.event_id for event in events]
 
-        for defender_id in config.defender_models:
-            spec = get_model(defender_id)
-            destination = data / "predictions" / defender_id / f"{episode_dir.name}.json"
-            if destination.exists():
-                previous = json.loads(destination.read_text(encoding="utf-8"))
-                if previous.get("input_sha256") == input_sha:
-                    created.append(destination)
+            for defender_id in config.defender_models:
+                spec = get_model(defender_id)
+                destination = data / "predictions" / defender_id / f"{episode_dir.name}.json"
+                if destination.exists():
+                    previous = json.loads(destination.read_text(encoding="utf-8"))
+                    if previous.get("input_sha256") == input_sha:
+                        created.add(destination)
+                        continue
+                    raise RuntimeError(f"prediction input changed for immutable artifact: {destination}")
+
+                client = factory(defender_id)
+                started = time.monotonic()
+                try:
+                    result = client.complete(
+                        [
+                            {"role": "system", "content": DEFENDER_SYSTEM},
+                            {"role": "user", "content": packet},
+                        ],
+                        None,
+                    )
+                except ModelCallError as error:
+                    failures.append((defender_id, episode_dir.name))
+                    print(f"[defenders] {defender_id}/{episode_dir.name} failed (pass {pass_num}): {error}", flush=True)
                     continue
-                raise RuntimeError(f"prediction input changed for immutable artifact: {destination}")
-
-            client = factory(defender_id)
-            started = time.monotonic()
-            try:
-                result = client.complete(
-                    [
-                        {"role": "system", "content": DEFENDER_SYSTEM},
-                        {"role": "user", "content": packet},
-                    ],
-                    None,
+                raw = result.content or ""
+                parsed, failed = parse_output(raw, valid_ids)
+                record = PredictionRecord(
+                    experiment_id=str(config.experiment["id"]),
+                    episode_id=episode_dir.name,
+                    defender_id=defender_id,
+                    defender_model_revision=spec.revision,
+                    prompt_sha256=prompt_sha,
+                    input_sha256=input_sha,
+                    raw_output=raw,
+                    parsed_output=parsed,
+                    parse_failure=failed,
+                    latency_ms=max(0, round((time.monotonic() - started) * 1000)),
+                    input_tokens=result.input_tokens,
+                    output_tokens=result.output_tokens,
+                    created_at_utc=utc_now(),
                 )
-            except ModelCallError as error:
-                raise RuntimeError(f"defender model call failed for {defender_id}/{episode_dir.name}: {error}") from error
-            raw = result.content or ""
-            parsed, failed = parse_output(raw, valid_ids)
-            record = PredictionRecord(
-                experiment_id=str(config.experiment["id"]),
-                episode_id=episode_dir.name,
-                defender_id=defender_id,
-                defender_model_revision=spec.revision,
-                prompt_sha256=prompt_sha,
-                input_sha256=input_sha,
-                raw_output=raw,
-                parsed_output=parsed,
-                parse_failure=failed,
-                latency_ms=max(0, round((time.monotonic() - started) * 1000)),
-                input_tokens=result.input_tokens,
-                output_tokens=result.output_tokens,
-                created_at_utc=utc_now(),
-            )
-            atomic_write_json(destination, record)
-            created.append(destination)
-    return created
+                atomic_write_json(destination, record)
+                created.add(destination)
+        if not failures:
+            break
+        print(f"[defenders] pass {pass_num}: {len(failures)} calls failed; backing off before retry", flush=True)
+        time.sleep(20)
+    if failures:
+        raise RuntimeError(f"defenders: {len(failures)} calls still failing after {max_passes} passes: {failures[:10]}")
+    return sorted(created)
