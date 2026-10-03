@@ -77,11 +77,9 @@ Recall is the fraction of attack episodes that produce alerts and is computed se
 
 Precision gives the fraction of alerts that correspond to attacks, which depends on attack prevalence as well as recall and false positives. Let $p$ be the fraction of sessions that are attacks, $r$ the detector's recall, and $f$ its false-positive rate. Among all sessions, the fraction producing true alerts is $rp$, and the fraction producing false alerts is $f(1-p)$. Consequently,
 
-$$
-\operatorname{Precision}(p)
-=
-\frac{rp}{rp+f(1-p)}.
-$$
+```math
+\operatorname{Precision}(p) = \frac{rp}{rp+f(1-p)}.
+```
 
 The denominator includes both kinds of alerts, so the expression gives the fraction of alerts corresponding to attacks. This is the same conditional-probability distinction that separates the probability of an alert given an attack from the probability of an attack given an alert. When legitimate activity is sufficiently common, false alerts can outnumber true alerts for a detector with high recall.
 
@@ -89,11 +87,9 @@ The analysis evaluates this expression at attack prevalences of one in 50, 100, 
 
 The effect of adaptation is also measured through a transfer statistic. For scenario $i$, let $q_{b,i}$ and $q_{e,i}$ be the scoring proxy's baseline and evasive scores, and let $s_{b,i}$ and $s_{e,i}$ be the corresponding evaluated defender's scores. The statistic is
 
-$$
-\tau_i
-=
-\frac{s_{b,i}-s_{e,i}}{q_{b,i}-q_{e,i}}.
-$$
+```math
+\tau_i = \frac{s_{b,i}-s_{e,i}}{q_{b,i}-q_{e,i}}.
+```
 
 A value near one indicates that the defender's score fell by approximately as much as the proxy's score. Values near zero indicate little score reduction on that defender, and negative values indicate that the defender's score rose. The ratio measures relative score movement and can fall outside zero and one, so it should be interpreted separately from a probability or a change in recall at a threshold.
 
