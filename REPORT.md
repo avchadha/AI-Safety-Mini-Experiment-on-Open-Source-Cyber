@@ -78,7 +78,7 @@ Recall is the fraction of attack episodes that produce alerts and is computed se
 Precision gives the fraction of alerts that correspond to attacks, which depends on attack prevalence as well as recall and false positives. Let $p$ be the fraction of sessions that are attacks, $r$ the detector's recall, and $f$ its false-positive rate. Among all sessions, the fraction producing true alerts is $rp$, and the fraction producing false alerts is $f(1-p)$. Consequently,
 
 ```math
-\operatorname{Precision}(p) = \frac{rp}{rp+f(1-p)}.
+\mathrm{Precision}(p) = \frac{rp}{rp+f(1-p)}.
 ```
 
 The denominator includes both kinds of alerts, so the expression gives the fraction of alerts corresponding to attacks. This is the same conditional-probability distinction that separates the probability of an alert given an attack from the probability of an attack given an alert. When legitimate activity is sufficiently common, false alerts can outnumber true alerts for a detector with high recall.
