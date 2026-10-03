@@ -62,8 +62,9 @@ cat data/reports/adaptive_report.md
 python -m unittest discover -s tests    # offline test suite
 ```
 
-To re-run the full study from scratch (needs Docker + a Together key), see the **Reproduction
-guide** in [`REPORT.md`](REPORT.md#12-reproduction-guide).
+For Docker setup, see [`MANUAL_SETUP.md`](MANUAL_SETUP.md). The adaptive run uses
+[`configs/adaptive.yaml`](configs/adaptive.yaml) and the
+[`run_v2_actors.py`](run_v2_actors.py) and [`run_v2_finish.py`](run_v2_finish.py) drivers.
 
 ## Scope & safety
 
